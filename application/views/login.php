@@ -8,19 +8,19 @@
         <table>
             <form name="login" action="" method="POST">
                 <tr>
-                    <td>E-mail:</td>
+                    <th>E-mail:</th>
                     <td><input type="text" name="mail" /></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <th>Password:</th>
                     <td><input type="text" name="password" /></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="LogIn" /></td>
-                    <td><a href="#">Zaboravili ste lozinku></a></td>
+                    <td><button type="submit">LogIn</button> </td>
+                    <td><a href="#">Zaboravili ste lozinku?</a></td>
                 </tr>
                 <tr>
-                    <td><a href="#">Sing UP</a></td>
+                    <td colspan="2" style="text-align: center;"><a href="#">Sing UP</a></td>
                 </tr>
             </form>
         </table>
