@@ -54,3 +54,5 @@ $route['default_controller'] = 'Category';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['CategoryController'] = 'category';
+

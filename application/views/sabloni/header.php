@@ -22,7 +22,7 @@
             </div>
             <div class="header_right">
                 <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Category/login"); ?>">Log In</a> &nbsp;| &nbsp;
-                <i class="fa fa-user-plus" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Category/SingUp"); ?>">Sing Up</a>
+                <i class="fa fa-user-plus" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Category/SignUp"); ?>">Sign Up</a>
             </div>
         </div>
         <div id="content">
