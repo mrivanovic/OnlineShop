@@ -22,4 +22,16 @@ class Category extends CI_Controller
     {
         $this->loadView('login.php', []);
     }
+    public function  SingUp()
+    {
+        $this->loadView('SingUp.php', []);
+    }
+    public function  SingUpP()
+    {
+        $this->loadView('SingUpP.php', []);
+    }
+    public function  SingUpK()
+    {
+        $this->loadView('SingUpK.php', []);
+    }
 }
