@@ -9,17 +9,20 @@
     <body>
         <div id="header">
             <div class="header_left">
-                <img src="<?php echo base_url(); ?>img/logo.png"><button class="menu_button">"<i class="fas fa-align-justify"></i>"</button>
+                <img src="<?php echo base_url(); ?>img/logo1.png" style="">
+                <button class="menu"><i class="far fa-align-justify"></i></button>
+            </div>
+
+            <div class="header_left2">
             </div>
             <div class="header_center">
                 <form name="search" method="get" action="<?php echo base_url("Category/search");?>">
-                    <input class="input_search" type="text" name="search" /><button class="buttonS" type="submit"><i class="fa fa-search" style="color: gray"></i></button>
+                    <input class="input_search" type="text" name="search" /><button class="buttonS" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
                 </form>
             </div>
             <div class="header_right">
-                <i class="fa fa-user" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Account/login"); ?>">Log In</a> &nbsp;| &nbsp;
+                <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Account/login"); ?>">Log In</a> &nbsp;| &nbsp;
                 <i class="fa fa-user-plus" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Account/Singup"); ?>">Sing Up</a>
             </div>
-            </div>
-
-            <div id="content">
+        </div>
+        <div id="content">
