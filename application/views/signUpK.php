@@ -5,7 +5,7 @@
     <div class="singupK_right">
         <h2>Dobrodosli</h2>
         <h3>Registrujte se</h3>
-        <table>
+        <table>     
             <form name="singupK" action="" method="POST">
                 <tr>
                     <th>Name</th>

@@ -266,3 +266,47 @@ a {
     margin: 0;
     padding: 0;
 }
+#SignUp {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 100px;
+}
+#SignUp > .kupci {
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 20px;
+}
+#SignUp > .kupci button {
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+#SignUp > .kupci button:hover {
+    width: 110px;
+    height: 35px;
+}
+#SignUp > .kupci table {
+    margin-left: 0;
+    margin-right: 0;
+}
+#SignUp > .prodavci {
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 20px;
+}
+#SignUp > .prodavci table {
+    margin-left: 0;
+    margin-right: 0;
+}
+#SignUp > .prodavci button {
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+#SignUp > .prodavci button:hover {
+    width: 110px;
+    height: 35px;
+}
