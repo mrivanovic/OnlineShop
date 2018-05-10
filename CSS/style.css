@@ -48,7 +48,7 @@ html, body {
     padding-bottom: 10px;
 }
 #header > .header_center input {
-    width: 500px;
+    width: 400px;
     height: 30px;
     background-color: #cfcfd1;
     border: none    ;
@@ -104,6 +104,7 @@ a {
     top: 50px;
     height: 100%;
     width: 100%;
+    margin: 50px;
 }
 #content h2 {
     padding: 0;
@@ -112,4 +113,156 @@ a {
 #footer {
     position: fixed;
     bottom:0;
+}
+#login {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+#login > .login_left {
+    height: 100%;
+    width: 40%;
+    float: left;
+    border-right: 1px solid black;
+}
+#login > .login_right {
+    height: 100%;
+    width: 60%;
+    float: right;
+    text-align: center;
+    padding-top: 100px;
+}
+#login > .login_right table {
+    padding: 50px;
+}
+#login > .login_right table  th {
+    padding-bottom: 20px;
+    width: 100px;
+}
+#login > .login_right table  td {
+    padding-bottom: 20px;
+}
+#login > .login_right input {
+   /* background-color: #d3d3d3;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    width: 200px;
+}
+#login > .login_right button {
+    width: 60px;
+    height: 18px;
+    color: white;
+    background-color: #5e5e5e;
+    border: none;
+}
+#login > .login_right button:hover {
+    width: 70px;
+    height: 20px;
+ }
+#login > .login_right h2 {
+    font-size: 30px;
+}
+#singupP {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+#singupP > .singupP_left {
+    height: 100%;
+    width: 40%;
+    float: left;
+    border-right: 1px solid black;
+}
+#singupP > .singupP_right {
+    height: 100%;
+    width: 60%;
+    float: right;
+    text-align: center;
+}
+#singupP > .singupP_right table {
+    margin-left: 80px;
+}
+#singupP > .singupP_right table  th {
+    padding-bottom: 10px;
+    width: 200px;
+}
+#singupP > .singupP_right table  td {
+    padding-bottom: 10px;
+}
+#singupP > .singupP_right input {
+    /* background-color: #d3d3d3;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    width: 200px;
+}
+#singupP > .singupP_right button {
+    width: 60px;
+    height: 18px;
+    color: white;
+    background-color: #5e5e5e;
+    border: none;
+}
+#singupP > .singupP_right button:hover {
+    width: 70px;
+    height: 20px;
+}
+#singupP > .singupP_right h2 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+#singupK {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+#singupK > .singupK_left {
+    height: 100%;
+    width: 40%;
+    float: left;
+    border-right: 1px solid black;
+}
+#singupK > .singupK_right {
+    height: 100%;
+    width: 60%;
+    float: right;
+    text-align: center;
+}
+#singupK > .singupK_right table {
+    margin-left: 80px;
+}
+#singupK > .singupK_right table  th {
+    padding-bottom: 10px;
+    width: 200px;
+}
+#singupK > .singupK_right table  td {
+    padding-bottom: 10px;
+}
+#singupK > .singupK_right input {
+    /* background-color: #d3d3d3;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    width: 200px;
+}
+#singupK > .singupK_right button {
+    width: 60px;
+    height: 18px;
+    color: white;
+    background-color: #5e5e5e;
+    border: none;
+}
+#singupK > .singupK_right button:hover {
+    width: 70px;
+    height: 20px;
+}
+#singupK > .singupK_right h2 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
 }

@@ -9,7 +9,7 @@
     <body>
         <div id="header">
             <div class="header_left">
-                <img src="<?php echo base_url(); ?>img/logo1.png" style="">
+                <a href="<?php echo base_url("Category/index"); ?>"> <img src="<?php echo base_url(); ?>img/logo1.png" style=""></a>
                 <button class="menu"><i class="far fa-align-justify"></i></button>
             </div>
 
@@ -21,8 +21,8 @@
                 </form>
             </div>
             <div class="header_right">
-                <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Account/login"); ?>">Log In</a> &nbsp;| &nbsp;
-                <i class="fa fa-user-plus" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Account/Singup"); ?>">Sing Up</a>
+                <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Category/login"); ?>">Log In</a> &nbsp;| &nbsp;
+                <i class="fa fa-user-plus" aria-hidden="true" style="color: darkgrey"></i> <a href="<?php echo base_url("Category/SignUp"); ?>">Sign Up</a>
             </div>
         </div>
         <div id="content">
