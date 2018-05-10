@@ -20,7 +20,7 @@
                     <td><a href="#">Zaboravili ste lozinku?</a></td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: center;"><a href="<?php echo base_url("Category/SingUpP"); ?>">Sing UP</a></td>
+                    <td colspan="2" style="text-align: center;"><a href="<?php echo base_url("Category/SignUp"); ?>">Sign UP</a></td>
                 </tr>
             </form>
         </table>

@@ -37,7 +37,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="signUp.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="signUp.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/signUp.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="170">
@@ -104,11 +104,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/views/login.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+                <state relative-caret-position="374">
+                  <caret line="22" column="109" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
                   <folding />
                 </state>
               </provider>
@@ -153,7 +153,6 @@
         <option value="$PROJECT_DIR$/application/views/errors/SingUp.php" />
         <option value="$PROJECT_DIR$/application/views/SingUpK.php" />
         <option value="$PROJECT_DIR$/application/views/SingUpP.php" />
-        <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/views/sabloni/header.php" />
         <option value="$PROJECT_DIR$/application/controllers/Category.php" />
@@ -162,6 +161,7 @@
         <option value="$PROJECT_DIR$/application/controllers/Account.php" />
         <option value="$PROJECT_DIR$/CSS/style.css" />
         <option value="$PROJECT_DIR$/application/views/signUp.php" />
+        <option value="$PROJECT_DIR$/application/views/login.php" />
       </list>
     </option>
   </component>
@@ -396,12 +396,12 @@
       <workItem from="1525867953913" duration="169000" />
       <workItem from="1525878505213" duration="5570000" />
       <workItem from="1525902690617" duration="880000" />
-      <workItem from="1525933318489" duration="1649000" />
+      <workItem from="1525933318489" duration="1909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23585000" />
+    <option name="totallyTimeSpent" value="23845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -791,14 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -830,6 +822,14 @@
             <marker date="1525934971624" expanded="true" signature="683:826" ph="..." />
             <marker date="1525934971624" expanded="true" signature="843:872" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="109" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
+          <folding />
         </state>
       </provider>
     </entry>
