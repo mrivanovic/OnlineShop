@@ -6,7 +6,7 @@
         <h2>Dobrodosli</h2>
         <h3>Ulogujte se</h3>
         <table>
-            <form name="login" action="" method="POST">
+            <form name="loginform" action="<?php echo base_url('Account/ulogujse'); ?>" method="POST">
                 <tr>
                     <th>E-mail:</th>
                     <td><input type="text" name="mail" /></td>
