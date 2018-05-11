@@ -6,54 +6,59 @@
         <h2>Dobrodosli</h2>
         <h3>Registrujte se</h3>
         <table>
-            <form name="singupP" action="" method="POST">
-                <tr>
-                    <th>Name</th>
-                    <td><input type="text" name="name" /></td>
+            <?php echo form_open('Account/registerP', 'method=POST'); ?>
+
+            <tr>
+                    <th><?php echo form_label('Name:'); ?> <?php echo form_error('dname'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dname', 'name' => 'dname')); ?></td>
                 </tr>
                 <tr>
-                    <th>lastname:</th>
-                    <td><input type="text" name="lastname" /></td>
+                    <th><?php echo form_label('Last Name:'); ?> <?php echo form_error('dlastname'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dlastname', 'lastname' => 'dlastname')); ?></td>
                 </tr>
                 <tr>
-                    <th>E-mail:</th>
-                    <td><input type="text" name="mail" /></td>
+                    <th><?php echo form_label('Email:'); ?> <?php echo form_error('demail'); ?></th>
+                    <td><?php echo form_input(array('id' => 'demail', 'mail' => 'demail')); ?></td>
                 </tr>
                 <tr>
-                    <th>Password:</th>
-                    <td><input type="password" name="password" /></td>
+                    <th><?php echo form_label('Password:'); ?> <?php echo form_error('dpassword'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dpassword', 'password' => 'dpassword')); ?></td>
                 </tr>
                 <tr>
-                    <th>Password Confirm:</th>
-                    <td><input type="password" name="passwordC" /></td>
+                    <th><?php echo form_label('Password Confirm:'); ?> <?php echo form_error('dpasswordC'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dpasswordC', 'passwordC' => 'dpasswordC')); ?></td>
                 </tr>
                 <tr>
-                    <th>Country:</th>
-                    <td><input type="text" name="country" /></td>
+                    <th><?php echo form_label('Country:'); ?> <?php echo form_error('dcountry'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dcountry', 'country' => 'dcountry')); ?></td>
                 </tr>
                 <tr>
-                    <th>City:</th>
-                    <td><input type="text" name="city" /></td>
+                    <th><?php echo form_label('City:'); ?> <?php echo form_error('dcity'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dcity', 'city' => 'dcity')); ?></td>
                 </tr>
                 <tr>
-                    <th>Adress:</th>
-                    <td><input type="text" name="adress" /></td>
+                    <th><?php echo form_label('Adress:'); ?> <?php echo form_error('dadress'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dadress', 'adress' => 'dadress')); ?></td>
                 </tr>
                 <tr>
-                    <th>Tel:</th>
-                    <td><input type="text" name="tel" /></td>
+                    <th><?php echo form_label('Tel:'); ?> <?php echo form_error('dtel'); ?></th>
+                    <td><?php echo form_input(array('id' => 'dtel', 'tel' => 'dtel')); ?></td>
                 </tr>
                 <tr>
-                    <th>Date of birth:</th>
-                    <td><input type="date" name="date" style="border: none;"/></td>
+                    <th><?php echo form_label('Date of birth:'); ?> <?php echo form_error('ddate'); ?></th>
+                    <td><?php echo form_input(array('id' => 'ddate', 'date' => 'ddate')); ?></td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Sing UP</button> </td>
+                    <td><?php echo form_submit(array('id' => 'submit', 'value' => 'Submit')); ?></td>
                 </tr>
+
                 <tr>
                     <td colspan="2" style="text-align: center;"><a href="<?php echo base_url("Category/login"); ?>">Log In</a></td>
                 </tr>
-            </form>
+            <?php echo form_close(); ?>
         </table>
+        <?php if (isset($message)) { ?>
+       <h3 style="color:green;">Data inserted successfully</h3>
+        <?php } ?>
     </div>
 </div>
