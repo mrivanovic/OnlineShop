@@ -4,6 +4,7 @@ class Account extends CI_Controller {
 
     public function __construct() {
         parent:: __construct();
+
         $this->load->model("modelAcount");
         $this->load->library('session');
     }
@@ -15,6 +16,7 @@ class Account extends CI_Controller {
         $this->loadView($podaci, 'login.php');
         
     }
+
     public function ulogujse() {
         $this->form_validation->set_rules("mail", "Email", "required");
         $this->form_validation->set_rules("password", "Password", "required");
