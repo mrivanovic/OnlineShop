@@ -8,7 +8,6 @@ class AccountModel extends CI_Controller
     }
     public function SignUpP($data)
     {
-        $data['message'] = 'Data Inserted Successfully';
         $this->db->insert('seller', $data);
     }
 }
