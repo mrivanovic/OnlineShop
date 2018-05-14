@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <th><?php echo form_label('Last Name:'); ?> <?php echo form_error('dlastname'); ?></th>
-                    <td><?php echo form_input(array('id' => 'dlastname', 'lastname' => 'dlastname')); ?></td>
+                    <td><?php echo form_input(array('id' => 'dlastname', '' => 'dlastname')); ?></td>
                 </tr>
                 <tr>
                     <th><?php echo form_label('Email:'); ?> <?php echo form_error('demail'); ?></th>
@@ -58,7 +58,7 @@
                 <tr>
                     <td colspan="2" style="text-align: center;"><a href="<?php echo base_url("Category/login"); ?>">Log In</a></td>
                 </tr>
-            <?php echo form_close(); ?>
+            <?php echo form_close(); ?> 
         </table>
     </div>
 </div>
