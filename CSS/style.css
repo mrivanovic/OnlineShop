@@ -312,3 +312,87 @@ a {
     width: 110px;
     height: 35px;
 }
+#sellProfNav {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background-color: #c1c1c1;
+    overflow: hidden;
+    border: 1px solid grey;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+#sellProfNav > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 3);
+    border-right: 1px solid grey;
+}
+#sellProfNav > .center {
+    float: left;
+    height: 100%;
+    width: calc(100% / 3);
+    border-right: 1px solid grey;
+}
+#sellProfNav > .right {
+    float: right;
+    height: 100%;
+    width: calc(100% / 3);
+}
+#sellProfNav > .left a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav > .right a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav > .center a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav a {
+    height: 100%;
+}
+#Seller {
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+#Seller > .sellerfleft {
+    float: left;
+    height: 100%;
+    width: 30%;
+    padding-left: 300px;
+    padding-top: 50px;
+}
+#Seller > .sellerright {
+    float: right;
+    height: 100%;
+    width: 70%;
+    padding-top: 50px;
+    padding-left: 80px;
+}
+#Seller > .sellerright table {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 800px;
+}
+#Seller > .sellerright table th {
+    width: 200px;
+    padding-bottom: 10px;
+    text-align: center
+}
+#Seller > .sellerright table td {
+    width: 200px;
+    padding-bottom: 10px;
+}
+#Seller > .sellerright input {
+    width: 200px;
+}
+
+
+
+
+    
