@@ -1,6 +1,6 @@
 <?php
 
-class AccountModel extends CI_Controller
+class AccountModel extends CI_Model
 {
     function __construct() {
         parent::__construct();

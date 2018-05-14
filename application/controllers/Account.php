@@ -5,7 +5,7 @@ class Account extends CI_Controller {
     public function __construct() {
         parent:: __construct();
 
-        $this->load->model("modelAcount");
+        $this->load->model("AccountModel");
         $this->load->library('session');
     }
 
@@ -56,7 +56,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('dtel', 'tel');
         $this->form_validation->set_rules('ddate', ' date');
         if($this->form_validation->run() == FALSE) {
-            redirect('Category/SignUpP');
+            $this->load->view('Category/SignUpP');
         } else {
             $data = array (
                 'Name' => $this->input->post('dname'),
@@ -69,7 +69,7 @@ class Account extends CI_Controller {
                 'Tel' => $this->input->post('dtel'),
                 'Date of birth' => $this->input->post('ddate'),
             );
-            $this->registerP_model->SignUpP($data);
+            $this->AccountModel->SignUpP($data);
             $data['message'] = 'Data Inserted Successfully';
             redirect('Category/index');
         }
