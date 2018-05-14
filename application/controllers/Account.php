@@ -83,4 +83,8 @@ class Account extends CI_Controller {
         }
         
     }
+    public function sellerProfile()
+    {
+        $this->loadView('sellerProfile.php', []);
+    }
 }
