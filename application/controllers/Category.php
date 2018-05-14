@@ -5,11 +5,7 @@ class Category extends CI_Controller
     public function __construct()
     {
         parent:: __construct();
-<<<<<<< HEAD
-       //$this->load->model();
-=======
-        $this->load->model('');
->>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
+        //$this->load->model();
     }
     public function loadView($glavnideo, $data)
     {
