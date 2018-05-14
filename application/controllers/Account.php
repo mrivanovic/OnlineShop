@@ -11,7 +11,7 @@ class Account extends CI_Controller {
 
     public function loadView($glavnideo, $data)
     {
-        $this->load->view('sabloni/header.php', $data);
+        $this->load->view('sabloni/header_user.php', $data);
         $this->load->view($glavnideo, $data);
         $this->load->view('sabloni/footer.php');
     }

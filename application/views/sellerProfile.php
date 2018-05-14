@@ -12,9 +12,10 @@
 </div>
 <div id="Seller">
     <div class="sellerfleft">
-
-        <img src="<?php echo base_url();?>img/seller.png"><br>
-        <button type="file" name="img">Dodaj</button>
+        <label for="image">
+            <input type="file" name="image" id="image" style="display:none;"/>
+            <img src="<?php base_url();?>img/profile.png" >
+        </label>
     </div>
     <div class="sellerright">
         <table>
