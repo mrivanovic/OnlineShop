@@ -1,7 +1,12 @@
 <?php
 
 class AccountModel extends CI_Model
+   
 {
+    public $mail;
+    public $name;
+    public $lastname;
+    
     function __construct() {
         parent::__construct();
         $this->load->database();
@@ -10,9 +15,11 @@ class AccountModel extends CI_Model
     {
         $this->db->insert('seller', $data);
     }
+    
+    
      public function postojiEmail()
      {
-        $this->db->where('mail', $this->email);
+        $this->db->where('mail', $this->mail);
         $result = $this->db->get('seller');
         if ($result->result())
             return TRUE;
@@ -22,10 +29,18 @@ class AccountModel extends CI_Model
 
     public function ispravanpassword($password)
     {
-        $this->db->where('mail', $this->username);
+        $this->db->where('mail', $this->mail);
         $this->db->where('password', $password);
         $result->$this->db->get('seller');
-        $buyer=$result->row_array();
+        $seller=$result->row_array();
+        
+        if($seller!=NULL){
+            $this->name=$seller['name'];
+            $this->lastname=$seller['lastname'];
+            return TRUE;
+        }
+        else
+            return false;
 
     }
 }

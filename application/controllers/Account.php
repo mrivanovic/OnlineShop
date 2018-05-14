@@ -17,16 +17,17 @@ class Account extends CI_Controller {
     }
     
     public function login($poruka=NULL) {
-        $podaci=array();
+        $data=array();
         if($poruka)
-            $podaci['poruka']=$poruka;
-        $this->loadView($podaci, 'login.php');
+            $data['poruka']=$poruka;
+        $this->loadView($data, 'login.php');
         
     }
 
     public function ulogujse() {
-        $this->form_validation->set_rules("mail", "Email", "required");
+        $this->form_validation->set_rules("mail", "mail", "required");
         $this->form_validation->set_rules("password", "Password", "required");
+        $this->form_validation->set_message("required","Polje {field} je ostalo prazno.");
         if($this->form_validation->run())
         {
             $this->AccountModel->email= $this->input->post('mail');
@@ -61,7 +62,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('dadress', 'adress', "required");
         $this->form_validation->set_rules('dtel', 'tel', "required");
         $this->form_validation->set_rules('ddate', ' date', "required");
-        $this->form_validation->set_message("required", "Polje je obavezno");
+        $this->form_validation->set_message("required", "Polje {field} je obavezno");//proveriti da li treba field da se upise
         if($this->form_validation->run() == FALSE) {
             $this->loadView('signUpP.php',[]);
         } else {
@@ -80,6 +81,6 @@ class Account extends CI_Controller {
             $data['message']='Data inserted successifully';
             redirect('Category/index');
         }
-        // redirect('Category/SignUpP');
+        
     }
 }

@@ -7,17 +7,19 @@
         <h3>Ulogujte se</h3>
         <table>
             <form name="loginform" action="<?php echo base_url('Account/ulogujse'); ?>" method="POST">
-                <?php if(isset($poruka))
+                <?php
+                if (isset($poruka))
                     echo"<font color='red'>$poruka</font>";
                 ?>
                 <tr>
                     <th>E-mail:</th>
-                    <td><input type="text" name="mail" value="<?php echo set_value('mail')?>"/></td>
-                    <?php echo form_error("mail","<font color='red'>","</font>"); ?>
+                    <td><input type="text" name="mail" value="<?php echo set_value('mail') ?>"/></td>
+                    <?php echo form_error("mail", "<font color='red'>", "</font>"); ?>
                 </tr>
                 <tr>
                     <th>Password:</th>
                     <td><input type="password" name="password" /></td>
+                    <?php echo form_error("password", "<font color='red'>", "</font>"); ?>
                 </tr>
                 <tr>
                     <td><button type="submit">LogIn</button> </td>
