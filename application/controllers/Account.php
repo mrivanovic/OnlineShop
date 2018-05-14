@@ -9,6 +9,13 @@ class Account extends CI_Controller {
         $this->load->library('session');
     }
 
+    public function loadView($glavnideo, $data)
+    {
+        $this->load->view('sabloni/header.php', $data);
+        $this->load->view($glavnideo, $data);
+        $this->load->view('sabloni/footer.php');
+    }
+    
     public function login($poruka=NULL) {
         $podaci=array();
         if($poruka)
@@ -22,14 +29,14 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules("password", "Password", "required");
         if($this->form_validation->run())
         {
-            $this->modelAcount->email= $this->input->post('mail');
-            if(!$this->modelAcount->postojiEmail())
+            $this->AccountModel->email= $this->input->post('mail');
+            if(!$this->AccountModel->postojiEmail())
                 $this->login("Ne postoji email!");
-            else if(!$this->modelAcount->ispravanpassword($this->input->post('password')))
+            else if(!$this->AccountModel->ispravanpassword($this->input->post('password')))
         $this->login("Neispravan password!");
             else{
                 $this->load->library('session');
-                $this->session->set_userdata('buyer', $this->modelAcount);
+                $this->session->set_userdata('seller', $this->AccountModel);
                 redirect("Category/index.php");
                      
                 }        
@@ -39,6 +46,31 @@ class Account extends CI_Controller {
                 $this->login();
 
     }
+<<<<<<< HEAD
+    public function registerP()
+    {
+        
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $this->form_validation->set_rules('dname', 'name', "required");
+        $this->form_validation->set_rules('dlastname', 'lastname', "required");
+        $this->form_validation->set_rules('demail', 'mail', "required");
+        $this->form_validation->set_rules('dpassword', 'password', "required");
+        $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
+        $this->form_validation->set_rules('dcountry', 'country', "required");
+        $this->form_validation->set_rules('dcity', 'city', "required");
+        $this->form_validation->set_rules('dadress', 'adress', "required");
+        $this->form_validation->set_rules('dtel', 'tel', "required");
+        $this->form_validation->set_rules('ddate', ' date', "required");
+        $this->form_validation->set_message("required", "Polje je obavezno");
+        if($this->form_validation->run() == FALSE) {
+            $this->loadView('signUpP.php',[]);
+        } else {
+            $data = array (
+                'Name' => $this->input->post('dname'),
+                'LastName' => $this->input->post('dlastname'),
+                'mail' => $this->input->post('demail'),
+=======
 
     public function registerP()
     {
@@ -62,11 +94,22 @@ class Account extends CI_Controller {
                 'Name' => $this->input->post('dname'),
                 'Last Name' => $this->input->post('dlastname'),
                 'Email' => $this->input->post('dmail'),
+>>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
                 'Password' => $this->input->post('dpassword'),
                 'Country' => $this->input->post('dcountry'),
                 'City' => $this->input->post('dcity'),
                 'Adress' => $this->input->post('dadress'),
                 'Tel' => $this->input->post('dtel'),
+<<<<<<< HEAD
+                'Dateofbirth' => $this->input->post('ddate'),
+            );
+            $this->AccountModel->SignUpP($data);//provera da li se uspesno registrovao fali
+            $data['message']='Data inserted successifully';                                    
+            redirect('Category/index');
+        }
+       // redirect('Category/SignUpP');
+    }
+=======
                 'Date of birth' => $this->input->post('ddate'),
             );
             $this->AccountModel->SignUpP($data);
@@ -75,4 +118,5 @@ class Account extends CI_Controller {
         }
     }
 
+>>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
 }

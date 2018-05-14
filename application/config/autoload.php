@@ -58,7 +58,11 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+<<<<<<< HEAD
+$autoload['libraries'] = array('form_validation');
+=======
 //$autoload['libraries'] = array('session');
+>>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
 
 /*
 | -------------------------------------------------------------------
