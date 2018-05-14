@@ -104,7 +104,8 @@ a {
     top: 50px;
     height: 100%;
     width: 100%;
-    margin: 50px;
+    bottom: 30px;
+    padding-top: 50px;
 }
 #content h2 {
     padding: 0;
@@ -265,4 +266,162 @@ a {
     font-size: 30px;
     margin: 0;
     padding: 0;
+}
+#SignUp {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 100px;
+}
+#SignUp > .kupci {
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 20px;
+}
+#SignUp > .kupci button {
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+#SignUp > .kupci button:hover {
+    width: 110px;
+    height: 35px;
+}
+#SignUp > .kupci table {
+    margin-left: 0;
+    margin-right: 0;
+}
+#SignUp > .prodavci {
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 20px;
+}
+#SignUp > .prodavci table {
+    margin-left: 0;
+    margin-right: 0;
+}
+#SignUp > .prodavci button {
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+#SignUp > .prodavci button:hover {
+    width: 110px;
+    height: 35px;
+}
+#sellProfNav {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background-color: #c1c1c1;
+    overflow: hidden;
+    border: 1px solid grey;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+#sellProfNav > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 3);
+    border-right: 1px solid grey;
+}
+#sellProfNav > .center {
+    float: left;
+    height: 100%;
+    width: calc(100% / 3);
+    border-right: 1px solid grey;
+}
+#sellProfNav > .right {
+    float: right;
+    height: 100%;
+    width: calc(100% / 3);
+}
+#sellProfNav > .left a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav > .right a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav > .center a:hover {
+    background-color: #8e8e8e;
+}
+#sellProfNav a {
+    height: 100%;
+}
+#Seller {
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+#Seller > .sellerfleft {
+    float: left;
+    height: 100%;
+    width: 30%;
+    padding-left: 300px;
+    padding-top: 50px;
+}
+#Seller > .sellerright {
+    float: right;
+    height: 100%;
+    width: 70%;
+    padding-top: 50px;
+    padding-left: 80px;
+}
+#Seller > .sellerright table {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 800px;
+}
+#Seller > .sellerright table th {
+    width: 200px;
+    padding-bottom: 10px;
+    text-align: center
+}
+#Seller > .sellerright table td {
+    width: 200px;
+    padding-bottom: 10px;
+}
+#Seller > .sellerright input {
+    width: 200px;
+}
+ul{
+    padding: 0;
+    list-style: none;
+    background: #f2f2f2;
+}
+ul li{
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    text-align: left;
+}
+ul li a{
+    display: block;
+    padding: 8px 25px;
+    color: #333;
+    text-decoration: none;
+}
+ul li a:hover{
+    color: #fff;
+    background: #939393;
+}
+ul li ul.dropdown{
+    min-width: 100%; /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+}
+ul li:hover ul.dropdown{
+    display: block; /* Display the dropdown */
+}
+ul li ul.dropdown li{
+    display: block;
 }

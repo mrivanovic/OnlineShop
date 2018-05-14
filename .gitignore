@@ -15,4 +15,8 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+<<<<<<< HEAD
 .idea/
+=======
+/nbproject/private/
+>>>>>>> 9691615e4b323fb8a24a98c2b0df5eb8d32587c1
