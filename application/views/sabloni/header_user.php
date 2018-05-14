@@ -9,8 +9,8 @@
 <body>
 <div id="header">
     <div class="header_left">
-        <a href="<?php echo base_url("Category/index"); ?>"> <img src="<?php echo base_url(); ?>img/logo1.png" style=""></a>
-        <button class="menu"><i class="far fa-align-justify"></i></button>
+        <a href="<?php echo base_url("Account/index"); ?>"> <img src="<?php echo base_url(); ?>img/logo1.png" style=""></a>
+        <button class="menu"><i class="fa fa-align-justify"></i></button>
     </div>
 
     <div class="header_left2">
@@ -21,8 +21,8 @@
         </form>
     </div>
     <div class="header_right">
-        <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Category/login"); ?>">Ljubisa</a> &nbsp;| &nbsp;
-        <i class="fas fa-sign-out-alt"></i> <a href="<?php echo base_url("Category/LogOut"); ?>">Log Out</a>
+        <i class="fa fa-user" aria-hidden="true" style="color: darkgrey;" ></i> <a href="<?php echo base_url("Account/sellerProfile"); ?>">Profile</a> &nbsp;| &nbsp;
+        <i class="fa fa-sign-out-alt"></i> <a href="<?php echo base_url("Account/LogOut"); ?>">Log Out</a>
     </div>
 </div>
 <div id="content">

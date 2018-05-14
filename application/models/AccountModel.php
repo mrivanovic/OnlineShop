@@ -1,7 +1,6 @@
 <?php
 
 class AccountModel extends CI_Model
-   
 {
     public $mail;
     public $name;
@@ -15,11 +14,11 @@ class AccountModel extends CI_Model
     {
         $this->db->insert('seller', $data);
     }
-    public function can_login($mail, $password)
+    public function can_login($mail, $password, $type)
     {
         $this->db->where('mail', $mail);
         $this->db->where('password', $password);
-        $query=$this->db->get('seller');
+        $query=$this->db->get($type);
 
         //select * from seller where mail='$mail='$mail' and password = '$password'
 
@@ -32,5 +31,20 @@ class AccountModel extends CI_Model
             return FALSE;
         }
 
+    }
+
+    public function isLoggedIn()
+    {
+        if (isset($_SESSION['mail']))
+            return true;
+        return false;
+    }
+
+    public function loggedInUser()
+    {
+        $mail = $_SESSION['mail'];
+        $query = $this->db->query("SELECT * FROM `seller` WHERE `mail` = '{$mail}'");
+
+        return $query->result_object()[0];
     }
 }
