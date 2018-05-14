@@ -15,36 +15,43 @@ class Account extends CI_Controller {
         $this->load->view($glavnideo, $data);
         $this->load->view('sabloni/footer.php');
     }
-    
-    public function login($poruka=NULL) {
-        $data=array();
-        if($poruka)
-            $data['poruka']=$poruka;
-        $this->loadView($data, 'login.php');
-        
-    }
 
-    public function ulogujse() {
-        $this->form_validation->set_rules("mail", "mail", "required");
-        $this->form_validation->set_rules("password", "Password", "required");
-        $this->form_validation->set_message("required","Polje {field} je ostalo prazno.");
+    public function login(){
+        $data['array'];
+        $this->load->view("login",$data);
+
+
+    }
+    public function ulogujse(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('mail', 'Mail','required');
+        $this->form_validation->set_rules('password', 'Password','required');
         if($this->form_validation->run())
         {
-            $this->AccountModel->email= $this->input->post('mail');
-            if(!$this->AccountModel->postojiEmail())
-                $this->login("Ne postoji email!");
-            else if(!$this->AccountModel->ispravanpassword($this->input->post('password')))
-        $this->login("Neispravan password!");
-            else{
-                $this->load->library('session');
-                $this->session->set_userdata('seller', $this->AccountModel);
-                redirect("Category/index.php");
-                     
-                }        
-            
+            //true
+            $mail= $this->input->post('mail');
+            $password= $this->input->post('password');
+            //model function
+            $this->load->model('AccountModel');
+            if($this->AccountModel->can_login($mail, $password))
+            {
+                $session_data=array(
+                    'mail' => $mail);
+                $this->session->set_userdata($session_data);
+                redirect(base_url() . 'Category/index');
+
             }
             else
-                $this->login();
+            {
+                $this->session->set_flashdata('error', 'Invalid Username and Password');
+                redirect(base_url() . 'Category/login');
+
+            }
+        }
+        else{
+            //false
+            $this->login();
+        }
 
     }
     public function registerP()

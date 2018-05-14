@@ -23,6 +23,10 @@
                 </tr>
                 <tr>
                     <td><button type="submit">LogIn</button> </td>
+                    <?php
+                    echo $this->session->flashdata("error");
+
+                    ?>
                     <td><a href="#">Zaboravili ste lozinku?</a></td>
                 </tr>
                 <tr>

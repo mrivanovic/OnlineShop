@@ -15,32 +15,22 @@ class AccountModel extends CI_Model
     {
         $this->db->insert('seller', $data);
     }
-    
-    
-     public function postojiEmail()
-     {
-        $this->db->where('mail', $this->mail);
-        $result = $this->db->get('seller');
-        if ($result->result())
-            return TRUE;
-        else
-            return FALSE;
-    }
-
-    public function ispravanpassword($password)
+    public function can_login($mail, $password)
     {
-        $this->db->where('mail', $this->mail);
+        $this->db->where('mail', $mail);
         $this->db->where('password', $password);
-        $result->$this->db->get('seller');
-        $seller=$result->row_array();
-        
-        if($seller!=NULL){
-            $this->name=$seller['name'];
-            $this->lastname=$seller['lastname'];
+        $query=$this->db->get('seller');
+
+        //select * from seller where mail='$mail='$mail' and password = '$password'
+
+        if($query->num_rows()>0)
+        {
             return TRUE;
         }
         else
-            return false;
+        {
+            return FALSE;
+        }
 
     }
 }
