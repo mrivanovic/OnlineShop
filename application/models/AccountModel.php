@@ -8,7 +8,10 @@ class AccountModel extends CI_Model
     }
     public function SignUpP($data)
     {
+<<<<<<< HEAD
         
+=======
+>>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
         $this->db->insert('seller', $data);
     }
     

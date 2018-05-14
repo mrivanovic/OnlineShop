@@ -1,10 +1,13 @@
 <div id="singupP">
     <div class="singupP_left">
-        <h1>Mesto za neki tekst</h1>
+        <h1>Mesto za neki tekst</h1> 
     </div>
     <div class="singupP_right">
         <h2>Dobrodosli</h2>
         <h3>Registrujte se</h3>
+        <?php if (isset($message)) { ?>
+            <h3 style="color:green;">Data inserted successfully</h3>
+        <?php } ?>
         <table>
             <?php echo form_open('Account/registerP', 'method=POST'); ?>
 
@@ -57,8 +60,11 @@
             </tr>
             <?php echo form_close(); ?>
         </table>
+<<<<<<< HEAD
         <?php if (isset($message)) { ?>
             <h3 style="color:green;">Data inserted successfully</h3>
         <?php } ?>
+=======
+>>>>>>> 4ae630c004b48860dee1790f02b6b29d22603946
     </div>
 </div>
