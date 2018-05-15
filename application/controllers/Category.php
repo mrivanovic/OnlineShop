@@ -34,4 +34,4 @@ class Category extends CI_Controller
     {
         $this->loadView('signUpK.php', []);
     }
-}
+}   
