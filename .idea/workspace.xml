@@ -21,10 +21,10 @@
     <favorites_list name="Shop" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7691373">
+    <splitter split-orientation="horizontal" split-proportion="0.58262455">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Account.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Account.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="807">
@@ -74,7 +74,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/login.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="629">
@@ -88,21 +88,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CSS/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="776">
+                <state relative-caret-position="790">
                   <caret line="426" column="1" selection-start-line="426" selection-start-column="1" selection-end-line="426" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Account.php" pinned="false" current-in-tab="true">
-            <entry file="file://D:/OnlineShop/application/controllers/Account.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -191,16 +181,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineShop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -347,6 +327,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlineShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,12 +421,13 @@
       <workItem from="1526040018965" duration="802000" />
       <workItem from="1526279114409" duration="2908000" />
       <workItem from="1526282782685" duration="7582000" />
-      <workItem from="1526300536368" duration="141000" />
+      <workItem from="1526300536368" duration="173000" />
+      <workItem from="1526365041277" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51858000" />
+    <option name="totallyTimeSpent" value="51923000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -769,14 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="426" column="1" selection-start-line="426" selection-start-column="1" selection-end-line="426" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/sabloni/header_user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -785,26 +768,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/OnlineShop/application/controllers/Account.php">
+    <entry file="file://D:/OnlineShop/application/controllers/Account.php" />
+    <entry file="file://D:/OnlineShop/application/views/login.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="629">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
+    <entry file="file://$PROJECT_DIR$/CSS/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/OnlineShop/application/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="6" />
+        <state relative-caret-position="790">
+          <caret line="426" column="1" selection-start-line="426" selection-start-column="1" selection-end-line="426" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -817,10 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/login.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        <state relative-caret-position="807">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
           <folding />
         </state>
       </provider>
