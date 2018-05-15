@@ -119,4 +119,43 @@ class Account extends CI_Controller {
     {
         $this->loadView('sellerADD.php', []);
     }
+    public function update()
+    {
+        $this->form_validation->set_rules('Name','name');
+        $this->form_validation->set_rules('Last name','lastname','required');
+        $this->form_validation->set_rules('Adress','adress','required');
+        $this->form_validation->set_rules('E-mail','mail','required');
+        $this->form_validation->set_rules('Tel','tel','required');
+        $this->form_validation->set_rules('City','city','required');
+        if ($this->form_validation->run() == FALSE) {
+            redirect('Account/sellerProfile');
+        } else {
+            $data = array (
+                'Name' => $this->input->post('name'),
+                'Last name' => $this->input->post('lastname'),
+                'Adress' => $this->input->post('adress'),
+                'E-mail' => $this->input->post('mail'),
+                'Tel' => $this->input->post('tel'),
+                'City' => $this->input->post('city')
+            );
+            $this->AccountModel->update($data);
+            redirect('Account/index');
+        }
+    }
+    public function delete()
+    {
+        $idseller=$this->input->post("idseller");
+        $this->AccountModel->delete($idseller);
+        redirect("Category/index");
+
+
+    }
+    public function sellerInbox()
+    {
+        $this->loadView('sellerInbox.php', []);
+    }
+    public function sellerSent()
+    {
+        $this->loadView('sellerSent.php', []);
+    }
 }

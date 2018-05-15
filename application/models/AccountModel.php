@@ -19,18 +19,11 @@ class AccountModel extends CI_Model
         $this->db->where('mail', $mail);
         $this->db->where('password', $password);
         $query=$this->db->get($type);
-
-        //select * from seller where mail='$mail='$mail' and password = '$password'
-
-        if($query->num_rows()>0)
-        {
+        if($query->num_rows()>0) {
             return TRUE;
-        }
-        else
-        {
+        } else  {
             return FALSE;
         }
-
     }
 
     public function isLoggedIn()
@@ -46,5 +39,15 @@ class AccountModel extends CI_Model
         $query = $this->db->query("SELECT * FROM `seller` WHERE `mail` = '{$mail}'");
 
         return $query->result_object()[0];
+    }
+    public function update($data, $mail) {
+        $this->db->set('seller', $data);
+        $this->db->where('mail',$mail);
+        $this->db->update('seller');
+    }
+    public function delete($idseller)
+    {
+        $this->db->where("mail",$idseller);
+        $this->db->delete("seller");
     }
 }

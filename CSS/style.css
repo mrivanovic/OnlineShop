@@ -52,12 +52,14 @@ html, body {
     height: 30px;
     background-color: #cfcfd1;
     border: none    ;
+    border-radius: 4px;
 }
 #header > .header_center button {
     height: 30px;
     width: 50px;
     border: none;
     background-color: #5e5e5e;
+    border-radius: 4px;
 }
 #header > .header_right {
     float: right;
@@ -278,6 +280,7 @@ a {
     border: none;
     width: 100px;
     height: 30px;
+    border-radius: 4px;
 }
 #SignUp > .kupci button:hover {
     width: 110px;
@@ -301,6 +304,7 @@ a {
     border: none;
     width: 100px;
     height: 30px;
+    border-radius: 4px;
 }
 #SignUp > .prodavci button:hover {
     width: 110px;
@@ -329,6 +333,7 @@ a {
     height: 100%;
     width: calc(100% / 3);
     border-right: 1px solid grey;
+
 }
 #sellProfNav > .right {
     float: right;
@@ -337,12 +342,15 @@ a {
 }
 #sellProfNav > .left a:hover {
     background-color: #8e8e8e;
+    border-radius: 4px;
 }
 #sellProfNav > .right a:hover {
     background-color: #8e8e8e;
+    border-radius: 4px;
 }
 #sellProfNav > .center a:hover {
     background-color: #8e8e8e;
+    border-radius: 4px;
 }
 #sellProfNav a {
     height: 100%;
@@ -448,4 +456,95 @@ ul li ul.dropdown li{
 .ADD table textarea {
     width:300px;
     height: 70px;
+}
+.sellInbox {
+    width: 50%;
+    height: 80px;
+    text-align: center;
+    background-color: #e6e6e6;
+    overflow: hidden;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-top: 30px;
+    margin: auto;
+    box-shadow: 5px 10px #bfbfbf;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+.sellInbox > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    border-right: 1px solid grey;
+    padding: 22px;
+    background-color: #b3b3b3;
+    border-radius: 3px;
+}
+.sellInbox > .right {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    padding: 22px;
+}
+.sellInbox > .left a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.sellInbox > .right a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.sellInbox a {
+    height: 100%;
+}
+.sellSent {
+    width: 50%;
+    height: 80px;
+    text-align: center;
+    background-color: #e6e6e6;
+    overflow: hidden;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-top: 30px;
+    margin: auto;
+    box-shadow: 5px 10px #bfbfbf;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+.sellSent > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    border-right: 1px solid grey;
+    padding: 22px;
+}
+.sellSent > .right {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    padding: 22px;
+    background-color: #b3b3b3;
+    border-radius: 3px;
+}
+.sellSent > .left a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.sellSent > .right a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.sellSent a {
+    height: 100%;
+}
+.messageContent {
+    width: 50%;
+    margin: auto;
+    border: 1px solid black;
+    height: 650px;
+    margin-top: 15px;
+    border-radius: 7px;
+    box-shadow: 5px 10px #bfbfbf;
 }

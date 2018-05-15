@@ -10,7 +10,8 @@
 <div id="header">
     <div class="header_left">
         <a href="<?php echo base_url("Category/index"); ?>"> <img src="<?php echo base_url(); ?>img/logo1.png" style=""></a>
-        <button class="menu"><i class="far fa-align-justify"></i></button>
+        <button class="menu"><i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
     </div>
 
     <div class="header_left2">

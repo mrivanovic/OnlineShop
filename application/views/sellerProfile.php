@@ -20,6 +20,7 @@
         </div>
         <div class="sellerright">
             <table>
+
                 <tr>
                     <th colspan="2" style="background-color: grey; color: white;">Licni Podaci:</th>
                 </tr>
@@ -27,6 +28,7 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <form name="update" method="post" action="<?php base_url('Account/update');?>">
                     <th>Name:</th>
                     <td><input type="text" value="<?= $user->name ?>" name="name" /></td>
                 </tr>
@@ -52,8 +54,13 @@
                     <td><input type="text" value="<?= $user->adress ?>" name="adress" /></td>
                 </tr>
                 <tr>
-                    <th colspan="2"><input type="submit" value="Sacuvaj promene" /></th>
+                    <th colspan="2">
+                        <input type="hidden" value="<?php echo $user->mail;?>" name="mail" />
+                        <input type="submit" value="Sacuvaj promene" />
+                    </th>
+                    </form>
                 </tr>
+
                 <tr>
                     <th colspan="2" style="background-color: grey; color: white;">Promenite lozinku</th>
                 </tr>
@@ -75,10 +82,12 @@
                     <th colspan="2" style="background-color: grey; color: white;">Izbrisi nalog</th>
                 </tr>
                 <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th colspan="2"><input type="submit" value="Izbrisi" /></th>
+                    <th colspan="2">
+                        <form method="post" action="<?php echo base_url("Account/delete"); ?>">
+                            <input type="hidden" value="<?php echo $user->mail ?>" name="idseller"/>
+                            <input type="submit" value="Obrisi" onclick="return confirm('Da li ste sigurni da zelite da obrisete ?')" />
+                        </form>
+                    </th>
                 </tr>
             </table>
         </div>
