@@ -19,6 +19,7 @@
             </label>
         </div>
         <div class="sellerright">
+            <form name="update" method="post" action="<?php echo base_url('Account/update');?>">
             <table>
 
                 <tr>
@@ -28,7 +29,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <form name="update" method="post" action="<?php base_url('Account/update');?>">
+
                     <th>Name:</th>
                     <td><input type="text" value="<?= $user->name ?>" name="name" /></td>
                 </tr>
@@ -55,10 +56,10 @@
                 </tr>
                 <tr>
                     <th colspan="2">
-                        <input type="hidden" value="<?php echo $user->mail;?>" name="mail" />
+                        <input type="hidden" value="<?php echo $user->mail;?>" name="mailID" />
                         <input type="submit" value="Sacuvaj promene" />
                     </th>
-                    </form>
+
                 </tr>
 
                 <tr>
@@ -78,6 +79,9 @@
                 <tr>
                     <th colspan="2"><input type="submit" value="Sacuvaj promene" /></th>
                 </tr>
+            </table>
+            </form>
+            <table>
                 <tr>
                     <th colspan="2" style="background-color: grey; color: white;">Izbrisi nalog</th>
                 </tr>

@@ -121,26 +121,26 @@ class Account extends CI_Controller {
     }
     public function update()
     {
-        $this->form_validation->set_rules('Name','name');
-        $this->form_validation->set_rules('Last name','lastname','required');
-        $this->form_validation->set_rules('Adress','adress','required');
-        $this->form_validation->set_rules('E-mail','mail','required');
-        $this->form_validation->set_rules('Tel','tel','required');
-        $this->form_validation->set_rules('City','city','required');
+        /*$this->form_validation->set_rules('Name','name');
+        $this->form_validation->set_rules('Lastname','lastname');
+        $this->form_validation->set_rules('Adress','adress');
+        $this->form_validation->set_rules('E-mail','mail');
+        $this->form_validation->set_rules('Tel','tel');
+        $this->form_validation->set_rules('City','city');
         if ($this->form_validation->run() == FALSE) {
-            redirect('Account/sellerProfile');
-        } else {
-            $data = array (
-                'Name' => $this->input->post('name'),
-                'Last name' => $this->input->post('lastname'),
-                'Adress' => $this->input->post('adress'),
-                'E-mail' => $this->input->post('mail'),
-                'Tel' => $this->input->post('tel'),
-                'City' => $this->input->post('city')
-            );
-            $this->AccountModel->update($data);
             redirect('Account/index');
-        }
+            
+        } else {*/
+                $name = $this->input->post('name');
+                $lastname = $this->input->post('lastname');
+                $adress = $this->input->post('adress');
+                $mail = $this->input->post('mail');
+                $tel = $this->input->post('tel');
+                $city = $this->input->post('city');
+                $mailID = $this->input->post('mailID');
+                $this->AccountModel->update($name, $lastname, $adress, $mail, $tel, $city, $mailID);
+                redirect('Account/sellerProfile');
+        //}
     }
     public function delete()
     {
