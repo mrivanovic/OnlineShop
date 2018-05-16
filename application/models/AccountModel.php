@@ -40,16 +40,22 @@ class AccountModel extends CI_Model
 
         return $query->result_object()[0];
     }
-    public function update($name, $lastname, $adress, $mail, $tel, $city, $mailID) {
+    public function update($name, $lastname, $adress, $country, $tel, $city, $mailID) {
         $this->db->set("name", $name);
         $this->db->set("lastname",$lastname);
         $this->db->set("adress", $adress);
-        $this->db->set("mail",$mail);
+        $this->db->set("country",$country);
         $this->db->set("tel",$tel);
         $this->db->set("city",$city);
         $this->db->where("mail", $mailID);
         $this->db->update("seller");
 
+    }
+    public function updatePass($pass, $mailID)
+    {
+        $this->db->set('password',$pass);
+        $this->db->where('mail', $mailID);
+        $this->db->update('seller');
     }
     public function delete($idseller)
     {

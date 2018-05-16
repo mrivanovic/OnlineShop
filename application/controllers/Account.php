@@ -134,13 +134,27 @@ class Account extends CI_Controller {
                 $name = $this->input->post('name');
                 $lastname = $this->input->post('lastname');
                 $adress = $this->input->post('adress');
-                $mail = $this->input->post('mail');
+                $country = $this->input->post('country');
                 $tel = $this->input->post('tel');
                 $city = $this->input->post('city');
                 $mailID = $this->input->post('mailID');
-                $this->AccountModel->update($name, $lastname, $adress, $mail, $tel, $city, $mailID);
+                $this->AccountModel->update($name, $lastname, $adress, $country, $tel, $city, $mailID);
                 redirect('Account/sellerProfile');
         //}
+    }
+    public function updatePass()
+    {
+        $pass = $this->input->post('pass');
+        $passC = $this->input->post('pass1');
+        $mailID = $this->input->post('mailID');
+        if ($pass == $passC) {
+            $this->AccountModel->updatePass($pass, $mailID);
+            redirect('Account/index');
+            $data['message1'] = 'Update is successiful!';
+        } else {
+            $data['message1'] = 'Password don\'t match';
+            redirect('Account/sellerProfile');
+        }
     }
     public function delete()
     {
