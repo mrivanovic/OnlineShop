@@ -48,13 +48,13 @@
         <entry file="file://$PROJECT_DIR$/application/views/sabloni/profile_menu.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sellerADD.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sellerADD.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/sellerADD.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
@@ -67,11 +67,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="header_user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/sabloni/header_user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Category.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CSS/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="345" column="26" selection-start-line="345" selection-start-column="26" selection-end-line="345" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -107,7 +127,6 @@
         <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/views/sabloni/header_user.php" />
         <option value="$PROJECT_DIR$/application/views/sabloni/footer.php" />
-        <option value="$PROJECT_DIR$/CSS/style.css" />
         <option value="$PROJECT_DIR$/application/views/sabloni/header.php" />
         <option value="$PROJECT_DIR$/application/models/AccountModel.php" />
         <option value="$PROJECT_DIR$/application/views/signUpP.php" />
@@ -117,6 +136,7 @@
         <option value="$PROJECT_DIR$/application/views/sellerInbox.php" />
         <option value="$PROJECT_DIR$/application/views/sellerSent.php" />
         <option value="$PROJECT_DIR$/application/views/sellerADD.php" />
+        <option value="$PROJECT_DIR$/CSS/style.css" />
       </list>
     </option>
   </component>
@@ -406,12 +426,12 @@
       <workItem from="1526365041277" duration="33000" />
       <workItem from="1526376630938" duration="123000" />
       <workItem from="1526377004339" duration="8388000" />
-      <workItem from="1526457542401" duration="11594000" />
+      <workItem from="1526457542401" duration="11904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72028000" />
+    <option name="totallyTimeSpent" value="72338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -680,21 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="549" column="1" selection-start-line="549" selection-start-column="1" selection-end-line="549" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/sabloni/header_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/sabloni/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -771,7 +776,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/sabloni/profile_menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -784,6 +789,22 @@
             <marker date="1526468981735" expanded="true" signature="169:215" ph="..." />
             <marker date="1526468981735" expanded="true" signature="186:215" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/sabloni/header_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="345" column="26" selection-start-line="345" selection-start-column="26" selection-end-line="345" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
