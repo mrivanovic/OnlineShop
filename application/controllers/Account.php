@@ -4,7 +4,6 @@ class Account extends CI_Controller {
 
     public function __construct() {
         parent:: __construct();
-
         $this->load->model("AccountModel");
         $this->load->library('session');
     }
@@ -22,14 +21,11 @@ class Account extends CI_Controller {
     public function index()
     {
         $this->loadView('index.php', []);
-        //$this->load->view('index');
     }
 
     public function login(){
         $data['array']='';
         $this->load->view("login",$data);
-
-
     }
     public function ulogujse(){
         $this->load->library('form_validation');
@@ -37,10 +33,8 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password','required');
         if($this->form_validation->run())
         {
-            //true
             $mail= $this->input->post('mail');
             $password= $this->input->post('password');
-            //model function
             $this->load->model('AccountModel');
             if ($this->AccountModel->can_login($mail, $password, 'seller') || $this->AccountModel->can_login($mail, $password, 'buyer'))
             {
@@ -48,20 +42,17 @@ class Account extends CI_Controller {
                     'mail' => $mail);
                 $this->session->set_userdata($session_data);
                 redirect(base_url() . 'Account/index');
-
             }
             else
             {
                 $this->session->set_flashdata('error', 'Invalid Username and Password');
                 redirect(base_url() . 'Category/login');
-
             }
         }
         else{
             //false
             $this->login();
         }
-
     }
     public function LogOut()
     {
@@ -115,31 +106,31 @@ class Account extends CI_Controller {
         $data['user'] = $this->AccountModel->loggedInUser();
         $this->loadView('sellerProfile.php', $data);
     }
-    public function sellerADD()
-    {
-        $this->loadView('sellerADD.php', []);
-    }
+   
     public function update()
     {
-        $this->form_validation->set_rules('Name','name');
-        $this->form_validation->set_rules('Last name','lastname','required');
-        $this->form_validation->set_rules('Adress','adress','required');
-        $this->form_validation->set_rules('E-mail','mail','required');
-        $this->form_validation->set_rules('Tel','tel','required');
-        $this->form_validation->set_rules('City','city','required');
-        if ($this->form_validation->run() == FALSE) {
-            redirect('Account/sellerProfile');
-        } else {
-            $data = array (
-                'Name' => $this->input->post('name'),
-                'Last name' => $this->input->post('lastname'),
-                'Adress' => $this->input->post('adress'),
-                'E-mail' => $this->input->post('mail'),
-                'Tel' => $this->input->post('tel'),
-                'City' => $this->input->post('city')
-            );
-            $this->AccountModel->update($data);
+        $name = $this->input->post('name');
+        $lastname = $this->input->post('lastname');
+        $adress = $this->input->post('adress');
+        $country = $this->input->post('country');
+        $tel = $this->input->post('tel');
+        $city = $this->input->post('city');
+        $mailID = $this->input->post('mailID');
+        $this->AccountModel->update($name, $lastname, $adress, $country, $tel, $city, $mailID);
+        redirect('Account/sellerProfile');
+    }
+    public function updatePass()
+    {
+        $pass = $this->input->post('pass');
+        $passC = $this->input->post('pass1');
+        $mailID = $this->input->post('mailID');
+        if ($pass == $passC) {
+            $this->AccountModel->updatePass($pass, $mailID);
             redirect('Account/index');
+            $data['message1'] = 'Update is successiful!';
+        } else {
+            $data['message1'] = 'Password don\'t match';
+            redirect('Account/sellerProfile');
         }
     }
     public function delete()
@@ -149,6 +140,10 @@ class Account extends CI_Controller {
         redirect("Category/index");
 
 
+    }
+    public function sellerADD()
+    {
+        $this->loadView('sellerADD.php', []);
     }
     public function sellerInbox()
     {

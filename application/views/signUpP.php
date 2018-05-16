@@ -67,8 +67,8 @@
             </tr>
             <?php echo form_close(); ?>
         </table>
-        <?php if (isset($message)) { ?>
-            <h3 style="color:red;"><?php echo $message; ?></h3>
+        <?php if (isset($message1)) { ?>
+            <h3 style="color:red;"><?php echo $message1; ?></h3>
         <?php } ?>
     </div>
 </div>
