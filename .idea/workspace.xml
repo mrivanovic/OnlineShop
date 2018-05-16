@@ -21,86 +21,7 @@
     <favorites_list name="Shop" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6233293">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Account.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="623">
-                  <caret line="166" column="31" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sellerSent.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/application/views/sellerSent.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sellerInbox.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/sellerInbox.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AccountModel.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/models/AccountModel.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="722">
-                  <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-                  <folding>
-                    <marker date="1526464283667" expanded="true" signature="846:893" ph="SELECT * FRO... seller" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="sellerProfile.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/sellerProfile.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="504">
-                  <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
-                  <folding>
-                    <marker date="1526464899173" expanded="true" signature="895:932" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="2744:2781" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="2989:3071" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="3148:3240" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="3318:3355" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="3812:3845" ph="..." />
-                    <marker date="1526464899173" expanded="true" signature="3956:3989" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="signUpP.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/application/views/signUpP.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="739">
-                  <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,14 +51,15 @@
         <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/views/sabloni/header_user.php" />
         <option value="$PROJECT_DIR$/application/views/sabloni/footer.php" />
-        <option value="$PROJECT_DIR$/application/views/sellerADD.php" />
         <option value="$PROJECT_DIR$/CSS/style.css" />
         <option value="$PROJECT_DIR$/application/views/sabloni/header.php" />
         <option value="$PROJECT_DIR$/application/models/AccountModel.php" />
-        <option value="$PROJECT_DIR$/application/views/sellerProfile.php" />
         <option value="$PROJECT_DIR$/application/views/signUpP.php" />
         <option value="$PROJECT_DIR$/application/controllers/Account.php" />
+        <option value="$PROJECT_DIR$/application/views/sellerProfile.php" />
+        <option value="$PROJECT_DIR$/application/views/sabloni/profile_menu.php" />
         <option value="$PROJECT_DIR$/application/views/sellerInbox.php" />
+        <option value="$PROJECT_DIR$/application/views/sellerADD.php" />
         <option value="$PROJECT_DIR$/application/views/sellerSent.php" />
       </list>
     </option>
@@ -428,18 +350,18 @@
       <workItem from="1526365041277" duration="33000" />
       <workItem from="1526376630938" duration="123000" />
       <workItem from="1526377004339" duration="8388000" />
-      <workItem from="1526457542401" duration="7900000" />
+      <workItem from="1526457542401" duration="9688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68334000" />
+    <option name="totallyTimeSpent" value="70122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14270833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14270833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -476,13 +398,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -494,6 +409,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -694,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/sellerADD.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../etfvesti/application/controllers/Korisnik.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-986">
@@ -726,6 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="858">
           <caret line="549" column="1" selection-start-line="549" selection-start-column="1" selection-end-line="549" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -743,6 +653,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/signUpP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/sellerProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="52" />
+          <folding>
+            <marker date="1526467034737" expanded="true" signature="600:637" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="2449:2486" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="2694:2776" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="2853:2945" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="3023:3060" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="3517:3550" ph="..." />
+            <marker date="1526467034737" expanded="true" signature="3661:3694" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-944">
+          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/AccountModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
@@ -753,50 +695,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/sellerProfile.php">
+    <entry file="file://$PROJECT_DIR$/application/views/sellerSent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
-          <folding>
-            <marker date="1526464899173" expanded="true" signature="895:932" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="2744:2781" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="2989:3071" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="3148:3240" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="3318:3355" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="3812:3845" ph="..." />
-            <marker date="1526464899173" expanded="true" signature="3956:3989" ph="..." />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/signUpP.php">
+    <entry file="file://$PROJECT_DIR$/application/views/sellerADD.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+        <state relative-caret-position="0">
+          <caret line="0" column="52" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/sellerInbox.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state relative-caret-position="221">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="166" column="31" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/sellerSent.php">
+    <entry file="file://$PROJECT_DIR$/application/views/sabloni/profile_menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>

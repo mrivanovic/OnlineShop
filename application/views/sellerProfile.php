@@ -1,16 +1,5 @@
-
+<?php $this->load->view( "sabloni/profile_menu"); ?>
 <div id="Seller1">
-    <div id="sellProfNav">
-        <div class="left">
-            <a href="<?php echo base_url("Account/sellerADD"); ?>">Add Advert</a>
-        </div>
-        <div class="center">
-            <a href=""><i class="fa fa-envelope"></i></a>
-        </div>
-        <div class="right">
-            <a href="#">Advert View</a>
-        </div>
-    </div>
     <div id="Seller">
         <div class="sellerfleft">
             <label for="image">
