@@ -47,7 +47,7 @@
                     <tr>
                         <th colspan="2">
                             <input type="hidden" value="<?php echo $user->mail;?>" name="mailID" />
-                            <input type="submit" value="Sacuvaj promene" />
+                            <input type="submit" value="Save Changes" />
                         </th>
 
                     </tr>
@@ -72,7 +72,7 @@
                     <tr>
                         <th colspan="2">
                             <input type="hidden" value="<?php echo $user->mail;?>" name="mailID" />
-                            <input type="submit" value="Sacuvaj promene" />
+                            <input type="submit" value="Save Changes" />
                         </th>
                     </tr>
                 </table>
@@ -88,7 +88,7 @@
                     <th colspan="2">
                         <form method="post" action="<?php echo base_url("Account/delete"); ?>">
                             <input type="hidden" value="<?php echo $user->mail ?>" name="idseller"/>
-                            <input type="submit" value="Obrisi" onclick="return confirm('Da li ste sigurni da zelite da obrisete ?')" />
+                            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this account?')" />
                         </form>
                     </th>
                 </tr>
