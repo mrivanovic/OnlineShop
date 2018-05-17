@@ -39,10 +39,10 @@
                 <td colspan="2">
                     <select>
                         <option>--</option>
-                        <option>Po dogovoru</option>
-                        <option>Licno preuzimanje</option>
-                        <option>Placanje pouzecem</option>
-                        <option>Placanje karticom</option>
+                        <option>Negotiated</option>
+                        <option>Personalized Pick-Up</option>
+                        <option>Mail order</option>
+                        <option>Credit card</option>
                     </select>
                 </td>
             </tr>
