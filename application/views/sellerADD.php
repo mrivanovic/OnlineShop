@@ -27,19 +27,22 @@
             </tr>
             <tr>
                 <th>Price:</th>
-                <td><input type="number" name="price" /></td>
+                <td><input type="number" name="price" style="width: 200px;" /></td>
                 <td>
-                    <select>
-                        <option>--</option>
-                        <option>rsd</option>
+                    <select style="width: 60px; text-align: center;">
+                        <?php foreach ($currency as $element):?>
+                            <option><?php echo $element['name'];?></option>
+                        <?php endforeach;?>
                     </select>
                 </td>
             </tr>
             <tr>
                 <th>Delivery:</th>
                 <td colspan="2">
-                    <select>
-                        <option>--</option>
+                    <select style="width: 200px; text-align: center;">
+                        <?php foreach ($delivery as $element):?>
+                            <option><?php echo $element['name'];?></option>
+                        <?php endforeach;?>
                     </select>
                 </td>
             </tr>

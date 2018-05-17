@@ -144,7 +144,9 @@ class Account extends CI_Controller {
 
     }
     public function sellerADD()
-    {
+    {   
+        $data['currency'] = $this->ProductModel->currency();
+        $data['delivery'] = $this->ProductModel->delivery();
         $data['category'] = $this->ProductModel->category();
         $this->loadView('sellerADD.php', $data);
     }

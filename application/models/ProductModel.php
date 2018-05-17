@@ -12,4 +12,19 @@ class ProductModel extends CI_Model
 
         return $result;
     }
+    public function delivery()
+    {
+        $query = $this->db->query("select * from delivery");
+        $result = $query->result_array();
+
+        return $result;
+    }
+    public function currency()
+    {
+        $query = $this->db->query("select * from currency");
+        $result = $query->result_array();
+
+        return $result;
+    }
+    
 }
