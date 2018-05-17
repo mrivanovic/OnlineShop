@@ -19,8 +19,9 @@
                 <th>Category:</th>
                 <td colspan="2">
                     <select style="width: 200px; text-align: center;">
-                        <option>--</option>
-                        <option>1</option>
+                        <?php foreach ($category as $element):?>
+                            <option><?php echo $element['name'];?></option>
+                        <?php endforeach;?>
                     </select>
                 </td>
             </tr>

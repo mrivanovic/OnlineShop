@@ -142,7 +142,7 @@ class Account extends CI_Controller {
 
     }
     public function sellerADD()
-    {
+    {   
         $this->loadView('sellerADD.php', []);
     }
     public function sellerInbox()
