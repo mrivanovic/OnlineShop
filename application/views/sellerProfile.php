@@ -12,7 +12,7 @@
                 <table>
 
                     <tr>
-                        <th colspan="2" style="background-color: grey; color: white;">Licni Podaci:</th>
+                        <th colspan="2" style="background-color: grey; color: white;">User Info:</th>
                     </tr>
                     <tr>
                         <td></td>
@@ -47,7 +47,7 @@
                     <tr>
                         <th colspan="2">
                             <input type="hidden" value="<?php echo $user->mail;?>" name="mailID" />
-                            <input type="submit" value="Sacuvaj promene" />
+                            <input type="submit" value="Save Changes" />
                         </th>
 
                     </tr>
@@ -56,23 +56,23 @@
             <form name="passwordUpdate" method="post" action="<?php echo base_url('Account/updatePass');?>">
                 <table>
                     <tr>
-                        <th colspan="2" style="background-color: grey; color: white;">Promenite lozinku</th>
+                        <th colspan="2" style="background-color: grey; color: white;">Change Password</th>
                     </tr>
                     <tr>
                         <td></td>
                     </tr>
                     <tr>
-                        <th>Lozinka</th>
+                        <th>Password:</th>
                         <td><input type="text" name="pass" /></td>
                     </tr>
                     <tr>
-                        <th>Potvrdite lozinku</th>
+                        <th>Confirm Password:</th>
                         <td><input type="text" name="pass1" /></td>
                     </tr>
                     <tr>
                         <th colspan="2">
                             <input type="hidden" value="<?php echo $user->mail;?>" name="mailID" />
-                            <input type="submit" value="Sacuvaj promene" />
+                            <input type="submit" value="Save Changes" />
                         </th>
                     </tr>
                 </table>
@@ -82,13 +82,13 @@
             <?php } ?>
             <table>
                 <tr>
-                    <th colspan="2" style="background-color: grey; color: white;">Izbrisi nalog</th>
+                    <th colspan="2" style="background-color: grey; color: white;">Delete Account</th>
                 </tr>
                 <tr>
                     <th colspan="2">
                         <form method="post" action="<?php echo base_url("Account/delete"); ?>">
                             <input type="hidden" value="<?php echo $user->mail ?>" name="idseller"/>
-                            <input type="submit" value="Obrisi" onclick="return confirm('Da li ste sigurni da zelite da obrisete ?')" />
+                            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this account?')" />
                         </form>
                     </th>
                 </tr>
