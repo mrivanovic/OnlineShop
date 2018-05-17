@@ -12,7 +12,7 @@
                 <table>
 
                     <tr>
-                        <th colspan="2" style="background-color: grey; color: white;">Licni Podaci:</th>
+                        <th colspan="2" style="background-color: grey; color: white;">User Info:</th>
                     </tr>
                     <tr>
                         <td></td>
@@ -56,7 +56,7 @@
             <form name="passwordUpdate" method="post" action="<?php echo base_url('Account/updatePass');?>">
                 <table>
                     <tr>
-                        <th colspan="2" style="background-color: grey; color: white;">Promenite lozinku</th>
+                        <th colspan="2" style="background-color: grey; color: white;">Change Password</th>
                     </tr>
                     <tr>
                         <td></td>
@@ -82,7 +82,7 @@
             <?php } ?>
             <table>
                 <tr>
-                    <th colspan="2" style="background-color: grey; color: white;">Izbrisi nalog</th>
+                    <th colspan="2" style="background-color: grey; color: white;">Delete Account</th>
                 </tr>
                 <tr>
                     <th colspan="2">
