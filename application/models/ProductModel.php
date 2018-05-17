@@ -1,5 +1,5 @@
 <?php
-class ProductModel extends CI_Controller
+class ProductModel extends CI_Model
 {
     function __construct() {
         parent::__construct();
@@ -7,7 +7,7 @@ class ProductModel extends CI_Controller
     }
     public function category()
     {
-        $query = $this->db->query("select * from category;");
+        $query = $this->db->query("select * from category");
         $result = $query->result_array();
 
         return $result;

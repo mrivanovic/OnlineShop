@@ -35,9 +35,5 @@ class Category extends CI_Controller
     {
         $this->loadView('signUpK.php', []);
     }
-    public function Category() 
-    {
-        $data['category'] = $this->ProductModel->category();
-        $this->loadView('Account/sellerADD');
-    }
+
 }   

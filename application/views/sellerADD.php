@@ -20,7 +20,7 @@
                 <td colspan="2">
                     <select style="width: 200px; text-align: center;">
                         <?php foreach ($category as $element):?>
-                            <option><?php echo $element['name'];?></option>
+                            <option><?php echo $element['ime'];?></option>
                         <?php endforeach;?>
                     </select>
                 </td>
@@ -40,10 +40,6 @@
                 <td colspan="2">
                     <select>
                         <option>--</option>
-                        <option>Negotiated</option>
-                        <option>Personalized Pick-Up</option>
-                        <option>Mail order</option>
-                        <option>Credit card</option>
                     </select>
                 </td>
             </tr>

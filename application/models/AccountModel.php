@@ -62,4 +62,5 @@ class AccountModel extends CI_Model
         $this->db->where("mail",$idseller);
         $this->db->delete("seller");
     }
+ 
 }

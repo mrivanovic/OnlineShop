@@ -5,7 +5,9 @@ class Account extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->model("AccountModel");
+
         $this->load->library('session');
+        $this->load->model("ProductModel");
     }
 
     public function loadView($glavnideo, $data)
@@ -142,8 +144,9 @@ class Account extends CI_Controller {
 
     }
     public function sellerADD()
-    {   
-        $this->loadView('sellerADD.php', []);
+    {
+        $data['category'] = $this->ProductModel->category();
+        $this->loadView('sellerADD.php', $data);
     }
     public function sellerInbox()
     {
