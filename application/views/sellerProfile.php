@@ -62,11 +62,11 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>Lozinka</th>
+                        <th>Password:</th>
                         <td><input type="text" name="pass" /></td>
                     </tr>
                     <tr>
-                        <th>Potvrdite lozinku</th>
+                        <th>Confirm Password:</th>
                         <td><input type="text" name="pass1" /></td>
                     </tr>
                     <tr>
