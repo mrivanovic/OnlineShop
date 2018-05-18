@@ -2,10 +2,14 @@
 <div id="Seller1">
     <div id="Seller">
         <div class="sellerfleft">
-            <label for="image">
+            <!--<label for="image">
                 <input type="file" name="image" id="image" style="display:none;"/>
-                <img src="<?php echo base_url()?>img/profile.png" style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
-            </label>
+                <img src="<?php //echo base_url()?>img/profile.png" style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
+            </label>-->
+            <!-- div gde ce biti back ground slika, staviti label koji ce da gadja na file open -->
+            <div class="slika">
+
+            </div>
         </div>
         <div class="sellerright">
             <form name="update" method="post" action="<?php echo base_url('Account/update');?>">
