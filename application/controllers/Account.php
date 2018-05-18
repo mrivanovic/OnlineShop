@@ -5,7 +5,6 @@ class Account extends CI_Controller {
     public function __construct() {
         parent:: __construct();
         $this->load->model("AccountModel");
-
         $this->load->library('session');
         $this->load->model("ProductModel");
     }
@@ -21,9 +20,9 @@ class Account extends CI_Controller {
         $this->load->view('sabloni/footer.php');
     }
     public function index()
-    {
-        $this->loadView('index.php', []);
-    }
+{
+    $this->loadView('index.php', []);
+}
 
     public function login(){
         $data['array']='';
@@ -111,6 +110,7 @@ class Account extends CI_Controller {
    
     public function update()
     {
+        
         $name = $this->input->post('name');
         $lastname = $this->input->post('lastname');
         $adress = $this->input->post('adress');

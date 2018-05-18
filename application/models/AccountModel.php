@@ -49,7 +49,6 @@ class AccountModel extends CI_Model
         $this->db->set("city",$city);
         $this->db->where("mail", $mailID);
         $this->db->update("seller");
-
     }
     public function updatePass($pass, $mailID)
     {
