@@ -16,8 +16,8 @@ class Category extends CI_Controller
     }
     public function index()
     {
-        
-        $this->loadView('index.php', []);
+        $data['product'] = $this->ProductModel->all();
+        $this->loadView('index.php', $data);
         //$this->load->view('index');
     }
     public function login()
@@ -39,8 +39,8 @@ class Category extends CI_Controller
     public function insertProduct()
     {
         $data = array(
-            'Name' => $this->input->get('name'),
-            'Description' => $this->input->get('desc'),
+            'name' => $this->input->get('name'),
+            'descriptions' => $this->input->get('desc'),
             'seller_mail' => $_SESSION['mail'],
             'category_id' => $this->input->get('category'),
             'Price' => $this->input->get('price'),
@@ -50,5 +50,11 @@ class Category extends CI_Controller
         $this->ProductModel->addProduct($data);
         redirect('Account/index');
     }
+    public function advertView()
+    {   
+        $mail = $_SESSION['mail'];
+        $data['productsAll'] = $this->ProductModel->adwertAll($mail);
+        $this->loadView('adwertView.php',  $data);
 
+    }
 }   

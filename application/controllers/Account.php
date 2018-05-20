@@ -21,7 +21,8 @@ class Account extends CI_Controller {
     }
     public function index()
 {
-    $this->loadView('index.php', []);
+    $data['product'] = $this->ProductModel->all();
+    $this->loadView('index.php', $data);
 }
 
     public function login(){

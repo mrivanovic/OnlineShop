@@ -558,3 +558,23 @@ ul li ul.dropdown li{
     border-radius: 7px;
     box-shadow: 5px 10px #bfbfbf;
 }
+.all_product {
+    float: left;
+    width: calc(100% / 4);
+    height: 450px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.adwertALL {
+    float: left;
+    width: calc(100% / 4);
+    height: 450px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.adwertALL textarea {
+    width: 250px;
+    height: 80px
+}

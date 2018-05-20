@@ -28,14 +28,20 @@ class ProductModel extends CI_Model
     }
     public function addProduct($data)
     {
-        /*$this->db->set('name', $data['Name']);
-        $this->db->set('descriptions', $data['Description']);
-        $this->db->set('price', $data['Price']);
-        $this->db->set('delivery_id', $data['Delivery']);
-        $this->db->set('currency_id', $data['Currency']);
-        $this->db->set('category_id', $data['Category']);
-        $this->db->set('seller_mail', $data['mail']);*/
         $this->db->insert('products', $data);
     }
+    public function all()
+    {
+        $query = $this->db->query("select * from products;");
+        $result = $query->result_array();
 
+        return $result;
+    }
+    public function adwertAll($mail)
+    {
+        $query = $this->db->query("select * from products where seller_mail = '{$mail}';");
+        $result = $query->result_array();
+
+        return $result;
+    }
 }
