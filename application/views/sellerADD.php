@@ -3,13 +3,13 @@
     <form name="Add" method="get" action="<?php echo base_url('Category/insertProduct');?>">
         <table>
             <tr>
-                <td rowspan="2"><img src="<?php echo base_url()?>img/img.png" style="width: 200px; height: 250px;"></td>
-                <td><img src="<?php echo base_url()?>img/img.png" style="width: 100px; height: 100px;"></td>
-                <td><img src="<?php echo base_url()?>img/img.png" style="width: 100px; height: 100px;"></td>
+                <td rowspan="2"><div class="img"></div></td>
+                <td<div class="img"></div></td>
+                <td><div class="img"></div></td>
             </tr>
             <tr>
-                <td><img src="<?php echo base_url()?>img/img.png" style="width: 100px; height: 100px;"></td>
-                <td><img src="<?php echo base_url()?>img/img.png" style="width: 100px; height: 100px;"></td>
+                <td><div class="img"></div></td>
+                <td><div class="img"></div></td>
             </tr>
             <tr>
                 <th>Name:</th>

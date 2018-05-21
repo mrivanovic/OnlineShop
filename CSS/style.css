@@ -577,3 +577,8 @@ ul li ul.dropdown li{
     width: 250px;
     height: 80px
 }
+.img {
+    background-color: #00CC00;
+    height: 100px;
+    width: 100px;
+}

@@ -38,12 +38,18 @@ class Account extends CI_Controller {
             $mail= $this->input->post('mail');
             $password= $this->input->post('password');
             $this->load->model('AccountModel');
-            if ($this->AccountModel->can_login($mail, $password, 'seller') || $this->AccountModel->can_login($mail, $password, 'buyer'))
+            if ($this->AccountModel->can_login($mail, $password, 'seller'))
             {
                 $session_data=array(
                     'mail' => $mail);
                 $this->session->set_userdata($session_data);
                 redirect(base_url() . 'Account/index');
+            }elseif ($this->AccountModel->can_login($mail, $password, 'buyer'))
+            {
+                $session_data=array(
+                    'mail' => $mail);
+                $this->session->set_userdata($session_data);
+                redirect('Account/buyer');
             }
             else
             {
@@ -62,6 +68,7 @@ class Account extends CI_Controller {
         $this->session->sess_destroy();
         redirect('Category/index');
     }
+    //-------------------seller----------------------------
     public function registerP()
     {
         $this->load->library('form_validation');
@@ -165,4 +172,46 @@ class Account extends CI_Controller {
         $data['productsAll'] = $this->ProductModel->adwertAll($mail);
         $this->loadView('adwertView.php',  $data);
     }
+    //*******************************BUYER********************************
+    public function signUpB()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $this->form_validation->set_rules('dname', 'name', "required");
+        $this->form_validation->set_rules('dlastname', 'lastname', "required");
+        $this->form_validation->set_rules('demail', 'mail', "required");
+        $this->form_validation->set_rules('dpassword', 'password', "required");
+        $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
+        $this->form_validation->set_rules('dcountry', 'country', "required");
+        $this->form_validation->set_rules('dcity', 'city', "required");
+        $this->form_validation->set_rules('dadress', 'adress', "required");
+        $this->form_validation->set_rules('dtel', 'tel', "required");
+        $this->form_validation->set_rules('ddate', ' date', "required");
+        $this->form_validation->set_message("required", "Polje {field} je obavezno");//proveriti da li treba field da se upise
+
+        if($this->form_validation->run() == FALSE) {
+            $data['message'] = 'Error inserting user';
+            $this->loadView('signUpP.php', $data);
+        } else {
+            if ($this->input->post('dpassword') == $this->input->post('dpasswordC')) {
+                $data = array(
+                    'Name' => $this->input->post('dname'),
+                    'LastName' => $this->input->post('dlastname'),
+                    'mail' => $this->input->post('demail'),
+                    'Password' => $this->input->post('dpassword'),
+                    'Country' => $this->input->post('dcountry'),
+                    'City' => $this->input->post('dcity'),
+                    'Adress' => $this->input->post('dadress'),
+                    'Tel' => $this->input->post('dtel'),
+                    'Dateofbirth' => $this->input->post('ddate'),
+                );
+                $this->AccountModel->signUpB($data);//provera da li se uspesno registrovao fali
+                redirect('Category/index');
+            } else {
+                $data['message'] = 'Password don\'t match';
+                $this->loadView('signUpP.php', $data);
+            }
+        }
+    }
+
 }
