@@ -50,11 +50,5 @@ class Category extends CI_Controller
         $this->ProductModel->addProduct($data);
         redirect('Account/index');
     }
-    public function advertView()
-    {   
-        $mail = $_SESSION['mail'];
-        $data['productsAll'] = $this->ProductModel->adwertAll($mail);
-        $this->loadView('adwertView.php',  $data);
-
-    }
+    
 }   

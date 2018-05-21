@@ -9,6 +9,6 @@
         <a href="<?php echo base_url('Account/sellerProfile');?>"><i class="fa fa-user" aria-hidden="true"></i>
     </div>
     <div class="right">
-        <a href="<?php echo base_url('Category/advertView');?>">Advert View</a>
+        <a href="<?php echo base_url('Account/advertView');?>">Advert View</a>
     </div>
 </div>
