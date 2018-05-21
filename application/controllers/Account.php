@@ -161,9 +161,8 @@ class Account extends CI_Controller {
     }
     public function advertView()
     {
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mail'];  
         $data['productsAll'] = $this->ProductModel->adwertAll($mail);
         $this->loadView('adwertView.php',  $data);
-
     }
 }

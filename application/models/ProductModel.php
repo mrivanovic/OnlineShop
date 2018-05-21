@@ -44,4 +44,13 @@ class ProductModel extends CI_Model
 
         return $result;
     }
+    public function adwertUpdate($idProduct, $name, $desc, $price, $mail)
+    {
+        $this->db->set('name', $name);
+        $this->db->set('descriptions', $desc);
+        $this->db->set('price', $price);
+        $this->db->where('seller_mail', $mail);
+        $this->db->where('id', $idProduct);
+        $this->db->update('products');
+    }
 }
