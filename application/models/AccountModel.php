@@ -65,5 +65,12 @@ class AccountModel extends CI_Model
     {
         $this->db->insert('buyer', $data);
     }
- 
+    public function saveImage($path)
+    {
+        $this->db->set('image',$path);
+        $this->db->where('mail', $_SESSION['mail']);
+        $this->db->update('seller');
+    }
+
+    
 }

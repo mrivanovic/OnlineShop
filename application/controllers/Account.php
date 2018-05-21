@@ -11,8 +11,13 @@ class Account extends CI_Controller {
 
     public function loadView($glavnideo, $data)
     {
-        if ($this->AccountModel->isLoggedIn())
-            $this->load->view('sabloni/header_user.php', $data);
+        if ($this->AccountModel->isLoggedIn()) {
+            if ($_SESSION['type'] == 'buyer') {
+                $this->load->view('sabloni/header_buyer.php', $data);
+            } elseif ($_SESSION['type'] == 'seller') {
+                $this->load->view('sabloni/header_user.php', $data);
+            }
+        }
         else
             $this->load->view('sabloni/header.php', $data);
 
@@ -41,15 +46,19 @@ class Account extends CI_Controller {
             if ($this->AccountModel->can_login($mail, $password, 'seller'))
             {
                 $session_data=array(
-                    'mail' => $mail);
+                    'mail' => $mail,
+                    'type' => 'seller');
+
                 $this->session->set_userdata($session_data);
                 redirect(base_url() . 'Account/index');
             }elseif ($this->AccountModel->can_login($mail, $password, 'buyer'))
             {
-                $session_data=array(
-                    'mail' => $mail);
+                $session_data = array(
+                    'mail' => $mail,
+                    'type' => 'buyer');
+
                 $this->session->set_userdata($session_data);
-                redirect('Account/buyer');
+                redirect(base_url() . 'Account/index');
             }
             else
             {
@@ -69,6 +78,29 @@ class Account extends CI_Controller {
         redirect('Category/index');
     }
     //-------------------seller----------------------------
+    public function setImage()
+    {
+        $s = DIRECTORY_SEPARATOR; // Kosa crta za putanju koja se menja u zavisnosti od platforme: Windows \ Linux /
+
+        $file = $_FILES['image']; // Ovde uzimas sliku iz zahteva
+        $path = $file['tmp_name']; // Privremeno ime slike na serveru
+
+        $date = date_create(); 
+        $unixtime = date_timestamp_get($date); // Unikatni datum
+
+        $save_path = 'img'.$s.'uploads'.$s; // Putanja gde treba da se sacuva slika na serveru / folder
+        $filename = $unixtime.'_'.$file['name']; // Novi naziv slike sa unikatnim datumom
+        $base_path = __DIR__.$s.'..'.$s.'..'.$s; // Osnovna putanja do foldera img
+
+        $image_save = 'img/uploads/'.$filename; // Tekst koji se upisuje u bazu
+
+        copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
+
+        $this->AccountModel->saveImage($image_save); // Dodavanje slike u bazu / update korisnika
+
+        redirect('Account/sellerProfile');
+    }
+
     public function registerP()
     {
         $this->load->library('form_validation');
