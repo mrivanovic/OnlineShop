@@ -51,14 +51,20 @@ class Category extends CI_Controller
         redirect('Account/index');
     }
     public function adwertUpdate()
-    {
+    {   if(isset($_POST['update'])) {
         $mail = $_SESSION['mail'];
         $idProduct = $this->input->post('id');
         $name = $this->input->post('name');
         $desc = $this->input->post('desc');
         $price = $this->input->post('price');
         $this->ProductModel->adwertUpdate($idProduct, $name, $desc, $price, $mail);
-        redirect('Account/adwertView');
+        redirect('Account/advertView');
+        
+    } else if(isset($_POST['delete'])) {
+        $idProduct = $this->input->post('id');
+        $this->ProductModel->delete($idProduct);
+        redirect('Account/advertView');
+        }
     }
     
 }   
