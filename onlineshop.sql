@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2018 at 01:41 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: May 21, 2018 at 07:54 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -226,12 +226,33 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `seller_mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descriptions` int(250) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descriptions` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `delivery_id` int(11) NOT NULL,
   `currency_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `category_id`, `seller_mail`, `name`, `descriptions`, `price`, `delivery_id`, `currency_id`) VALUES
+(1, 20, 'ljubisa@gmail.com', 'Hama ', '0', 1000, 2, 1),
+(2, 1, 'ljubisa@gmail.com', 'LENOVO IdeaPad 320-15IAP - 80XR00BHYA', 'Intel® Pentium® N4200 do 2.50GHz, 15.6\", 500GB HDD, 4GB\r\nPolovan', 30999, 3, 1),
+(3, 1, 'ljubisa@gmail.com', 'HP OMEN - 15-ce019nm - 2QE49EA', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 30000, 3, 1),
+(4, 1, 'ljubisa@gmail.com', 'DELL Inspiron 15 7577 - NOT12010', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 1TB HDD, 8GB\r\nNov', 105000, 2, 1),
+(5, 1, 'ljubisa@gmail.com', 'DELL Inspiron 15 7577 - NOT11998', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nNOVO!', 1000, 2, 3),
+(6, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nNOVO!!', 1100, 2, 2),
+(7, 3, 'andjela@gmail.com', 'eSTAR BEAUTY 2 HD', '(Zlatna) - ES-BEAUTY-G 7\", Četiri jezgra, 1GB, WiFi', 50, 4, 3),
+(8, 3, 'andjela@gmail.com', 'ALCATEL OneTouch Pixi', '4 7\" WiFi 8063 (Siva) 7\", Četiri jezgra, 1GB, WiFi NOVO', 8000, 2, 1),
+(9, 3, 'andjela@gmail.com', 'HUAWEI Mediapad T3', '7\" (Siva) 7\", Četiri jezgra, 1GB, WiFi NOVO', 100, 4, 3),
+(10, 5, 'andjela@gmail.com', 'ASUS LED', '18.5\" VS197DE HD Ready 18.5\", TN, 1366 x 768 HD ready, 5ms NOVO', 100, 2, 2),
+(11, 15, 'andjela@gmail.com', 'GIGATRON PRIME LIDER', 'A990 Ryzen 3 + AMD Ryzen 3, 8GB DDR4 2133 MHz, 240GB SSD, GeForce GTX 1050 Ti\r\nPolovno', 30000, 4, 1),
+(12, 21, 'jovan@gmail.com', 'HAVIT tastatura Multi-Media', '(Crna) - HV-KB327 SRB (YU), 104 tastera, 10 multimedijalna tastera AKCIJA!', 999, 4, 1),
+(13, 20, 'jovan@gmail.com', 'GENIUS žični miš', 'DX-110 PS/2 - 31010116106 Optički, 1000dpi, 3, Simetričan (pogodan za obe ruke) AKCIJA!', 599, 4, 1),
+(14, 9, 'jovan@gmail.com', 'AMD A4-5300 ', '3.4GHz 2-Core APU Box AMD® FM2, AMD® A-series APU, 2, 2 NOVO!', 4000, 4, 1),
+(15, 13, 'jovan@gmail.com', 'KINGSTON 4GB DDR3L ValueRAM', '1600MHz CL11 - KVR16LN11/4 DDR3, 4GB, 1600Mhz, 1.35V NOVO', 50, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -268,6 +289,8 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `dateofbirth`) VALUES
+('andjela@gmail.com', 'Andjela', 'Djurovic', 'andjela', 'Serbia', 'Priboj', 'LimskaBB', '0620620622', '1996-06-16'),
+('jovan@gmail.com', 'Jovan', 'Ivanovic', 'jovan', 'Serbia', 'Beograd', 'Vinodolska 5', '0620620622', '1997-04-05'),
 ('ljubisa@gmail.com', 'Ljubisa', 'Ivanovic', 'ljubisa', 'Srbija', 'Beograd', 'Vinodolska 5', '0645799061', '1993-08-18');
 
 --
@@ -372,7 +395,7 @@ ALTER TABLE `seller`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `currency`
@@ -420,7 +443,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
