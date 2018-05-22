@@ -6,10 +6,9 @@
                 <label for="image">
                     <input type="file" name="image" id="image" style="display:none;"/>
                     <img src="<?php echo base_url() . ($user->image != null ? $user->image : 'img/profile.png') ?>" style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
-                </label>
+                </label><br>
                 <button type="submit">Upload</button>
             </form>
-            <!-- div gde ce biti back ground slika, staviti label koji ce da gadja na file open -->
 
         </div>
         <div class="sellerright">

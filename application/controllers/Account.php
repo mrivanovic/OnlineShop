@@ -24,11 +24,20 @@ class Account extends CI_Controller {
         $this->load->view($glavnideo, $data);
         $this->load->view('sabloni/footer.php');
     }
-    public function index()
-{
-    $data['product'] = $this->ProductModel->all();
-    $this->loadView('index.php', $data);
-}
+    public function index($trazi = NULL) {
+        if ($trazi == NULL)
+            $proizvodi = $this->ProductModel->all();
+        else
+            $proizvodi = $this->ProductModel->pretraga($trazi);
+        $data['product'] = $proizvodi;
+        $this->loadView('index.php', $data);
+    }
+
+    public function pretraga() {
+
+        $trazi = $this->input->get('search');
+        $this->index($trazi);
+    }
 
     public function login(){
         $data['array']='';
