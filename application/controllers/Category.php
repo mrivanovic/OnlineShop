@@ -67,5 +67,8 @@ class Category extends CI_Controller
         }
     }
     
-    
+    public function productPage()
+    {
+        $this->loadView('productPage.php', []);
+    }
 }   

@@ -582,3 +582,68 @@ ul li ul.dropdown li{
     height: 100px;
     width: 100px;
 }
+#productDesc {
+    width: 85%;
+    height: 730px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 30px;
+}
+.productDescLeft {
+    width: calc(37%);
+    height: 730px;
+    border: 1px solid black;
+    float: left;
+}
+.productDescCenter {
+    width: calc(33%);
+    height: 730px;
+    border: 1px solid black;
+    float: left;
+}
+.productDescRight {
+    width: calc(30%);
+    height: 730px;
+    border: 1px solid black;
+    float: left;
+}
+#slideshow {
+    height: 450px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+    position: relative;
+}
+.imgslide {
+    height: 450px;
+    width: 650px;
+    position: absolute;
+}
+#leftHolder {
+    height: 450px;
+    width: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#rightHolder {
+    height: 450px;
+    width: 100px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.leftArrow {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 40%;
+    left: 0px;
+}
+.rightArrow {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 40%;
+    right: 0px;
+}
