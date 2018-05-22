@@ -36,7 +36,7 @@ class ProductModel extends CI_Model
         $result = $query->result_array();
 
         $return = array();
-
+    
         foreach ($result as $item) {
             $_image = $this->db->query("select * from images where main = 1 and products_id = {$item['id']}");
             $_category = $this->db->query("select * from category where id = {$item['category_id']}");
@@ -78,5 +78,20 @@ class ProductModel extends CI_Model
     {
         $this->db->where('id', $idProduct);
         $this->db->delete('products');
+    }
+    public function pretraga($naziv){
+
+        $this->db->like("name", $naziv);
+        $this->db->or_like("descriptions", $naziv);
+        $this->db->or_like("delivery_id", $naziv);
+        $this->db->or_like("price", $naziv);
+        $this->db->or_like("currency_id", $naziv);
+        $this->db->or_like("seller_mail", $naziv);
+        $this->db->from("products");
+        $this->db->select("name, descriptions, delivery_id, price, currency_id, seller_mail");
+
+        $query=$this->db->get();
+
+        return $query->result_array();
     }
 }
