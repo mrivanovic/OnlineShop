@@ -576,7 +576,7 @@ a {
     height: 450px;
     width: 100%;
     margin: auto;
-    border: 1px solid black;
+    border-bottom: 2px solid black;
     position: relative;
 }
       
@@ -608,7 +608,6 @@ a {
     top: 40%;
     right: 0px;
 }
-<<<<<<< HEAD
 #buyProfNav {
     height: 50px;
     width: 100%;
@@ -797,8 +796,6 @@ a {
 .nameProduct a:hover {
     color: #8793a5;
 }
-=======
 .productDescRight > button #message {
     border-radius: 3px;
-}
->>>>>>> bebaaabf6e4c54ea0c763e97811b14ce5e0980fe
+}s

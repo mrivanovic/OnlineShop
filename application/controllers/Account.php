@@ -339,8 +339,7 @@ class Account extends CI_Controller {
     public function productPage()
     {   
         $id = $this->input->get('id');
-        var_dump($id);
-        $this->ProductModel->productView($id);
-        $this->loadView('productPage.php', $id);
+        $data['product'] = $this->ProductModel->productView($id);
+        $this->loadView('productPage.php', $data);
     }
 }

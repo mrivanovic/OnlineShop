@@ -88,11 +88,35 @@ class ProductModel extends CI_Model
         $this->db->or_like("currency_id", $naziv);
         $this->db->or_like("seller_mail", $naziv);
         $this->db->from("products");
-        $this->db->select("name, descriptions, delivery_id, price, currency_id, seller_mail");
+        $this->db->select("*");
 
         $query=$this->db->get();
 
-        return $query->result_array();
+
+        $result = $query->result_array();
+
+        $return = array();
+
+        foreach ($result as $item) {
+            $_image = $this->db->query("select * from images where main = 1 and products_id = {$item['id']}");
+            $_category = $this->db->query("select * from category where id = {$item['category_id']}");
+            $_currency = $this->db->query("select * from currency where id = {$item['currency_id']}");
+            $_delivery = $this->db->query("select * from delivery where id = {$item['delivery_id']}");
+
+            $image = $_image->row();
+            $category = $_category->row();
+            $currency = $_currency->row();
+            $delivery = $_delivery->row();
+
+            $return[$item['id']] = array();
+            $return[$item['id']]['info'] = $item;
+            $return[$item['id']]['main_image'] = $image != null ? $image->path : 'img/img.png';
+            $return[$item['id']]['category'] = $category->ime;
+            $return[$item['id']]['currency'] = $currency->name;
+            $return[$item['id']]['delivery'] = $delivery->name;
+        }
+
+        return $return;
     }
     public function ProductBuyer()
     {
@@ -118,15 +142,36 @@ class ProductModel extends CI_Model
             $return[$item['id']]['category'] = $category->ime;
             $return[$item['id']]['currency'] = $currency->name;
             $return[$item['id']]['delivery'] = $delivery->name;
-            
         }
 
         return $return;
     }
     public function productView($id)
     {
-
         $query = $this->db->query("select * from products where id = '{$id}'");
-        return $query->row();
+        $item = $query->row_array();
+
+        $_images = $this->db->query("select * from images where products_id = {$item['id']}");
+        $_category = $this->db->query("select * from category where id = {$item['category_id']}");
+        $_currency = $this->db->query("select * from currency where id = {$item['currency_id']}");
+        $_delivery = $this->db->query("select * from delivery where id = {$item['delivery_id']}");
+        $_seller = $this->db->query("select * from seller where mail = '{$item['seller_mail']}'");
+
+        $images = $_images->result_array();
+        $category = $_category->row();
+        $currency = $_currency->row();
+        $delivery = $_delivery->row();
+        $seller = $_seller->row_array();
+
+        $return = [];
+
+        $return['info'] = $item;
+        $return['images'] = $images;
+        $return['category'] = $category->ime;
+        $return['currency'] = $currency->name;
+        $return['delivery'] = $delivery->name;
+        $return['seller'] = $seller;
+
+        return $return;
     }
 }

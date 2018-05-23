@@ -33,17 +33,17 @@ $(document).ready(function(){
         <table>
             <tr>
                 <th>Name:</th>
-                <td></td>
+                <td><?php echo $product['info']['name']; ?></td>
             </tr>
             <tr>
                 <th>Description:</th><br/>
-            <td></td>
+                <td><?php echo $product['info']['descriptions']; ?></td>
             </tr>
             <tr>
                 <th>Price:</th>
-                <td></td>
+                <td><?php echo $product['info']['price']; ?></td>
                 <th>Currency:</th>
-                <td></td>
+                <td><?php echo $product['currency']; ?></td>
             </tr>
             <tr>
                 <td><button id="like" style="width: 50px; height: 50px;"><i class="fa fa-heart fa-2x"></i></a></button></td>
@@ -54,7 +54,7 @@ $(document).ready(function(){
         <table>
             <tr>    
             <th>Name:</th>
-            <td></td>
+            <td><?php echo $product['seller']['name']; ?></td>
             </tr
             <tr>
                 <td><button id="message"><i class="fa fa-envelope"></i>&nbsp;Send message</button></td>
@@ -63,7 +63,7 @@ $(document).ready(function(){
                 <td><button id="phone">Click for seller's phone number</button></td>
             </tr>
             <tr>
-                <td><p style="display: none">064/1234567</p></td>
+                <td><p style="display: none"><?php echo $product['seller']['tel']; ?></p></td>
             </tr>
         </table>
     </div>
