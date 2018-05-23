@@ -614,11 +614,7 @@ ul li ul.dropdown li{
     border: 1px solid black;
     position: relative;
 }
-.imgslide {
-    height: 450px;
-    width: 650px;
-    position: absolute;
-}
+      
 #leftHolder {
     height: 450px;
     width: 100px;
@@ -646,4 +642,7 @@ ul li ul.dropdown li{
     position: absolute;
     top: 40%;
     right: 0px;
+}
+.productDescRight > button #message {
+    border-radius: 3px;
 }
