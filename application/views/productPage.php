@@ -26,17 +26,17 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td><input type="text"></td>
+                <td></td>
             </tr>
             <tr>
                 <th>Description:</th><br/>
-            <td><input type="text"></td>
+            <td></td>
             </tr>
             <tr>
                 <th>Price:</th>
-                <td><input type="text"></td>
+                <td></td>
                 <th>Currency:</th>
-                <td><input type="text"></td>
+                <td></td>
             </tr>
             <tr>
                 <td><i class="fa fa-heart"></i></td>
@@ -47,8 +47,8 @@
         <table>
             <tr>    
             <th>Name:</th>
-            <td><input type="text" id="SellerName"></td>
-            </tr>
+            <td></td>
+            </tr
             <tr>
                 <td><input type="button" id="messageToSeller" value="Send message"></i></td>
             </tr>

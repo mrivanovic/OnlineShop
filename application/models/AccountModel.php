@@ -61,16 +61,51 @@ class AccountModel extends CI_Model
         $this->db->where("mail",$idseller);
         $this->db->delete("seller");
     }
-    public function signUpB($data)
-    {
-        $this->db->insert('buyer', $data);
-    }
+
     public function saveImage($path)
     {
         $this->db->set('image',$path);
         $this->db->where('mail', $_SESSION['mail']);
         $this->db->update('seller');
     }
+/*******************************BUYER*******************************/
+    public function updateB($name, $lastname, $adress, $country, $tel, $city, $mailID) {
+        $this->db->set("name", $name);
+        $this->db->set("lastname",$lastname);
+        $this->db->set("adress", $adress);
+        $this->db->set("country",$country);
+        $this->db->set("tel",$tel);
+        $this->db->set("city",$city);
+        $this->db->where("mail", $mailID);
+        $this->db->update("buyer");
+    }
+    public function updatePassB($pass, $mailID)
+    {
+        $this->db->set('password',$pass);
+        $this->db->where('mail', $mailID);
+        $this->db->update('buyer');
+    }
+    public function deleteB($idseller)
+    {
+        $this->db->where("mail",$idseller);
+        $this->db->delete("buyer");
+    }
+    public function signUpB($data)
+    {
+        $this->db->insert('buyer', $data);
+    }
+    public function saveImageB($path)
+    {
+        $this->db->set('image',$path);
+        $this->db->where('mail', $_SESSION['mail']);
+        $this->db->update('buyer');
+    }
+    public function loggedInUserB()
+    {
+        $mail = $_SESSION['mail'];
+        $query = $this->db->query("SELECT * FROM `buyer` WHERE `mail` = '{$mail}'");
 
-    
+        return $query->result_object()[0];
+    }
+   
 }
