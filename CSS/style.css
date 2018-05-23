@@ -404,41 +404,6 @@ a {
 #Seller > .sellerright input {
     width: 200px;
 }
-/*ul{
-    padding: 0;
-    list-style: none;
-    background: #f2f2f2;
-}
-ul li{
-    display: inline-block;
-    position: relative;
-    line-height: 21px;
-    text-align: left;
-}
-ul li a{
-    display: block;
-    padding: 8px 25px;
-    color: #333;
-    text-decoration: none;
-}
-ul li a:hover{
-    color: #fff;
-    background: #939393;
-}
-ul li ul.dropdown{
-    min-width: 100%; /* Set width of the dropdown
-    background: #f2f2f2;
-    display: none;
-    position: absolute;
-    z-index: 999;
-    left: 0;
-}
-ul li:hover ul.dropdown{
-    display: block; /* Display the dropdown
-}
-ul li ul.dropdown li{
-    display: block;
-}*/
 .ADD {
     width: 100%;
     height: 100%;
@@ -614,11 +579,7 @@ ul li ul.dropdown li{
     border: 1px solid black;
     position: relative;
 }
-.imgslide {
-    height: 450px;
-    width: 650px;
-    position: absolute;
-}
+      
 #leftHolder {
     height: 450px;
     width: 100px;
@@ -647,3 +608,197 @@ ul li ul.dropdown li{
     top: 40%;
     right: 0px;
 }
+<<<<<<< HEAD
+#buyProfNav {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background-color: #c1c1c1;
+    overflow: hidden;
+    border: 1px solid grey;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+#buyProfNav > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 4);
+    border-right: 1px solid grey;
+}
+#buyProfNav > .center1 {
+    float: left;
+    height: 100%;
+    width: calc(100% / 4);
+    border-right: 1px solid grey;
+}
+#buyProfNav > .center2 {
+    float: left;
+    height: 100%;
+    width: calc(100% / 4);
+    border-right: 1px solid grey;
+}
+#buyProfNav > .right {
+    float: right;
+    height: 100%;
+    width: calc(100% / 4);
+}
+#buyProfNav > .left a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+#buyProfNav > .right a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+#buyProfNav > .center1 a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+#buyProfNav > .center2 a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+
+}
+#buyer {
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 100px;
+}
+#buyer > .buyerleft {
+    float: left;
+    height: 100%;
+    width: 30%;
+    padding-left: 200px;
+    padding-top: 50px;
+}
+#buyer > .buyerright {
+    float: right;
+    height: 100%;
+    width: 70%;
+    padding-top: 50px;
+    padding-left: 80px;
+}
+#buyer > .buyerright table {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 800px;
+}
+#buyer > .buyerright table th {
+    width: 200px;
+    padding-bottom: 10px;
+    text-align: center
+}
+#buyer > .buyerright table td {
+    width: 200px;
+    padding-bottom: 10px;
+}
+#buyer > .buyerright input {
+    width: 200px;
+}
+.buyerInbox {
+    width: 50%;
+    height: 80px;
+    text-align: center;
+    background-color: #e6e6e6;
+    overflow: hidden;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-top: 30px;
+    margin: auto;
+    box-shadow: 5px 10px #bfbfbf;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+.buyerInbox > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    border-right: 1px solid grey;
+    padding: 22px;
+    background-color: #b3b3b3;
+    border-radius: 3px;
+}
+.buyerInboxbuyerSent > .right {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    padding: 22px;
+}
+.buyerInboxbuyerSent > .left a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.buyerInboxbuyerSent > .right a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.buyerInboxbuyerSent a {
+    height: 100%;
+}
+.buyerSent {
+    width: 50%;
+    height: 80px;
+    text-align: center;
+    background-color: #e6e6e6;
+    overflow: hidden;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-top: 30px;
+    margin: auto;
+    box-shadow: 5px 10px #bfbfbf;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+.buyerSent > .left {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    border-right: 1px solid grey;
+    padding: 22px;
+}
+.buyerSent > .right {
+    float: left;
+    height: 100%;
+    width: calc(100% / 2);
+    padding: 22px;
+    background-color: #b3b3b3;
+    border-radius: 3px;
+}
+.buyerSent > .left a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.buyerSent > .right a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+.buyerSent a {
+    height: 100%;
+}
+.messageContent {
+    width: 50%;
+    margin: auto;
+    border: 1px solid black;
+    height: 650px;
+    margin-top: 15px;
+    border-radius: 7px;
+    box-shadow: 5px 10px #bfbfbf;
+}
+.nameProduct {
+    font-weight: bolder;
+}
+.nameProduct a:hover {
+    color: #8793a5;
+}
+=======
+.productDescRight > button #message {
+    border-radius: 3px;
+}
+>>>>>>> bebaaabf6e4c54ea0c763e97811b14ce5e0980fe

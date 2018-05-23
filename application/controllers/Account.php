@@ -67,7 +67,7 @@ class Account extends CI_Controller {
                     'type' => 'buyer');
 
                 $this->session->set_userdata($session_data);
-                redirect(base_url() . 'Account/index');
+                redirect(base_url() . 'Account/indexB');
             }
             else
             {
@@ -255,4 +255,92 @@ class Account extends CI_Controller {
         }
     }
 
+    public function buyerProfile()
+    {
+        $data['user'] = $this->AccountModel->loggedInUserB();
+        $this->loadView('buyerProfile.php', $data);
+    }
+    public function  buyerInbox()
+    {
+        $this->loadView('buyerInbox.php', []);
+    }
+    public function buyerSent()
+    {
+        $this->loadView('buyerSent.php', []);
+    }
+    public function favorite()
+    {
+        $this->loadView('buyerFavorite.php', []);
+    }
+    public function History()
+    {
+        $this->loadView('buyerHistory.php', []);
+    }
+    public function updateB()
+    {
+
+        $name = $this->input->post('name');
+        $lastname = $this->input->post('lastname');
+        $adress = $this->input->post('adress');
+        $country = $this->input->post('country');
+        $tel = $this->input->post('tel');
+        $city = $this->input->post('city');
+        $mailID = $this->input->post('mailID');
+        $this->AccountModel->update($name, $lastname, $adress, $country, $tel, $city, $mailID);
+        redirect('Account/buyerProfile');
+    }
+    public function updatePassB()
+    {
+        $pass = $this->input->post('pass');
+        $passC = $this->input->post('pass1');
+        $mailID = $this->input->post('mailID');
+        if ($pass == $passC) {
+            $this->AccountModel->updatePass($pass, $mailID);
+            redirect('Account/index');
+            $data['message1'] = 'Update is successiful!';
+        } else {
+            $data['message1'] = 'Password don\'t match';
+            redirect('Account/buyerProfiles');
+        }
+    }
+    public function deleteB()
+    {
+        $idbuyer = $this->input->post("idbuyer");
+        $this->AccountModel->delete($idbuyer);
+        redirect("Category/index");
+    }
+    public function setImageB()
+    {
+        $s = DIRECTORY_SEPARATOR; // Kosa crta za putanju koja se menja u zavisnosti od platforme: Windows \ Linux /
+
+        $file = $_FILES['image']; // Ovde uzimas sliku iz zahteva
+        $path = $file['tmp_name']; // Privremeno ime slike na serveru
+
+        $date = date_create();
+        $unixtime = date_timestamp_get($date); // Unikatni datum
+
+        $save_path = 'img'.$s.'uploads'.$s; // Putanja gde treba da se sacuva slika na serveru / folder
+        $filename = $unixtime.'_'.$file['name']; // Novi naziv slike sa unikatnim datumom
+        $base_path = __DIR__.$s.'..'.$s.'..'.$s; // Osnovna putanja do foldera img
+
+        $image_save = 'img/uploads/'.$filename; // Tekst koji se upisuje u bazu
+
+        copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
+
+        $this->AccountModel->saveImage($image_save); // Dodavanje slike u bazu / update korisnika
+
+        redirect('Account/buyerProfile');
+    }
+    public function indexB()
+    {
+        $data['products'] = $this->ProductModel->ProductBuyer();
+        $this->loadView('indexB.php', $data);
+    }
+    public function productPage()
+    {   
+        $id = $this->input->get('id');
+        var_dump($id);
+        $this->ProductModel->productView($id);
+        $this->loadView('productPage.php', $id);
+    }
 }
