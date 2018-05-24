@@ -38,7 +38,10 @@ class Category extends CI_Controller
     }
     public function insertProduct()
     {
+         echo '<pre>' . var_dump($this->input->get('image')) . '</pre>';
+        return;
         $data = array(
+
             'name' => $this->input->get('name'),
             'descriptions' => $this->input->get('desc'),
             'seller_mail' => $_SESSION['mail'],

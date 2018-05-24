@@ -548,35 +548,49 @@ a {
     width: 100px;
 }
 #productDesc {
-    width: 85%;
-    height: 730px;
-    border: 1px solid black;
-    margin: auto;
-    margin-top: 30px;
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
 }
 .productDescLeft {
-    width: calc(37%);
-    height: 730px;
-    border: 1px solid black;
+    width: 30%;
     float: left;
 }
 .productDescCenter {
-    width: calc(33%);
-    height: 730px;
-    border: 1px solid black;
+    width: 50%;
     float: left;
 }
+.productDescCenter table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.productDescCenter table th {
+    padding-bottom: 30px;
+    padding-right: 30px;
+    text-align: left;
+}
+.productDescCenter table td {
+    padding-bottom: 30px;
+    text-align: left;
+}
+ .price {
+    color: red;
+    font-size: 30px;
+     text-decoration: underline;
+}
 .productDescRight {
-    width: calc(30%);
-    height: 730px;
-    border: 1px solid black;
-    float: left;
+    width: 20%;
+    float: right;
+    padding-left: 50px;
+}
+.name {
+    font-size: 25px;
+    font-weight: 400;
 }
 #slideshow {
     height: 450px;
     width: 100%;
     margin: auto;
-    border-bottom: 2px solid black;
     position: relative;
 }
       
@@ -798,4 +812,12 @@ a {
 }
 .productDescRight > button #message {
     border-radius: 3px;
-}s
+}
+.text {
+    height: 150px;
+    width: 300px;
+    display: none;
+}
+.send {
+    display: none;
+}

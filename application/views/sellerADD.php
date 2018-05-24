@@ -1,15 +1,31 @@
 <?php $this->load->view( "sabloni/profile_menu"); ?>
 <div class="ADD">
-    <form name="Add" method="get" action="<?php echo base_url('Category/insertProduct');?>">
+    <form name="Add" method="get" action="<?php echo base_url('Category/insertProduct');?>" enctype="multipart/form-data">
         <table>
             <tr>
-                <td rowspan="2"><div class="img"></div></td>
-                <td<div class="img"></div></td>
-                <td><div class="img"></div></td>
+                <td rowspan="2"><label for="image">
+                    <input type="file" name="image[]" id="image" style="display:none;" multiple />
+                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/ ; ?>img/profile.png" style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
+                </label></td>
+                <td</td>
+                <td><label for="image1">
+                    <input type="file" name="image[]" id="image1" style="display:none;" multiple />
+                    <img src="<?php echo base_url()  /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                </label></td>
+                <td><label for="image2">
+                        <input type="file" name="image[]" id="image2" style="display:none;" multiple/>
+                        <img src="<?php echo base_url()  /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                    </label></td>
             </tr>
             <tr>
-                <td><div class="img"></div></td>
-                <td><div class="img"></div></td>
+                <td><label for="image3">
+                    <input type="file" name="image[]" id="image3" style="display:none;" multiple/>
+                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                </label></td>
+                <td><label for="image4">
+                    <input type="file" name="image[]" id="image4" style="display:none;" multiple/>
+                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                </label></td>
             </tr>
             <tr>
                 <th>Name:</th>

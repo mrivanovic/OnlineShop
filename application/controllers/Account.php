@@ -278,7 +278,6 @@ class Account extends CI_Controller {
     }
     public function updateB()
     {
-
         $name = $this->input->post('name');
         $lastname = $this->input->post('lastname');
         $adress = $this->input->post('adress');
@@ -296,7 +295,7 @@ class Account extends CI_Controller {
         $mailID = $this->input->post('mailID');
         if ($pass == $passC) {
             $this->AccountModel->updatePass($pass, $mailID);
-            redirect('Account/index');
+            redirect('Account/indexB');
             $data['message1'] = 'Update is successiful!';
         } else {
             $data['message1'] = 'Password don\'t match';

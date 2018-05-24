@@ -85,9 +85,9 @@ class AccountModel extends CI_Model
         $this->db->where('mail', $mailID);
         $this->db->update('buyer');
     }
-    public function deleteB($idseller)
+    public function deleteB($idbuyer)
     {
-        $this->db->where("mail",$idseller);
+        $this->db->where("mail",$idbuyer);
         $this->db->delete("buyer");
     }
     public function signUpB($data)
