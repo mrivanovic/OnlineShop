@@ -26,9 +26,70 @@ class ProductModel extends CI_Model
 
         return $result;
     }
+
+    private function uploadImage($image, $product_id)
+    {
+        $s = DIRECTORY_SEPARATOR; // Kosa crta za putanju koja se menja u zavisnosti od platforme: Windows \ Linux /
+
+        $path = $image['tmp_name']; // Privremeno ime slike na serveru
+
+        $date = date_create();
+        $unixtime = date_timestamp_get($date); // Unikatni datum
+
+        $save_path = 'img'.$s.'products'.$s; // Putanja gde treba da se sacuva slika na serveru / folder
+        $filename = $product_id.'_'.$unixtime.'_'.$image['name']; // Novi naziv slike sa unikatnim datumom i prefiksom koji je id proizvoda
+        $base_path = __DIR__.$s.'..'.$s.'..'.$s; // Osnovna putanja do foldera img
+
+        $image_save = 'img/products/'.$filename; // Tekst koji se upisuje u bazu
+
+        copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/products folder
+
+        return $image_save;
+    }
+
     public function addProduct($data)
     {
-        $this->db->insert('products', $data);
+        $toInsert = $data;
+        // kopiram niz $data u $toInsert da bih mogao da manipulisem nekim podatcima
+        // hocu da iz tog niza izbacim main_image i images jer to ne moze da se doda u products tabelu
+        // ali takodje zelim da ih sacuvam u data da bih mogao da ih dodam u tabelu images
+        unset($toInsert['main_image']);
+        unset($toInsert['image0']);
+        unset($toInsert['image1']);
+        unset($toInsert['image2']);
+        unset($toInsert['image3']);
+
+
+        // Dodajem proizvod u bazu
+        $product = $this->db->insert('products', $toInsert);
+
+        // Uzimam id do tog proizvoda da bih mogao da taj isti id ubacim u tabelu images
+        // da bih obelezio kom proizvodu pripada
+        $insert_id = $this->db->insert_id();
+
+        // Ovde dodajem main image, glavnu sliku tog proizvoda
+        $main_image = [
+            'name' => $data['main_image']['name'], // ovde uzimam ime od slike koju uploadujem
+            'mime-type' => mime_content_type($data['main_image']['tmp_name']), // ovde uzimam mime_type
+            'extension' => pathinfo($data['main_image']['name'], PATHINFO_EXTENSION), // ovde izvlacim ekstenziju iz imena slike
+            'main' => 1, // stavljamo 1 jer je ovo main slika sto dodajemo ovde
+            'path' => $this->uploadImage($data['main_image'], $insert_id),
+            'products_id' => $insert_id // stavljamo id od proizvoda
+        ];
+        $this->db->insert('images', $main_image);
+
+        // Ovde dodajem ostale slike koje nisu glavne koristeci foreach petlju
+        for($i = 0; $i < 4; $i++) {
+            $image = [
+                'name' => $data['image'.$i]['name'], // ovde uzimam ime od slike koju uploadujem
+                'mime-type' => mime_content_type($data['image'.$i]['tmp_name']), // ovde uzimam mime_type
+                'extension' => pathinfo($data['image'.$i]['name'], PATHINFO_EXTENSION), // ovde izvlacim ekstenziju iz imena slike
+                'main' => 0, // stavljamo 0 jer je ovo nije main slika sto dodajemo ovde
+                'path' => $this->uploadImage($data['image'.$i], $insert_id),
+                'products_id' => $insert_id // stavljamo id od proizvoda
+            ];
+            $this->db->insert('images', $image);
+        }
     }
     public function all()
     {

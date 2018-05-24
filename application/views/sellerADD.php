@@ -1,30 +1,30 @@
 <?php $this->load->view( "sabloni/profile_menu"); ?>
 <div class="ADD">
 
-    <form name="Add" method="get" action="<?php echo base_url('Category/insertProduct');?>" enctype="multipart/form-data">
+    <form name="Add" method="post" action="<?php echo base_url('Category/insertProduct');?>" enctype="multipart/form-data">
         <table>
             <tr>
                 <td rowspan="2"><label for="image" >
-                    <input id="image" type="file" name="image[]" class="image"  style="display:none; " multiple />
+                    <input id="image" type="file" name="main_image" class="image"  style="display:none; " />
                     <img id="img0" src="<?php echo base_url(); ?>img/profile.png"  style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td</td>
                 <td><label for="image1">
-                    <input id="image1" type="file" name="image[]" class="image" style="display:none;" multiple />
+                    <input id="image1" type="file" name="image0" class="image" style="display:none;" />
                     <img id="img1" src="<?php echo base_url()?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td><label for="image2">
-                        <input id="image2" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                        <input id="image2" type="file" name="image1" class="image" style="display:none;"/>
                         <img id="img2" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                     </label></td>
             </tr>
             <tr>
                 <td><label for="image3">
-                    <input id="image3" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                    <input id="image3" type="file" name="image2" class="image" style="display:none;"/>
                     <img id="img3" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td><label for="image4">
-                    <input id="image4" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                    <input id="image4" type="file" name="image3" class="image" style="display:none;"/>
                     <img id="img4" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
             </tr>

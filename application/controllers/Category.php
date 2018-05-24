@@ -39,15 +39,20 @@ class Category extends CI_Controller
     public function insertProduct()
     {
         $data = array(
-            'image' => $this->input->get('image[]'),
-            'name' => $this->input->get('name'),
-            'descriptions' => $this->input->get('desc'),
+            'image0' => $_FILES['image0'],
+            'image1' => $_FILES['image1'],
+            'image2' => $_FILES['image2'],
+            'image3' => $_FILES['image3'],
+            'main_image' => $_FILES['main_image'],
+            'name' => $this->input->post('name'),
+            'descriptions' => $this->input->post('desc'),
             'seller_mail' => $_SESSION['mail'],
-            'category_id' => $this->input->get('category'),
-            'Price' => $this->input->get('price'),
-            'Currency_id' => $this->input->get('currency'),
-            'Delivery_id' => $this->input->get('delivery'),
+            'category_id' => $this->input->post('category'),
+            'Price' => $this->input->post('price'),
+            'Currency_id' => $this->input->post('currency'),
+            'Delivery_id' => $this->input->post('delivery'),
         );
+
         $this->ProductModel->addProduct($data);
         redirect('Account/index');
     }
