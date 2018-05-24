@@ -1,30 +1,31 @@
 <?php $this->load->view( "sabloni/profile_menu"); ?>
 <div class="ADD">
+
     <form name="Add" method="get" action="<?php echo base_url('Category/insertProduct');?>" enctype="multipart/form-data">
         <table>
             <tr>
-                <td rowspan="2"><label for="image">
-                    <input type="file" name="image[]" id="image" style="display:none;" multiple />
-                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/ ; ?>img/profile.png" style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
+                <td rowspan="2"><label for="image" >
+                    <input id="image" type="file" name="image[]" class="image"  style="display:none; " multiple />
+                    <img id="img0" src="<?php echo base_url(); ?>img/profile.png"  style="height: 200px; width: 200px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td</td>
                 <td><label for="image1">
-                    <input type="file" name="image[]" id="image1" style="display:none;" multiple />
-                    <img src="<?php echo base_url()  /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                    <input id="image1" type="file" name="image[]" class="image" style="display:none;" multiple />
+                    <img id="img1" src="<?php echo base_url()?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td><label for="image2">
-                        <input type="file" name="image[]" id="image2" style="display:none;" multiple/>
-                        <img src="<?php echo base_url()  /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                        <input id="image2" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                        <img id="img2" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                     </label></td>
             </tr>
             <tr>
                 <td><label for="image3">
-                    <input type="file" name="image[]" id="image3" style="display:none;" multiple/>
-                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                    <input id="image3" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                    <img id="img3" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
                 <td><label for="image4">
-                    <input type="file" name="image[]" id="image4" style="display:none;" multiple/>
-                    <img src="<?php echo base_url() /*($user->image != null ? $user->image :*/; ?>img/profile.png" style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
+                    <input id="image4" type="file" name="image[]" class="image" style="display:none;" multiple/>
+                    <img id="img4" src="<?php echo base_url(); ?>img/profile.png"  style="height: 100px; width: 100px; border: 1px solid grey; padding: 5px;">
                 </label></td>
             </tr>
             <tr>
@@ -75,3 +76,19 @@
         </table>
     </form>
 </div>
+
+<script>
+       var allinput = document.querySelectorAll('.image');
+        allinput.forEach(function(input,i){
+            input.addEventListener('change', function (e) {
+               var image = e.target.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = e => {
+                    var src = e.target.result;
+                    document.getElementById('img' +i).src = src
+                };
+            })
+        })
+
+</script>
