@@ -531,6 +531,10 @@ a {
     padding-bottom: 50px;
     text-align: center;
 }
+.all_product img {
+    width: 200px;
+    height: 200px;
+}
 .adwertALL {
     float: left;
     width: calc(100% / 4);

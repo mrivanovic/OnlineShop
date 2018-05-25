@@ -78,7 +78,7 @@ class ProductModel extends CI_Model
         ];
         $this->db->insert('images', $main_image);
 
-        // Ovde dodajem ostale slike koje nisu glavne koristeci foreach petlju
+        // Ovde dodajem ostale slike koje nisu glavne koristeci for petlju
         for($i = 0; $i < 4; $i++) {
             $image = [
                 'name' => $data['image'.$i]['name'], // ovde uzimam ime od slike koju uploadujem

@@ -29,15 +29,17 @@ $(document).ready(function(){
 </script>
 <div id="productDesc">
     <div class="productDescLeft">
-<!--        <div id="slideshow">-->
-<!--            <img src="../img/laptop1.jpg" id="imgSlide" style="max-width: 100%; max-height: 100%; display:block; margin: 0 auto;"/>-->
-<!--            <div id="leftHolder"><img  onClick="slide(-1)" class="leftArrow" src="../img/arrow-left.png"/></div>-->
-<!--            <div id="rightHolder"><img onClick="slide(-1)" class="rightArrow" src="../img/arrow-right.png"/></div>-->
-<!--        </div>-->
-        <div>
+        <div id="slideshow">
             <?php foreach ($product['images'] as $image): ?>
-                <img src="<?php echo base_url().$image['path']; ?>" />
+                <img src="<?php echo base_url().$image['path']; ?>" id="imgSlide" style="max-width: 100%; max-height: 100%; display:block; margin: 0 auto;"/>
+            <div id="leftHolder"><img  onClick="slide(-1)" class="leftArrow" src="../img/arrow-left.png"/></div>
+            <div id="rightHolder"><img onClick="slide(-1)" class="rightArrow" src="../img/arrow-right.png"/></div>
             <?php endforeach; ?>
+        </div>
+        <div>
+<!--            --><?php //foreach ($product['images'] as $image): ?>
+<!--                <img src="--><?php //echo base_url().$image['path']; ?><!--" />-->
+<!--            --><?php //endforeach; ?>
         </div>
     </div>
     <div class="productDescCenter">
