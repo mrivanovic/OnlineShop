@@ -76,7 +76,6 @@
         </table>
     </form>
 </div>
-
 <script>
        var allinput = document.querySelectorAll('.image');
         allinput.forEach(function(input,i){

@@ -55,7 +55,7 @@
             </tr>
             <tr>
                 <th><?php echo form_label('Date of birth'); ?> </th>
-                <td><input type="text" name="ddate" id="ddate" value="<?php echo set_value('ddate'); ?>" size="50" /></td>
+                <td><input type="text" name="ddate" id="ddate" placeholder="yyyy-mm-dd" value="<?php echo set_value('ddate'); ?>" size="50" /></td>
                 <td><?php echo form_error('ddate'); ?></td>
             </tr>
             <tr>
