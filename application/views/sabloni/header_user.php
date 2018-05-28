@@ -16,7 +16,7 @@
     <div class="header_left2">
     </div>
     <div class="header_center">
-        <form name="search" method="get" action="<?php echo base_url("Category/search");?>">
+        <form name="search" method="get" action="<?php echo base_url("Account/pretraga");?>">
             <input class="input_search" type="text" name="search" /><button class="buttonS" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
         </form>
     </div>
