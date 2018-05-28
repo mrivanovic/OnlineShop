@@ -4,36 +4,32 @@
 
     var images = <?php echo json_encode($product['images']); ?>;
     var total = images.length;
-    var imagecount = 0;
-
-    console.log(total);
+    var imagecount = 1;
 
     function slide(x) {
+        var Image = document.getElementById("imgSlide");
         imagecount = imagecount + x;
-
         if (imagecount > total) {
-            imagecount = 0;
+            imagecount = 1;
         }
-        if (imagecount < 0) {
+        if (imagecount < 1) {
             imagecount = total;
         }
-
-        var Image = document.getElementById("imgSlide");
         Image.src = base_url + images[imagecount]['path'];
     }
 </script>
 <script>
-    $(document).ready(function(){
-        $("#phone").click(function(){
-            $("p").toggle();
-        });
+$(document).ready(function(){
+    $("#phone").click(function(){
+        $("p").toggle();
     });
+});
     $(document).ready(function() {
         $("#message").click(function() {
             $("textarea").toggle();
             $(".send").toggle();
-        });
-    });
+        })
+    })
 </script>
 <div id="productDesc">
     <div class="productDescLeft">
@@ -42,6 +38,7 @@
             <div id="leftHolder"><img  onClick="slide(1)" class="leftArrow" src="../img/arrow-left.png"/></div>
             <div id="rightHolder"><img onClick="slide(-1)" class="rightArrow" src="../img/arrow-right.png"/></div>
         </div>
+
     </div>
     <div class="productDescCenter">
         <table>
@@ -58,6 +55,7 @@
                 <th>Price:</th>
                 <td class="price"><span class="price"><?php echo $product['info']['price']; ?></span>&nbsp;<?php echo $product['currency']; ?></td>
             </tr>
+
         </table>
     </div>
     <div class="productDescRight">

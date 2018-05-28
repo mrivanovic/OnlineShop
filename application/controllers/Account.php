@@ -285,7 +285,7 @@ class Account extends CI_Controller {
         $tel = $this->input->post('tel');
         $city = $this->input->post('city');
         $mailID = $this->input->post('mailID');
-        $this->AccountModel->update($name, $lastname, $adress, $country, $tel, $city, $mailID);
+        $this->AccountModel->updateB($name, $lastname, $adress, $country, $tel, $city, $mailID);
         redirect('Account/buyerProfile');
     }
     public function updatePassB()
@@ -294,7 +294,7 @@ class Account extends CI_Controller {
         $passC = $this->input->post('pass1');
         $mailID = $this->input->post('mailID');
         if ($pass == $passC) {
-            $this->AccountModel->updatePass($pass, $mailID);
+            $this->AccountModel->updatePassB($pass, $mailID);
             redirect('Account/indexB');
             $data['message1'] = 'Update is successiful!';
         } else {
@@ -305,7 +305,7 @@ class Account extends CI_Controller {
     public function deleteB()
     {
         $idbuyer = $this->input->post("idbuyer");
-        $this->AccountModel->delete($idbuyer);
+        $this->AccountModel->deleteB($idbuyer);
         redirect("Category/index");
     }
     public function setImageB()
@@ -326,7 +326,7 @@ class Account extends CI_Controller {
 
         copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
 
-        $this->AccountModel->saveImage($image_save); // Dodavanje slike u bazu / update korisnika
+        $this->AccountModel->saveImageB($image_save); // Dodavanje slike u bazu / update korisnika
 
         redirect('Account/buyerProfile');
     }

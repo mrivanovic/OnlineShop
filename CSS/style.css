@@ -820,3 +820,67 @@ a {
 .send {
     display: none;
 }
+.dropmenu {
+     width: 400px;
+     display: none;
+     position: fixed;
+     left: 148px;
+     top: 60px;
+     z-index: 2;
+     background-color: #707070;
+     color: white;
+     text-align: center;
+     font-size: 20px;
+ }
+.dropmenu a {
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}
+.dropmenu a:hover {
+    background-color: #494949;
+}
+.dropequi {
+    width: 400px;
+    display: none;
+    position: fixed;
+    left: 548px;
+    top: 60px;
+    z-index: 2;
+    background-color: #707070;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.dropequi a {
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}
+.dropequi a:hover {
+    background-color: #494949;
+}
+.dropcomp {
+    width: 400px;
+    display: none;
+    position: fixed;
+    left: 548px;
+    top: 60px;
+    z-index: 2;
+    background-color: #707070;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+.dropcomp a {
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}
+.dropcomp a:hover {
+    background-color: #494949;
+}
+
