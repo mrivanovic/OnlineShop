@@ -1,10 +1,10 @@
 <div id="login">
     <div class="login_left">
-        <h1>Mesto za neki tekst</h1>
+        <h1>Place for some text</h1>
     </div>
     <div class="login_right">
-        <h2>Dobrodosli</h2>
-        <h3>Ulogujte se</h3>
+        <h2>Welcome</h2>
+        <h3>Log in</h3>
         <table>
             <form name="loginform" action="<?php echo base_url('Account/ulogujse'); ?>" method="POST">
                 <?php
@@ -22,11 +22,11 @@
                     <?php echo form_error("password", "<font color='red'>", "</font>"); ?>
                 </tr>
                 <tr>
-                    <td><button type="submit">LogIn</button> </td>
+                    <td><button type="submit">Log in</button> </td>
                     <?php
                     //echo $this->session->flashdata("error");
                     ?>
-                    <td><a href="#">Zaboravili ste lozinku?</a></td>
+                    <td><a href="#">Forgot Password?</a></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;"><a href="<?php echo base_url("Category/SignUp"); ?>">Sign UP</a></td>
