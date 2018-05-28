@@ -235,4 +235,17 @@ class ProductModel extends CI_Model
 
         return $return;
     }
+    
+    function favorite($id, $mail)
+    {
+        $this->db->insert('favorite', ['buyer_mail'=>$mail,'products_id'=>$id]);
+    }
+    function unfavorite($id, $mail)
+    {   
+        $this->db->delete('favorite', ['buyer_mail'=>$mail,'products_id'=>$id]);
+    }
+    function favoritesProductes($mail)
+    {
+        return $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id")->result();
+    }
 }

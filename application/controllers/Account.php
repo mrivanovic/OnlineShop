@@ -270,7 +270,8 @@ class Account extends CI_Controller {
     }
     public function favorite()
     {
-        $this->loadView('buyerFavorite.php', []);
+        $data['favorite']=$this->ProductModel->favoritesProductes($this->session->userdata('mail'));
+        $this->loadView('buyerFavorite.php', $data);
     }
     public function History()
     {
@@ -326,7 +327,7 @@ class Account extends CI_Controller {
 
         copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
 
-        $this->AccountModel->saveImage($image_save); // Dodavanje slike u bazu / update korisnika
+        $this->AccountModel->saveImageB($image_save); // Dodavanje slike u bazu / update korisnika
 
         redirect('Account/buyerProfile');
     }
@@ -340,5 +341,14 @@ class Account extends CI_Controller {
         $id = $this->input->get('id');
         $data['product'] = $this->ProductModel->productView($id);
         $this->loadView('productPage.php', $data);
+    }
+    
+    public function favoriteArticle(){
+        $id = $this->input->get('id');
+        $this->ProductModel->favorite($id, $this->session->userdata('mail'));
+    }
+    public function unfavoriteArticle(){
+        $id = $this->input->get('id');
+        $this->ProductModel->unfavorite($id, $this->session->userdata('mail'));
     }
 }
