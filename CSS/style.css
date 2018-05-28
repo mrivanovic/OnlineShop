@@ -814,7 +814,7 @@ a {
 }
 .text {
     height: 150px;
-    width: 300px;
+    width: 100%;
     display: none;
 }
 .send {
