@@ -1,10 +1,10 @@
 <div id="singupP">
     <div class="singupP_left">
-        <h1>Mesto za neki tekst</h1>
+        <h1>Place for some text</h1>
     </div>
     <div class="singupP_right">
-        <h2>Dobrodosli</h2>
-        <h3>Registrujte se</h3>
+        <h2>Welcome</h2>
+        <h3>Create an account</h3>
         <table>
             <?php echo form_open('Account/registerP', 'method=POST'); ?>
 
