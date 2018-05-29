@@ -1,6 +1,10 @@
 <div id="login">
     <div class="login_left">
-        <h1>Place for some text</h1>
+        <table>
+            <tr>
+                <td><img src="<?php echo base_url()?>img/deals6.jpg"</td>
+            </tr>
+        </table>
     </div>
     <div class="login_right">
         <h2>Welcome</h2>
