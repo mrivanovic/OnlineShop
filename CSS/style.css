@@ -86,6 +86,17 @@ html, body {
     width: 40%;
     padding: 50px;
 }
+#login > .login_left table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+#login > .login_left table img {
+    width: 500px;
+    height: 300px;
+
+}
 #login > .login_right {
     width: 60%;
     height: 100%;
@@ -124,7 +135,6 @@ a {
     height: 100%;
     width: 40%;
     float: left;
-    border-right: 1px solid black;
 }
 #login > .login_right {
     height: 100%;
@@ -271,7 +281,7 @@ a {
     margin: 100px;
 }
 #SignUp > .kupci {
-    width: 50%;
+    width: calc(100% / 2);
     height: 100%;
     float: left;
     font-size: 20px;
@@ -291,7 +301,7 @@ a {
     margin-right: 0;
 }
 #SignUp > .prodavci {
-    width: 50%;
+    width: calc(100% / 2);
     height: 100%;
     float: left;
     font-size: 20px;
@@ -525,7 +535,7 @@ a {
 }
 .all_product {
     float: left;
-    width: calc(100% / 4);
+    width: calc(100% / 3);
     height: 450px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -821,16 +831,17 @@ a {
     display: none;
 }
 .dropmenu {
-     width: 400px;
+     width: 300px;
      display: none;
      position: fixed;
-     left: 148px;
+     left: 0px;
      top: 60px;
      z-index: 2;
      background-color: #707070;
      color: white;
      text-align: center;
      font-size: 20px;
+     height: 500px;
  }
 .dropmenu a {
     color: white;
@@ -842,16 +853,17 @@ a {
     background-color: #494949;
 }
 .dropequi {
-    width: 400px;
+    width: 300px;
     display: none;
     position: fixed;
-    left: 548px;
+    left: 300px;
     top: 60px;
     z-index: 2;
     background-color: #707070;
     color: white;
     text-align: center;
     font-size: 20px;
+    height: 500px;
 }
 .dropequi a {
     color: white;
@@ -861,18 +873,21 @@ a {
 }
 .dropequi a:hover {
     background-color: #494949;
+    display: block;
 }
 .dropcomp {
-    width: 400px;
-    display: none;
+    width: 300px;
+    display:none;
     position: fixed;
-    left: 548px;
+    left: 300px;
     top: 60px;
     z-index: 2;
     background-color: #707070;
     color: white;
     text-align: center;
     font-size: 15px;
+    height: 500px;
+
 }
 .dropcomp a {
     color: white;
@@ -883,4 +898,21 @@ a {
 .dropcomp a:hover {
     background-color: #494949;
 }
-
+#message {
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-radius: 4px;
+}
+#message:hover {
+    border: 1px solid grey;
+}
+#phone {
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-radius: 4px;
+}
+#phone:hover {
+    border: 1px solid grey;
+}
