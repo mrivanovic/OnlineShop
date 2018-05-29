@@ -114,17 +114,17 @@ class Account extends CI_Controller {
     {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-        $this->form_validation->set_rules('dname', 'name', "required");
-        $this->form_validation->set_rules('dlastname', 'lastname', "required");
-        $this->form_validation->set_rules('demail', 'mail', "required");
-        $this->form_validation->set_rules('dpassword', 'password', "required");
+        $this->form_validation->set_rules('dname', 'name', 'required|max_length[20]|callback_test');
+        $this->form_validation->set_rules('dlastname', 'lastname', "required|max_length[25]|callback_testA");
+        $this->form_validation->set_rules('demail', 'mail', "required|callback_testB");
+        $this->form_validation->set_rules('dpassword', 'password', "required|callback_testC");
         $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
-        $this->form_validation->set_rules('dcountry', 'country', "required");
-        $this->form_validation->set_rules('dcity', 'city', "required");
-        $this->form_validation->set_rules('dadress', 'adress', "required");
+        $this->form_validation->set_rules('dcountry', 'country', "required|max_length[25]|callback_testD");
+        $this->form_validation->set_rules('dcity', 'city', "required|max_length[25]|callback_testE");
+        $this->form_validation->set_rules('dadress', 'adress', "required|max_length[25]|callback_testF");
         $this->form_validation->set_rules('dtel', 'tel', "required");
         $this->form_validation->set_rules('ddate', ' date', "required");
-        $this->form_validation->set_message("required", "Polje {field} je obavezno");//proveriti da li treba field da se upise
+        $this->form_validation->set_message("required", "{field} nije u ispravnom obliku!");//proveriti da li treba field da se upise
 
         if($this->form_validation->run() == FALSE) {
             $data['message'] = 'Error inserting user';
@@ -148,6 +148,69 @@ class Account extends CI_Controller {
                 $data['message'] = 'Password don\'t match';
                 $this->loadView('signUpP.php', $data);
             }
+        }
+    }
+    public function test($naziv){
+        if(preg_match("([A-Z][a-z]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('test', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testA($naziv){
+        if(preg_match("([A-Z][a-z]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testA', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testB($naziv){
+        if(preg_match("(([a-z]{4,}|\.[a-z]+|[0-9]+)@[a-z]+\.[a-z]{3})", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testB', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testC($naziv){
+        if(preg_match("([A-Z][a-z]{5,20}[0-9]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testC', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testD($naziv){
+        if(preg_match("([A-Z][a-z]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testD', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testE($naziv){
+        if(preg_match("([A-Z][a-z]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testE', '{field} nije u ispravnom obliku!');
+           return FALSE;
+        }
+    }
+    public function testF($naziv){
+        if(preg_match("(([A-Z]+[a-z]+|[A-Z]+[a-z]+\s[A-Z]+[a-z]+)\s[0-9]+)", $naziv))
+                return true;
+        else
+        {
+           $this->form_validation->set_message('testF', '{field} nije u ispravnom obliku!');
+           return FALSE;
         }
     }
 
@@ -218,17 +281,17 @@ class Account extends CI_Controller {
     {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-        $this->form_validation->set_rules('dname', 'name', "required");
-        $this->form_validation->set_rules('dlastname', 'lastname', "required");
-        $this->form_validation->set_rules('demail', 'mail', "required");
-        $this->form_validation->set_rules('dpassword', 'password', "required");
+        $this->form_validation->set_rules('dname', 'name', "required|preg_match([A-Z][a-z]+|max_length[20])");
+        $this->form_validation->set_rules('dlastname', 'lastname', "required|preg_match([A-Z][a-z]+|max_length[25])");
+        $this->form_validation->set_rules('demail', 'mail', "required|preg_match(([a-z]{4,}|\.[a-z]+|[0-9]+)@[a-z]+\.[a-z]{3})");
+        $this->form_validation->set_rules('dpassword', 'password', "required|preg_match(([A-Z]{5,}|[a-z]{5,1})[0-9]+)");
         $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
-        $this->form_validation->set_rules('dcountry', 'country', "required");
-        $this->form_validation->set_rules('dcity', 'city', "required");
-        $this->form_validation->set_rules('dadress', 'adress', "required");
+        $this->form_validation->set_rules('dcountry', 'country', "required|preg_match([A-Z][a-z]+|max_length[20])");
+        $this->form_validation->set_rules('dcity', 'city', "required|preg_match([A-Z][a-z]+|max_length[20])");
+        $this->form_validation->set_rules('dadress', 'adress', "required|preg_match(([A-Z]+[a-z]+|[A-Z]+[a-z]+\s[A-Z]+[a-z]+)\s[0-9]+|max_length[25])");
         $this->form_validation->set_rules('dtel', 'tel', "required");
         $this->form_validation->set_rules('ddate', ' date', "required");
-        $this->form_validation->set_message("required", "Polje {field} je obavezno");//proveriti da li treba field da se upise
+        $this->form_validation->set_message("required", "Field {field} is required!");//proveriti da li treba field da se upise
 
         if($this->form_validation->run() == FALSE) {
             $data['message'] = 'Error inserting user';
@@ -350,5 +413,9 @@ class Account extends CI_Controller {
     public function unfavoriteArticle(){
         $id = $this->input->get('id');
         $this->ProductModel->unfavorite($id, $this->session->userdata('mail'));
+    }
+    
+    public function dashboard(){
+        $articles= $this->articles->articles_list();
     }
 }
