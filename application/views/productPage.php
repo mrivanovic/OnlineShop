@@ -35,6 +35,11 @@
         });
     });
 </script>
+<script>
+    $("#favorite").click(function(){
+    $(this).find("i").removeClass("fa fa-heart fa-2x").addClass("fa fa-heart");
+});
+</script>
 <div id="productDesc">
     <div class="productDescLeft">
         <div id="slideshow">
