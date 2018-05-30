@@ -1,43 +1,51 @@
-    <?php
+<?php
 
-class Category extends CI_Controller
-{
-    public function __construct()
-    {
+class Category extends CI_Controller {
+
+    public function __construct() {
         parent:: __construct();
         $this->load->model("ProductModel");
         $this->load->library('session');
     }
-    public function loadView($glavnideo, $data)
-    {
+
+    public function loadView($glavnideo, $data) {
         $this->load->view('sabloni/header.php', $data);
         $this->load->view($glavnideo, $data);
         $this->load->view('sabloni/footer.php');
     }
-    public function index()
-    {
-        $data['product'] = $this->ProductModel->all();
+
+    public function index() {
+        $this->load->library('pagination');
+        $this->config->load('bootstrap_pagination');
+        $config=$this->config->item('pagination');
+        $config += [
+            'base_url' => base_url('Category/index'),
+            'per_page' => 5,
+            
+            'total_rows' => $this->ProductModel->num_rows(),
+        ];
+        $this->pagination->initialize($config);
+        
+        $data['product'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
         $this->loadView('index.php', $data);
-        //$this->load->view('index');
     }
-    public function login()
-    {
+    public function login() {
         $this->loadView('login.php', []);
     }
-    public function signUp()
-    {
+
+    public function signUp() {
         $this->loadView('signUp.php', []);
     }
-    public function signUpP()
-    {
+
+    public function signUpP() {
         $this->loadView('signUpP.php', []);
     }
-    public function signUpK()
-    {
+
+    public function signUpK() {
         $this->loadView('signUpK.php', []);
     }
-    public function insertProduct()
-    {
+
+    public function insertProduct() {
         $data = array(
             'image0' => $_FILES['image0'],
             'image1' => $_FILES['image1'],
@@ -56,22 +64,21 @@ class Category extends CI_Controller
         $this->ProductModel->addProduct($data);
         redirect('Account/index');
     }
-    public function adwertUpdate()
-    {   if(isset($_POST['update'])) {
-        $mail = $_SESSION['mail'];
-        $idProduct = $this->input->post('id');
-        $name = $this->input->post('name');
-        $desc = $this->input->post('desc');
-        $price = $this->input->post('price');
-        $this->ProductModel->adwertUpdate($idProduct, $name, $desc, $price, $mail);
-        redirect('Account/advertView+');
-        
-    } else if(isset($_POST['delete'])) {
-        $idProduct = $this->input->post('id');
-        $this->ProductModel->delete($idProduct);
-        redirect('Account/advertView');
+
+    public function adwertUpdate() {
+        if (isset($_POST['update'])) {
+            $mail = $_SESSION['mail'];
+            $idProduct = $this->input->post('id');
+            $name = $this->input->post('name');
+            $desc = $this->input->post('desc');
+            $price = $this->input->post('price');
+            $this->ProductModel->adwertUpdate($idProduct, $name, $desc, $price, $mail);
+            redirect('Account/advertView+');
+        } else if (isset($_POST['delete'])) {
+            $idProduct = $this->input->post('id');
+            $this->ProductModel->delete($idProduct);
+            redirect('Account/advertView');
         }
     }
-    
-    
-}   
+
+}

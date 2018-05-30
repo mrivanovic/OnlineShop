@@ -91,10 +91,15 @@ class ProductModel extends CI_Model
             $this->db->insert('images', $image);
         }
     }
-    public function all()
+    public function all($limit, $offset)
     {
-        $query = $this->db->query("select * from products;");
-        $result = $query->result_array();
+        $query = $this->db
+                            ->select('*')
+                            ->from('products')
+                            ->limit($limit, $offset)
+                            ->get();
+        
+        $result= $query->result_array();
 
         $return = array();
     
@@ -118,6 +123,39 @@ class ProductModel extends CI_Model
         }
 
         return $return;
+    }
+     public function num_rows()
+    {
+        $query = $this->db
+                            ->select('*')
+                            ->from('products')
+                            ->limit('$limit, $offset')
+                            ->get();
+        
+        return $query->num_rows();
+        
+       
+    
+        foreach ($result as $item) {
+            $_image = $this->db->query("select * from images where main = 1 and products_id = {$item['id']}");
+            $_category = $this->db->query("select * from category where id = {$item['category_id']}");
+            $_currency = $this->db->query("select * from currency where id = {$item['currency_id']}");
+            $_delivery = $this->db->query("select * from delivery where id = {$item['delivery_id']}");
+            
+            $image = $_image->row();
+            $category = $_category->row();
+            $currency = $_currency->row();
+            $delivery = $_delivery->row();
+
+            $return[$item['id']] = array();
+            $return[$item['id']]['info'] = $item;
+            $return[$item['id']]['main_image'] = $image != null ? $image->path : 'img/img.png';
+            $return[$item['id']]['category'] = $category->ime;
+            $return[$item['id']]['currency'] = $currency->name;
+            $return[$item['id']]['delivery'] = $delivery->name;
+        }
+
+        return $query->num_rows() ;
     }
     public function adwertAll($mail)
     {
@@ -248,4 +286,5 @@ class ProductModel extends CI_Model
     {
         return $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id")->result();
     }
+    
 }
