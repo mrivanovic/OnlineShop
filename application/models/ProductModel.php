@@ -91,10 +91,15 @@ class ProductModel extends CI_Model
             $this->db->insert('images', $image);
         }
     }
-    public function all()
+    public function all($limit, $offset)
     {
-        $query = $this->db->query("select * from products;");
-        $result = $query->result_array();
+        $query = $this->db
+                            ->select('*')
+                            ->from('products')
+                            ->limit($limit, $offset)
+                            ->get();
+        
+        $result= $query->result_array();
 
         $return = array();
     
@@ -119,6 +124,15 @@ class ProductModel extends CI_Model
 
         return $return;
     }
+     public function num_rows()
+    {
+        $query = $this->db
+                            ->select('*')
+                            ->from('products')
+                            ->get();
+        
+        return $query->num_rows();
+    }
     public function adwertAll($mail)
     {
         $query = $this->db->query("select * from products where seller_mail = '{$mail}';");
@@ -140,7 +154,22 @@ class ProductModel extends CI_Model
         $this->db->where('id', $idProduct);
         $this->db->delete('products');
     }
-    public function pretraga($naziv){
+    
+    public function num_rows_pretraga($naziv)
+    {
+                $query = $this->db
+                            ->select('*')
+                            ->from('products')
+                        ->or_like("descriptions", $naziv)
+        ->or_like("delivery_id", $naziv)
+        ->or_like("price", $naziv)
+        ->or_like("currency_id", $naziv)
+       ->or_like("seller_mail", $naziv)
+                        ->get();
+       
+        return $query->num_rows();
+    }
+    public function pretraga($naziv,$limit, $offset){
 
         $this->db->like("name", $naziv);
         $this->db->or_like("descriptions", $naziv);
@@ -149,6 +178,7 @@ class ProductModel extends CI_Model
         $this->db->or_like("currency_id", $naziv);
         $this->db->or_like("seller_mail", $naziv);
         $this->db->from("products");
+        $this->db->limit($limit, $offset);
         $this->db->select("*");
 
         $query=$this->db->get();
@@ -248,6 +278,7 @@ class ProductModel extends CI_Model
     {
         return $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id")->result();
     }
+<<<<<<< HEAD
     public function GetProductsFromCategory($id)
     {
         $query = $this->db->query("select * from products where category_id = '{$id}';");
@@ -276,4 +307,7 @@ class ProductModel extends CI_Model
 
         return $return;
     }
+=======
+    
+>>>>>>> adae4a53d39c1b4e46706b83e4c8243cb9e755e8
 }

@@ -57,3 +57,6 @@
      </form>
 </div>
 <?php endforeach; ?>
+<div style="clear: both;">
+<?php echo $this->pagination->create_links();?>
+</div>

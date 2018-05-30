@@ -916,6 +916,7 @@ a {
 #phone:hover {
     border: 1px solid grey;
 }
+
 .buyButton {
     border: none;
     width: 140px;
@@ -928,3 +929,4 @@ a {
 .buyButton:hover {
     border: 1px solid grey;
 }
+
