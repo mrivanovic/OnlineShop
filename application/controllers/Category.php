@@ -80,7 +80,6 @@ class Category extends CI_Controller {
             redirect('Account/advertView');
         }
     }
-<<<<<<< HEAD
     public function menu() 
     {
         $id = $this->input->get('id');

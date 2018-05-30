@@ -278,7 +278,6 @@ class ProductModel extends CI_Model
     {
         return $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id")->result();
     }
-<<<<<<< HEAD
     public function GetProductsFromCategory($id)
     {
         $query = $this->db->query("select * from products where category_id = '{$id}';");
@@ -307,7 +306,4 @@ class ProductModel extends CI_Model
 
         return $return;
     }
-=======
-    
->>>>>>> adae4a53d39c1b4e46706b83e4c8243cb9e755e8
 }
