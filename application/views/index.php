@@ -16,11 +16,11 @@
      });
 </script>
 <div class="dropmenu">
-     <a href="<?php echo base_url('Category/Menu');?>">Laptops</a>
-     <a href="<?php echo base_url('Category/Menu');?>">Desktops</a>
-     <a href="<?php echo base_url('Category/Menu');?>">Tablets</a>
-     <a href="<?php echo base_url('Category/Menu');?>">Mobile phones</a>
-     <a href="<?php echo base_url('Category/Menu');?>">Monitors</a>
+     <a href="<?php echo base_url('Category/Menu');?>?id=1">Laptops</a>
+     <a href="<?php echo base_url('Category/Menu');?>?id=2">Desktops</a>
+     <a href="<?php echo base_url('Category/Menu');?>?id=3">Tablets</a>
+     <a href="<?php echo base_url('Category/Menu');?>?id=4">Mobile phones</a>
+     <a href="<?php echo base_url('Category/Menu');?>?id=5">Monitors</a>
      <a class="equi">Equipments &nbsp;<i class="fa fa-caret-right"></i></a>
      <a class="comp">Components &nbsp;<i class="fa fa-caret-right"></i></a>
 </div>

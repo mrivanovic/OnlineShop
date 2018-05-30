@@ -72,7 +72,11 @@ class Category extends CI_Controller
         redirect('Account/advertView');
         }
     }
-    public function menu() {
+    public function menu() 
+    {
+        $id = $this->input->get('id');
+        $data['product'] = $this->ProductModel->GetProductsFromCategory($id);
+        $this->loadView('index.php', $data);
         
     }
     
