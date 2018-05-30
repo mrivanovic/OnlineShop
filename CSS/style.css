@@ -916,3 +916,15 @@ a {
 #phone:hover {
     border: 1px solid grey;
 }
+.buyButton {
+    border: none;
+    width: 140px;
+    height: 30px;
+    border-radius: 4px;
+    color: green;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.buyButton:hover {
+    border: 1px solid grey;
+}

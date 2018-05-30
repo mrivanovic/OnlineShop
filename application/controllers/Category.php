@@ -72,6 +72,8 @@ class Category extends CI_Controller
         redirect('Account/advertView');
         }
     }
-    
+    public function menu() {
+        
+    }
     
 }   

@@ -16,33 +16,33 @@
     });
 </script>
 <div class="dropmenu">
-    <a href="">Laptops</a>
-    <a href="">Desktops</a>
-    <a href="">Tablets</a>
-    <a href="">Mobile phones</a>
-    <a href="">Monitors</a>
+    <a href="<?php echo base_url('Category/Menu');?>">Laptops</a>
+    <a href="<?php echo base_url('Category/Menu');?>">Desktops</a>
+    <a href="<?php echo base_url('Category/Menu');?>">Tablets</a>
+    <a href="<?php echo base_url('Category/Menu');?>">Mobile phones</a>
+    <a href="<?php echo base_url('Category/Menu');?>">Monitors</a>
     <a class="equi">Equipments &nbsp;<i class="fa fa-caret-right"></i></a>
     <a class="comp">Components &nbsp;<i class="fa fa-caret-right"></i></a>
 </div>
 <div class="dropequi">
-    <a href="">Mouses</a>
-    <a href="">Keyboards</a>
-    <a href="">Speakers</a>
-    <a href="">Gaming</a>
-    <a href="">Webcams</a>
-    <a href="">Microphones</a>
-    <a href="">Printers</a>
+    <a class="equi" href="">Mouses</a>
+    <a class="equi" href="">Keyboards</a>
+    <a class="equi" href="">Speakers</a>
+    <a class="equi" href="">Gaming</a>
+    <a class="equi" href="">Webcams</a>
+    <a class="equi" href="">Microphones</a>
+    <a class="equi" href="">Printers</a>
 </div>
 <div class="dropcomp">
-    <a href="">Processors</a>
-    <a href="">Motherboards</a>
-    <a href="">Grapich cards</a>
-    <a href="">Hard drives</a>
-    <a href="">SSD</a>
-    <a href="">Power suplys</a>
-    <a href="">Cabinets</a>
-    <a href="">Controllers</a>
-    <a href="">Sound Cards</a>
+    <a class="comp" href="">Processors</a>
+    <a class="comp"href="">Motherboards</a>
+    <a class="comp" href="">Grapich cards</a>
+    <a class="comp" href="">Hard drives</a>
+    <a class="comp" href="">SSD</a>
+    <a class="comp" href="">Power suplys</a>
+    <a class="comp" href="">Cabinets</a>
+    <a class="comp" href="">Controllers</a>
+    <a class="comp" href="">Sound Cards</a>
 </div>
 <?php foreach ($products as $element):?>
     <div class="all_product">

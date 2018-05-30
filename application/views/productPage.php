@@ -44,6 +44,7 @@
         </div>
     </div>
     <div class="productDescCenter">
+        <form name="product" method="post" action="">
         <table>
             <tr>
                 <th>Name:</th>
@@ -57,8 +58,10 @@
             <tr>
                 <th>Price:</th>
                 <td class="price"><span class="price"><?php echo $product['info']['price']; ?></span>&nbsp;<?php echo $product['currency']; ?></td>
+                <td><button class="buyButton" type="submit">Buy Now</button> </td>
             </tr>
         </table>
+        </form>
     </div>
     <div class="productDescRight">
         <button id="message"><i class="fa fa-envelope"></i>&nbsp;Send message</button><br>
