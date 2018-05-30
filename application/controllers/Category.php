@@ -81,4 +81,8 @@ class Category extends CI_Controller {
         }
     }
 
-}
+    public function menu() {
+        
+    }
+    
+}   
