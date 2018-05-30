@@ -9,7 +9,7 @@
 <body>
 <div id="header">
     <div class="header_left">
-        <a href="<?php echo base_url("Account/indexB"); ?>"> <img src="<?php echo base_url(); ?>img/logo1.png" style=""></a>
+        <a href="<?php echo base_url("Account/indexB"); ?>"> <img src="<?php echo base_url(); ?>img/logologo.png" style=""></a>
         <button class="menu"><i class="fa fa-align-justify"></i></button>
     </div>
 
