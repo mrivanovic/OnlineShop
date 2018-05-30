@@ -23,17 +23,37 @@ class Account extends CI_Controller {
         $this->load->view($glavnideo, $data);
         $this->load->view('sabloni/footer.php');
     }
-    public function index($trazi = NULL) {
-        if ($trazi == NULL)
-            $proizvodi = $this->ProductModel->all();
+    public function index() {
+        $trazi = $this->input->get('search');
+        $this->load->library('pagination');
+        $this->config->load('bootstrap_pagination');
+        $config=$this->config->item('pagination');
+        if($trazi==NULL)
+            $ukupno=$this->ProductModel->num_rows();
         else
-            $proizvodi = $this->ProductModel->pretraga($trazi);
-        $data['product'] = $proizvodi;
+            $ukupno=$this->ProductModel->num_rows_pretraga($trazi);
+
+        $config += [
+            'base_url' => base_url('Account/index'),
+            'per_page' => 5,
+            
+            'total_rows' => $ukupno
+        ];
+         if($trazi!=NULL){
+            if (count($_GET) > 0) $config['suffix'] = '?search='.$trazi;
+            $config['first_url'] = $config['base_url'].'?search='.$trazi;
+        }
+        $this->pagination->initialize($config);
+        
+         if ($trazi == NULL)
+             $data['product']  = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
+        else
+             $data['product']  = $this->ProductModel->pretraga($trazi, $config['per_page'], $this->uri->segment(3)); //to do
         $this->loadView('index.php', $data);
     }
 
     public function pretraga() {
-
+        
         $trazi = $this->input->get('search');
         $this->index($trazi);
     }
