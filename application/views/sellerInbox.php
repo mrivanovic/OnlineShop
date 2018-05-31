@@ -8,6 +8,12 @@
         </div>
     </div>
     <div class="messageContent">
-
+        <?php foreach ($inboxS as $element):?>
+            <div class="sellerInbox">
+                <?php echo $element['sender_mail'];?><br>
+                <hr>
+                <?php echo $element['message'];?><&nbsp;<?php echo $element['timestamp'];?>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
