@@ -65,10 +65,12 @@
     </div>
     <div class="productDescRight">
         <button id="message"><i class="fa fa-envelope"></i>&nbsp;Send message</button><br>
-        <form action="<?php echo base_url("Account/send")?>" method="post">
-            <textarea style="" class="text"></textarea><br><button class="send" type="submit">SEND</button><br>
+        <form name="message" action="<?php echo base_url("Account/message")?>" method="post">
+            <textarea name="text" style="" class="text"></textarea><br><button class="send" type="submit">SEND</button><br>
+            <?php echo $product['seller']['mail']; ?><br>
         </form>
         <span class="name"><?php echo $product['seller']['name']; ?></span><br>
+
         <?php echo $product['seller']['city'];?><br><br>
 
         <button id="phone"><i class="fa fa-phone"></i> Click for seller's phone number</button>
