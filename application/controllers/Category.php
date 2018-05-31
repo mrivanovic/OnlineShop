@@ -1,3 +1,4 @@
+
 <?php
 
 class Category extends CI_Controller {
@@ -17,18 +18,18 @@ class Category extends CI_Controller {
     public function index() {
         $this->load->library('pagination');
         $this->config->load('bootstrap_pagination');
-        $config=$this->config->item('pagination');
+        $config = $this->config->item('pagination');
         $config += [
             'base_url' => base_url('Category/index'),
             'per_page' => 5,
-            
             'total_rows' => $this->ProductModel->num_rows(),
         ];
         $this->pagination->initialize($config);
-        
+
         $data['product'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
         $this->loadView('index.php', $data);
     }
+
     public function login() {
         $this->loadView('login.php', []);
     }
@@ -80,12 +81,20 @@ class Category extends CI_Controller {
             redirect('Account/advertView');
         }
     }
-    public function menu() 
-    {
+
+    public function menu() {
+        $this->load->library('pagination');
+        $this->config->load('bootstrap_pagination');
+        $config = $this->config->item('pagination');
+        $config += [
+            'base_url' => base_url('Category/index'),
+            'per_page' => 5,
+            'total_rows' => $this->ProductModel->num_rows(),
+        ];
+        $this->pagination->initialize($config);
         $id = $this->input->get('id');
-        $data['product'] = $this->ProductModel->GetProductsFromCategory($id);
+        $data['product'] = $this->ProductModel->GetProductsFromCategory($id, $config['per_page'], $this->uri->segment(3));
         $this->loadView('index.php', $data);
-        
     }
-    
-}   
+
+}
