@@ -96,9 +96,4 @@ class Category extends CI_Controller {
         $data['product'] = $this->ProductModel->GetProductsFromCategory($id, $config['per_page'], $this->uri->segment(3));
         $this->loadView('index.php', $data);
     }
-<<<<<<< HEAD
-
 }
-=======
-}   
->>>>>>> 7919029ab6144f80d0e9709a830f0c1da675ae59
