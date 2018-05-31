@@ -85,7 +85,5 @@ class Category extends CI_Controller {
         $id = $this->input->get('id');
         $data['product'] = $this->ProductModel->GetProductsFromCategory($id);
         $this->loadView('index.php', $data);
-        
     }
-    
 }   

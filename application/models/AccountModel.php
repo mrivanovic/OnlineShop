@@ -107,5 +107,30 @@ class AccountModel extends CI_Model
 
         return $query->result_object()[0];
     }
-   
+   public function messages($text,$id)
+   {
+       $mail = $_SESSION['mail'];
+       $query = $this->db->query("select * from products where id = '{$id}'");
+       $item = $query->row_array();
+
+
+       $_seller = $this->db->query("select * from seller where mail = '{$item['seller_mail']}'");
+
+
+       $seller = $_seller->row_array();
+
+       $return = [];
+
+       $return['info'] = $item;
+     
+       $return['seller'] = $seller;
+
+       var_dump($seller);
+       $this->db->set('receiver_mail', $seller);
+       $this->db->set('receiver_type', 0);
+       $this->db->set('sender_mail', $mail);
+       $this->db->set('sender_type', 0);
+       $this->db->set('message', $text);
+       $this->db->insert('messages');
+   }
 }
