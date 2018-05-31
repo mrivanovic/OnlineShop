@@ -25,24 +25,25 @@
      <a class="comp">Components &nbsp;<i class="fa fa-caret-right"></i></a>
 </div>
 <div class="dropequi">
-     <a class="equi" href="">Mouses</a>
-     <a class="equi" href="">Keyboards</a>
-     <a class="equi" href="">Speakers</a>
-     <a class="equi" href="">Gaming</a>
-     <a class="equi" href="">Webcams</a>
-     <a class="equi" href="">Microphones</a>
-     <a  class="equi" href="">Printers</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=20">Mouses</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=21">Keyboards</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=22">Speakers</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=23">Gaming</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=24">Webcams</a>
+     <a class="equi" href="<?php echo base_url('Category/Menu');?>?id=25">Microphones</a>
+     <a  class="equi" href="<?php echo base_url('Category/Menu');?>?id=28">Printers</a>
 </div>
 <div class="dropcomp">
-     <a class="comp" href="">Processors</a>
-     <a class="comp" href="">Motherboards</a>
-     <a class="comp" href="">Grapich cards</a>
-     <a class="comp" href="">Hard drives</a>
-     <a class="comp" href="">SSD</a>
-     <a class="comp" href="">Power suplys</a>
-     <a class="comp" href="">Cabinets</a>
-     <a class="comp" href="">Controllers</a>
-     <a class="comp" href="">Sound Cards</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=9">Processors</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=10">Motherboards</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=11">Grapich cards</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=12">Hard drives</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=13">SSD</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=14">Power suplys</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=15">Cabinets</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=16">Controllers</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=18">Sound Cards</a>
+     <a class="comp" href="<?php echo base_url('Category/Menu');?>?id=19">Coolers</a>
 </div>
 <?php foreach ($product as $element):?>
 <div class="all_product">
