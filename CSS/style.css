@@ -118,6 +118,8 @@ a {
     width: 100%;
     bottom: 0;
     overflow-y: auto;
+    left: 0;
+    right: 0;
 }
 #content h2 {
     padding: 0;
@@ -278,13 +280,14 @@ a {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    margin: 100px;
 }
 #SignUp > .kupci {
     width: calc(100% / 2);
     height: 100%;
     float: left;
     font-size: 20px;
+    text-align: center;
+    padding: 150px;
 }
 #SignUp > .kupci button {
     border: none;
@@ -305,6 +308,8 @@ a {
     height: 100%;
     float: left;
     font-size: 20px;
+    text-align: center;
+    padding: 150px;
 }
 #SignUp > .prodavci table {
     margin-left: 0;
@@ -928,5 +933,15 @@ a {
 }
 .buyButton:hover {
     border: 1px solid grey;
+}
+.shakingHands {
+    width: 100%;
+    height: 250px;
+    margin-top: 40px;
+}
+.shake {
+    padding-left: 16%;
+    padding-right: 16%;
+    min-width: 75%;
 }
 
