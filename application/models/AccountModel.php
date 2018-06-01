@@ -112,7 +112,6 @@ class AccountModel extends CI_Model
        $mail = $_SESSION['mail'];
 
        $this->db->set('receiver_mail', $mailR);
-       var_dump($mailR);
        $this->db->set('receiver_type', 'seller');
        $this->db->set('sender_mail', $mail);
        $this->db->set('sender_type', 'buyer');
