@@ -35,7 +35,7 @@ class Account extends CI_Controller {
 
         $config += [
             'base_url' => base_url('Account/index'),
-            'per_page' => 5,
+            'per_page' => 6,
             
             'total_rows' => $ukupno
         ];
@@ -507,6 +507,7 @@ class Account extends CI_Controller {
     public function messageSeller()
     {
         $data['inboxS'] = $this->AccountModel->sellerInbox();
+        var_dump($data);
         $this->loadView('sellerInbox.php', $data);
     }
 }
