@@ -751,13 +751,13 @@ a {
     background-color: #b3b3b3;
     border-radius: 3px;
 }
-.buyerInboxbuyerSent > .right {
+.buyerInbox > .right {
     float: left;
     height: 100%;
     width: calc(100% / 2);
     padding: 22px;
 }
-.buyerInboxbuyerSent > .left a:hover {
+/*.buyerInboxbuyerSent > .left a:hover {
     background-color: #8e8e8e;
     border-radius: 4px;
 }
@@ -767,7 +767,7 @@ a {
 }
 .buyerInboxbuyerSent a {
     height: 100%;
-}
+}*/
 .buyerSent {
     width: 50%;
     height: 80px;
