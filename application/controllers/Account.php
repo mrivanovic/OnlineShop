@@ -279,7 +279,8 @@ class Account extends CI_Controller {
     }
     public function sellerSent()
     {
-        $this->loadView('sellerSent.php', []);
+        $data['sentS'] = $this->AccountModel->sellerSent();
+        $this->loadView('sellerSent.php', $data);
     }
     public function advertView()
     {
@@ -395,7 +396,8 @@ class Account extends CI_Controller {
     }
     public function buyerSent()
     {
-        $this->loadView('buyerSent.php', []);
+        $data['buyerS'] = $this->AccountModel->buyerSent();
+        $this->loadView('buyerSent.php', $data);
     }
     public function favorite()
     {

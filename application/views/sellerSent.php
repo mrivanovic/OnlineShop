@@ -8,14 +8,12 @@
     </div>
 </div>
 <div class="messageContent">
-    <div class="sellerSentMsg">
-
-        <th><b>From:</b></th>
-        sender mail<hr><br/><br/>
-        Text<br/></br>
-        <p class="time">Time</p></br><br/>
-        <input type="button" class="openMessage" value="OPEN">
-
-    </div>
-</div>
+    <?php foreach ($sentS as $element):?>
+        <div class="sellerSentMsg">
+            <b>To:&nbsp;</b> <?php echo $element['receiver_mail'];?>
+            <hr>
+            <?php echo $element['message'];?><br/></br>
+            <p class="time"><?php echo $element['timestamp'];?></p></br>
+        </div>
+    <?php endforeach; ?>
 </div>

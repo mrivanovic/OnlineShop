@@ -11,7 +11,7 @@
         <?php foreach ($inboxS as $element):?>
         <div class="sellerSentMsg">
             <b>From:&nbsp;</b> <?php echo $element['sender_mail'];?>
-            <hr><br/>
+            <hr>
             <?php echo $element['message'];?><br/></br>
             <p class="time"><?php echo $element['timestamp'];?></p></br>
             <input type="button" class="openMessage" value="Reply">

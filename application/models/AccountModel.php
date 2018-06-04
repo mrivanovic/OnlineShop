@@ -126,4 +126,20 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    public function sellerSent()
+    {
+        $mail = $mail = $_SESSION['mail'];
+        $query = $this->db->query("SELECT * FROM `messages` WHERE `sender_mail` = '{$mail}'");
+        $result = $query->result_array();
+
+        return $result;
+    }
+    public function buyerSent()
+    {
+        $mail = $mail = $_SESSION['mail'];
+        $query = $this->db->query("SELECT * FROM `messages` WHERE `sender_mail` = '{$mail}'");
+        $result = $query->result_array();
+
+        return $result;
+    }
 }
