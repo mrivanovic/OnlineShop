@@ -138,7 +138,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('demail', 'mail', "required|callback_testB");
         $this->form_validation->set_rules('dpassword', 'password', "required|callback_testC");
         $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
-        $this->form_validation->set_rules('dcountry', 'country', "required|max_length[25]|callback_testD");
+        $this->form_validation->set_rules('dcountry', 'country');
         $this->form_validation->set_rules('dcity', 'city', "required|max_length[25]|callback_testE");
         $this->form_validation->set_rules('dadress', 'adress', "required|max_length[25]|callback_testF");
         $this->form_validation->set_rules('dtel', 'tel', "required");
@@ -202,15 +202,6 @@ class Account extends CI_Controller {
         else
         {
            $this->form_validation->set_message('testC', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko i mora da sadrzi jedan broj ili vise!</i></small></font>');
-           return FALSE;
-        }
-    }
-    public function testD($naziv){
-        if(preg_match("([A-Z][a-z]+)", $naziv))
-                return true;
-        else
-        {
-           $this->form_validation->set_message('testD', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
            return FALSE;
         }
     }
@@ -306,7 +297,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('demail', 'mail', "required|callback_test3");
         $this->form_validation->set_rules('dpassword', 'password', "required|callback_test4");
         $this->form_validation->set_rules('dpasswordC', 'passwordC', "required");
-        $this->form_validation->set_rules('dcountry', 'country', "required|max_length[25]|callback_test5");
+        $this->form_validation->set_rules('dcountry', 'country');
         $this->form_validation->set_rules('dcity', 'city', "required|max_length[25]|callback_test6");
         $this->form_validation->set_rules('dadress', 'adress', "required|max_length[25]|callback_test7");
         $this->form_validation->set_rules('dtel', 'tel', "required");
@@ -373,15 +364,7 @@ class Account extends CI_Controller {
            return FALSE;
         }
     }
-    public function test5($naziv){
-        if(preg_match("([A-Z][a-z]+)", $naziv))
-                return true;
-        else
-        {
-           $this->form_validation->set_message('test5', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
-           return FALSE;
-        }
-    }
+   
     public function test6($naziv){
         if(preg_match("([A-Z][a-z]+)", $naziv))
                 return true;
