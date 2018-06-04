@@ -484,17 +484,10 @@ class Account extends CI_Controller {
         $id = $this->input->get('id');
         $this->ProductModel->unfavorite($id, $this->session->userdata('mail'));
     }
-    public function message()
+    public function messageB()
     {   
         $mailR = $this->input->post('receiver_mail');
         $text = $this->input->post('text');
         $data['product'] = $this->AccountModel->messages($text,  $mailR);
-    }
-    public function messageSeller()
-    {
-        $data['inboxS'] = $this->AccountModel->sellerInbox();
-        print_r($data);
-        //var_dump($data);
-       // $this->loadView('sellerInbox.php', $data);
     }
 }
