@@ -9,11 +9,12 @@
     </div>
     <div class="messageContent">
         <?php foreach ($inboxS as $element):?>
-            <div class="sellerInbox">
-                <?php echo $element['sender_mail'];?><br>
-                <hr>
-                <?php echo $element['message'];?><&nbsp;<?php echo $element['timestamp'];?>
-            </div>
+        <div class="sellerSentMsg">
+            <b>From:&nbsp;</b> <?php echo $element['sender_mail'];?>
+            <hr><br/>
+            <?php echo $element['message'];?><br/></br>
+            <p class="time"><?php echo $element['timestamp'];?></p></br>
+            <input type="button" class="openMessage" value="Reply">
+        </div>
         <?php endforeach; ?>
-    </div>
 </div>

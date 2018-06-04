@@ -283,7 +283,8 @@ class Account extends CI_Controller {
     }
     public function sellerInbox()
     {
-        $this->loadView('sellerInbox.php', []);
+        $data['inboxS'] = $this->AccountModel->sellerInbox();
+        $this->loadView('sellerInbox.php', $data);
     }
     public function sellerSent()
     {
@@ -507,7 +508,8 @@ class Account extends CI_Controller {
     public function messageSeller()
     {
         $data['inboxS'] = $this->AccountModel->sellerInbox();
-        var_dump($data);
-        $this->loadView('sellerInbox.php', $data);
+        print_r($data);
+        //var_dump($data);
+       // $this->loadView('sellerInbox.php', $data);
     }
 }
