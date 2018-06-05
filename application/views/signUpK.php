@@ -1,7 +1,7 @@
 <div id="singupK">
     <div class="singupK_left">
         <div class="customerPic">
-        <img src="../img/slikakupac.jpg" style="max-width: 90%; max-height: 90%; margin-left: 5%; margin-top: 12%;"/>
+        <img src="../img/slikakupac.jpg" style="max-width: 90%; max-height: 90%; margin-left: 5%; margin-top: 12%; border-radius: 5px;"/>
         </div>
     </div>
     <div class="singupK_right">

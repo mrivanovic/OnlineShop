@@ -236,9 +236,6 @@ a {
     float: left;
     border-right: 1px solid black;
 }
-#singupK > .customerPic {
-    margin-left: 5%;
-}
 #singupK > .singupK_right {
     height: 100%;
     width: 60%;
