@@ -1,6 +1,8 @@
 <div id="singupP">
     <div class="singupP_left">
-        <h1>Place for some text</h1>
+        <div class="customerPic">
+        <img src="../img/slikaprodavac.jpg" style="max-width: 90%; max-height: 90%; margin-left: 5%; margin-top: 12%; border-radius: 5px;"/>
+        </div>
     </div>
     <div class="singupP_right">
         <h2>Welcome</h2>
