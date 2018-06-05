@@ -1,6 +1,8 @@
 <div id="singupK">
     <div class="singupK_left">
-        <h1>Mesto za neki tekst</h1>
+        <div class="customerPic">
+        <img src="../img/slikakupac.jpg" style="max-width: 90%; max-height: 90%; margin-left: 5%; margin-top: 12%;"/>
+        </div>
     </div>
     <div class="singupK_right">
         <h2>Welcome</h2>
