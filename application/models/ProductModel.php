@@ -277,6 +277,7 @@ class ProductModel extends CI_Model
     function favoritesProductes($mail)
     {
         return $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id")->result();
+        
     }
     public function GetProductsFromCategory($id)
     {

@@ -1,6 +1,8 @@
 <div id="SignUp">
     <div class="shakingHands">
-        <img  class="shake" src="../img/shaking2.jpg" style="min-width: 75%; min-height: 100%;"/>
+        <div class="shake">
+        <img src="../img/shaking2.jpg" style="width: 100%; height: 100%;"/>
+        </div>
     </div>
     <div class="kupci">
         <table>
