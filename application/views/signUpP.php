@@ -1,6 +1,6 @@
 <div id="singupP">
     <div class="singupP_left">
-        <div class="customerPic">
+        <div class="sellerPic">
         <img src="../img/slikaprodavac.jpg" style="max-width: 90%; max-height: 90%; margin-left: 5%; margin-top: 12%; border-radius: 5px;"/>
         </div>
     </div>
