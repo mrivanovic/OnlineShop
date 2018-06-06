@@ -11,6 +11,7 @@
         <?php foreach ($inboxS as $element):?>
             <div class="message">
                 <div class="left_top">
+                    <input type="hidden" value="<?php echo $element['id'];?>" />
                     <b>From:&nbsp;</b> <?php echo $element['sender_mail'];?>
                 </div>
                 <div class="right_top">

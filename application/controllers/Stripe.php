@@ -14,12 +14,13 @@ class Stripe extends CI_Controller
     {
         parent:: __construct();
         $this->load->library('session');
+        $this->load->model("ProductModel");
     }
 
     public function order()
     {
         $email = $_SESSION['mail'];;
-        $mail = $this->input->post('receiver_mail');
+        $mailS = $this->input->post('receiver_mail');
         $token = $this->input->post('token');
         $amount = $this->input->post('amount');
         $currency = $this->input->post('currency');
@@ -45,13 +46,13 @@ class Stripe extends CI_Controller
         echo "You have successfully bought this item!";
             $data = array(
                 'buyer_mail' => $email,
-                'seller_mail' => $mail,
+                'seller_mail' => $mailS,
                 'product_id' => $product,
                 'stripe_id' => $charge->id,
                 'price' => $amount,
                 'currency' => $currency
             );
         $this->ProductModel->order($data);
-        $this->loadView('Account/indexB', $data);
+        echo "You have successfully bought this item!";
     }
 }
