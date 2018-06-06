@@ -21,7 +21,7 @@ class Category extends CI_Controller {
         $config = $this->config->item('pagination');
         $config += [
             'base_url' => base_url('Category/index'),
-            'per_page' => 5,
+            'per_page' => 6,
             'total_rows' => $this->ProductModel->num_rows(),
         ];
         $this->pagination->initialize($config);
@@ -88,7 +88,7 @@ class Category extends CI_Controller {
         $config = $this->config->item('pagination');
         $config += [
             'base_url' => base_url('Category/index'),
-            'per_page' => 5,
+            'per_page' => 6,
             'total_rows' => $this->ProductModel->num_rows(),
         ];
         $this->pagination->initialize($config);

@@ -464,7 +464,17 @@ class Account extends CI_Controller {
     }
     public function indexB()
     {
-        $data['products'] = $this->ProductModel->ProductBuyer();
+        $this->load->library('pagination');
+        $this->config->load('bootstrap_pagination');
+        $config = $this->config->item('pagination');
+        $config += [
+            'base_url' => base_url('Account/indexB'),
+            'per_page' => 6,
+            'total_rows' => $this->ProductModel->num_rows(),
+        ];
+        $this->pagination->initialize($config);
+
+        $data['products'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
         $this->loadView('indexB.php', $data);
     }
     public function productPage()

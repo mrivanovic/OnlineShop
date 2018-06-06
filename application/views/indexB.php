@@ -91,3 +91,6 @@
         }
         
 </script>
+<div style="clear: both;">
+<?php echo $this->pagination->create_links();?>
+</div>
