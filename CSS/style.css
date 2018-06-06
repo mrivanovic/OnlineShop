@@ -540,9 +540,7 @@ a {
     padding-top: 10px;
     border-radius: 3px;
 }
-.openMessage {
-    float: right;
-}
+
 .time {
     float: right;
 }
@@ -551,10 +549,9 @@ a {
     width: 50%;
     margin: auto;
     border: 1px solid black;
-    height: 650px;
+    /*height: 650px;*/
     margin-top: 15px;
     border-radius: 7px;
-    box-shadow: 5px 10px #bfbfbf;
 }
 .all_product {
     float: left;
@@ -831,10 +828,34 @@ a {
     width: 50%;
     margin: auto;
     border: 1px solid black;
-    height: 650px;
     margin-top: 15px;
-    border-radius: 7px;
-    box-shadow: 5px 10px #bfbfbf;
+    padding: 15px;
+}
+
+.message {
+    width:100%;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #eaf2ff;
+}
+.message > .left_top {
+    float: left;
+    width: 50%;
+    text-align: left;
+    height: 25px;
+    border-bottom: 1px dotted grey;
+}
+.message > .right_top {
+    float: right;
+    width: 50%;
+    text-align: right;
+    height: 25px;
+    border-bottom: 1px dotted grey;
+}
+.message > .message_text {
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid grey;
 }
 .nameProduct {
     font-weight: bolder;

@@ -19,10 +19,11 @@ class Stripe extends CI_Controller
     public function order()
     {
         $email = $_SESSION['mail'];;
-
+        $mail = $this->input->post('receiver_mail');
         $token = $this->input->post('token');
         $amount = $this->input->post('amount');
         $currency = $this->input->post('currency');
+        $product = $this->input->post('product');
         
         $stripe = [
             'secret_key'        => 'sk_test_Gp9g0MV987bAtpiOIoCVXrBX',
@@ -41,11 +42,16 @@ class Stripe extends CI_Controller
             'amount' => $amount,
             'currency' => $currency
         ]);
-        //TODO
-
-        // | AI | $email     | $product   | $charge->id | default: 0 | $amount | $currency |
-        // | id | buyer_mail | product_id | stripe_id   | delivered  | price   | currency  |
-
         echo "You have successfully bought this item!";
+            $data = array(
+                'buyer_mail' => $email,
+                'seller_mail' => $mail,
+                'product_id' => $product,
+                'stripe_id' => $charge->id,
+                'price' => $amount,
+                'currency' => $currency
+            );
+        $this->ProductModel->order($data);
+        $this->loadView('Account/indexB', $data);
     }
 }

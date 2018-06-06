@@ -306,4 +306,8 @@ class ProductModel extends CI_Model
 
         return $return;
     }
+    public function order($data) 
+    {
+        $this->db->insert('orders', $data);
+    }
 }

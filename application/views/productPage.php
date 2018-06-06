@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="productDescCenter">
-        <form name="product" method="post" action="">
+        <form name="product" method="post" action="<?php echo base_url('Stripe/order');?>">
         <table>
             <tr>
                 <th>Name:</th>
@@ -84,6 +84,7 @@
 <script>
     var amount = '<?php echo $product['info']['price'] * 100; ?>';
     var currency = '<?php echo $product['currency']; ?>';
+    var product = '<?php echo $product['info']['id'];?>';
 
     let stripe = StripeCheckout.configure({
         key: 'pk_test_oXpp2smuiw4u2cv0zoh2Sm7X',
