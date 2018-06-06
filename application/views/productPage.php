@@ -58,7 +58,9 @@
             <tr>
                 <th>Price:</th>
                 <td class="price"><span class="price"><?php echo $product['info']['price']; ?></span>&nbsp;<?php echo $product['currency']; ?></td>
-                <td><button class="buyButton" type="submit">Buy Now</button> </td>
+                <td>
+                    <button id="button_buy" type="button">Buy now</button>
+                </td>
             </tr>
         </table>
         </form>
@@ -77,3 +79,37 @@
         <p style="display: none"><?php echo $product['seller']['tel']; ?></p>
     </div>
 </div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+    var amount = '<?php echo $product['info']['price'] * 100; ?>';
+    var currency = '<?php echo $product['currency']; ?>';
+
+    let stripe = StripeCheckout.configure({
+        key: 'pk_test_oXpp2smuiw4u2cv0zoh2Sm7X',
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        email: '<?php echo $_SESSION['mail']; ?>',
+        currency: currency,
+        amount: amount,
+        description: '<?php echo $product['info']['name']; ?>',
+        token: function (token) {
+            var url = '<?php echo base_url('stripe/order'); ?>';
+            var data = { token: token.id, currency: currency, amount: amount, product: '<?php echo $product['info']['id']; ?>' };
+
+            $.post(url, data)
+                .done(function (data) {
+                    console.log(data);
+                })
+                .fail(function (data) {
+                    console.log(data);
+                });
+        }
+    });
+
+    $('#button_buy').click(function (event) {
+        stripe.open({
+            name: 'eShop.it'
+        });
+    });
+</script>

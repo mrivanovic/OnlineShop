@@ -143,7 +143,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('dadress', 'adress', "required|max_length[25]|callback_testF");
         $this->form_validation->set_rules('dtel', 'tel', "required");
         $this->form_validation->set_rules('ddate', ' date', "required");
-        $this->form_validation->set_message("required", "<font color='red'> <small><i>{field} polje je obavezno!</i></small></font>");//proveriti da li treba field da se upise
+        $this->form_validation->set_message("required", "<font color='red'> <i>{field} <small>field is required!</small></i></font>");//proveriti da li treba field da se upise
 
         if($this->form_validation->run() == FALSE) {
             $data['message'] = 'Error inserting user';
@@ -174,7 +174,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('test', '<font color="red"> <i>{field} <small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -183,7 +183,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('testA', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('testA', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -192,7 +192,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('testB', '<font color="red"> <small><i>{field} nije u ispravnom obliku!</i></small></font>');
+           $this->form_validation->set_message('testB', '<font color="red"> <i>{field}<small> is not in the correct format!</small></i></font>');
            return FALSE;
         }
     }
@@ -201,7 +201,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('testC', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko i mora da sadrzi jedan broj ili vise!</i></small></font>');
+           $this->form_validation->set_message('testC', '<font color="red"> <i>{field} <small> is not in the correct format!<br>The first letter must be capital and also must contain one or more numbers!</small></i></font>');
            return FALSE;
         }
     }
@@ -210,7 +210,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('testE', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('testE', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -219,7 +219,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('testF', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Mora biti u formatu ulica i broj!</i></small></font>');
+           $this->form_validation->set_message('testF', '<font color="red"> <i>{field}<small> is not in the correct format!<br>Must contain street name and street number!</small></i></font>');
            return FALSE;
         }
     }
@@ -303,7 +303,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('dadress', 'adress', "required|max_length[25]|callback_test7");
         $this->form_validation->set_rules('dtel', 'tel', "required");
         $this->form_validation->set_rules('ddate', ' date', "required");
-        $this->form_validation->set_message("required", "<font color='red'> <small><i>{field} polje je obavezno!</i></small></font>");//proveriti da li treba field da se upise
+        $this->form_validation->set_message("required", "<font color='red'> <i>{field}<small> field is required!</small></i></font>");//proveriti da li treba field da se upise
 
         if($this->form_validation->run() == FALSE) {
             $data['message'] = 'Error inserting user';
@@ -334,7 +334,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test1', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('test1', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -343,7 +343,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test2', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('test2', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -352,7 +352,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test3', '<font color="red"> <small><i>{field} nije u ispravnom obliku!</i></small></font>');
+           $this->form_validation->set_message('test3', '<font color="red"> <i>{field}<small> is not in the correct format!</small></i></font>');
            return FALSE;
         }
     }
@@ -361,7 +361,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test4', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko i mora da sadrzi jedan broj ili vise!</i></small></font>');
+           $this->form_validation->set_message('test4', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital and also must contain one or more numbers!</small></i></font>');
            return FALSE;
         }
     }
@@ -371,7 +371,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test6', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Prvo slovo mora biti veliko!</i></small></font>');
+           $this->form_validation->set_message('test6', '<font color="red"> <i>{field}<small> is not in the correct format!<br>The first letter must be capital!</small></i></font>');
            return FALSE;
         }
     }
@@ -380,7 +380,7 @@ class Account extends CI_Controller {
                 return true;
         else
         {
-           $this->form_validation->set_message('test7', '<font color="red"> <small><i>{field} nije u ispravnom obliku!<br>Mora biti u formatu ulica i broj!</i></small></font>');
+           $this->form_validation->set_message('test7', '<font color="red"> <i>{field}<small> is not in the correct format!<br>Must contain street name and street number!</small></i></font>');
            return FALSE;
         }
     }
@@ -494,17 +494,10 @@ class Account extends CI_Controller {
         $id = $this->input->get('id');
         $this->ProductModel->unfavorite($id, $this->session->userdata('mail'));
     }
-    public function message()
+    public function messageB()
     {   
         $mailR = $this->input->post('receiver_mail');
         $text = $this->input->post('text');
         $data['product'] = $this->AccountModel->messages($text,  $mailR);
-    }
-    public function messageSeller()
-    {
-        $data['inboxS'] = $this->AccountModel->sellerInbox();
-        print_r($data);
-        //var_dump($data);
-       // $this->loadView('sellerInbox.php', $data);
     }
 }

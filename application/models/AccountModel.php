@@ -107,7 +107,7 @@ class AccountModel extends CI_Model
 
         return $query->result_object()[0];
     }
-   public function messages($text,$mailR)
+   public function messagesB($text,$mailR)
    {
        $mail = $_SESSION['mail'];
 
