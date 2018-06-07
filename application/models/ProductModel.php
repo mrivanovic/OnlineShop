@@ -276,19 +276,12 @@ class ProductModel extends CI_Model
     }
     function favoritesProductes($mail)
     {
-<<<<<<< HEAD
         $query = $this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id");
 
         $result = $query->result_array();
 
         $return = array();
 
-=======
-       $query=$this->db->query("select * from favorite, products where buyer_mail='$mail' and products_id=id");
-    $result= $query->result_array();
-
-        $return = array();
->>>>>>> 09c5525d900b8ed7261d7be725d928303dba9e9f
         foreach ($result as $item) {
             $_image = $this->db->query("select * from images where main = 1 and products_id = {$item['id']}");
             $_category = $this->db->query("select * from category where id = {$item['category_id']}");
@@ -306,17 +299,10 @@ class ProductModel extends CI_Model
             $return[$item['id']]['category'] = $category->ime;
             $return[$item['id']]['currency'] = $currency->name;
             $return[$item['id']]['delivery'] = $delivery->name;
-<<<<<<< HEAD
         }
 
         return $return;
-        
-=======
-            
-     
-        }
-        return $return;
->>>>>>> 09c5525d900b8ed7261d7be725d928303dba9e9f
+
     }
     public function GetProductsFromCategory($id)
     {
