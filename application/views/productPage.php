@@ -84,7 +84,8 @@
 <script>
     var amount = '<?php echo $product['info']['price'] * 100; ?>';
     var currency = '<?php echo $product['currency']; ?>';
-    var product = '<?php echo $product['info']['id'];?>';
+    var product_id = '<?php echo $product['info']['id'];?>';
+    var seller_mail = '<?php echo $product['seller']['mail']; ?>';
 
     let stripe = StripeCheckout.configure({
         key: 'pk_test_oXpp2smuiw4u2cv0zoh2Sm7X',
@@ -96,7 +97,12 @@
         description: '<?php echo $product['info']['name']; ?>',
         token: function (token) {
             var url = '<?php echo base_url('stripe/order'); ?>';
-            var data = { token: token.id, currency: currency, amount: amount, product: '<?php echo $product['info']['id']; ?>' };
+            var data = {
+                token: token.id,
+                currency: currency,
+                amount: amount, 
+                product: product_id,
+                seller_mail: seller_mail};
 
             $.post(url, data)
                 .done(function (data) {

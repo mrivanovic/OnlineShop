@@ -401,7 +401,7 @@ class Account extends CI_Controller {
     }
     public function favorite()
     {
-        $data['favorite']=$this->ProductModel->favoritesProductes($this->session->userdata('mail'));
+        $data['products']=$this->ProductModel->favoritesProductes($this->session->userdata('mail'));
         $this->loadView('buyerFavorite.php', $data);
     }
     public function History()
