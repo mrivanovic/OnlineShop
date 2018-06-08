@@ -392,7 +392,8 @@ class Account extends CI_Controller {
     }
     public function  buyerInbox()
     {
-        $this->loadView('buyerInbox.php', []);
+        $data['inboxB'] = $this->AccountModel->buyerInbox();
+        $this->loadView('buyerInbox.php', $data);
     }
     public function buyerSent()
     {
@@ -404,9 +405,10 @@ class Account extends CI_Controller {
         $data['products']=$this->ProductModel->favoritesProductes($this->session->userdata('mail'));
         $this->loadView('buyerFavorite.php', $data);
     }
-    public function History()
-    {
-        $this->loadView('buyerHistory.php', []);
+    public function Orders()
+    {   
+        $data['products'] = $this->ProductModel->buyerOrders();
+        $this->loadView('buyerOrders.php', $data);
     }
     public function updateB()
     {
@@ -500,4 +502,19 @@ class Account extends CI_Controller {
         $text = $this->input->post('text');
         $data['product'] = $this->AccountModel->messages($text,  $mailR);
     }
+    public function messageS()
+    {
+        $mailR = $this->input->post('receiver_mail');
+        $text = $this->input->post('text');
+        $data['product'] = $this->AccountModel->messageS($text,  $mailR);
+        redirect('Account/sellerInbox');
+    }
+    public function messageBuyer()
+    {
+        $mailR = $this->input->post('receiver_mail');
+        $text = $this->input->post('text');
+        $data['product'] = $this->AccountModel->messageB($text,  $mailR);
+        redirect('Account/buyerInbox');
+    }
+    
 }

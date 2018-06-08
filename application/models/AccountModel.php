@@ -142,4 +142,34 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    public function messageS($text,  $mailR)
+    {
+        $mail = $_SESSION['mail'];
+
+        $this->db->set('receiver_mail', $mailR);
+        $this->db->set('receiver_type', 'buyer');
+        $this->db->set('sender_mail', $mail);
+        $this->db->set('sender_type', 'seller');
+        $this->db->set('message', $text);
+        $this->db->insert('messages');
+    }
+    public function buyerInbox()
+    {
+        $mail = $_SESSION['mail'];
+        $query = $this->db->query("SELECT * FROM `messages` WHERE `receiver_mail` = '{$mail}'");
+        $result = $query->result_array();
+
+        return $result;
+    }
+    public function messageB($text,  $mailR)
+    {
+        $mail = $_SESSION['mail'];
+
+        $this->db->set('receiver_mail', $mailR);
+        $this->db->set('receiver_type', 'seller');
+        $this->db->set('sender_mail', $mail);
+        $this->db->set('sender_type', 'buyer');
+        $this->db->set('message', $text);
+        $this->db->insert('messages');
+    }
 }

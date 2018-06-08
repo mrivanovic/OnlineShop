@@ -9,6 +9,6 @@
         <a href="<?php echo base_url('Account/buyerProfile');?>"><i class="fa fa-user" aria-hidden="true"></i>
     </div>
     <div class="right">
-        <a href="<?php echo base_url('Account/History');?>">History</a>
+        <a href="<?php echo base_url('Account/Orders');?>">Orders</a>
     </div>
 </div>
