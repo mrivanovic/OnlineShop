@@ -340,25 +340,36 @@ a {
 #sellProfNav > .left {
     float: left;
     height: 100%;
-    width: calc(100% / 4);
+    width: calc(100% / 5);
     border-right: 1px solid grey;
 }
 #sellProfNav > .center1 {
     float: left;
     height: 100%;
-    width: calc(100% / 4);
+    width: calc(100% / 5);
     border-right: 1px solid grey;
 }
 #sellProfNav > .center2 {
     float: left;
     height: 100%;
-    width: calc(100% / 4);
+    width: calc(100% / 5);
     border-right: 1px solid grey;
 }
 #sellProfNav > .right {
     float: right;
     height: 100%;
-    width: calc(100% / 4);
+    width: calc(100% / 5);
+}
+#sellProfNav > .right1 {
+    float: left;
+    height: 100%;
+
+    border-right: 1px solid grey;
+    width: calc(100% / 5);
+}
+#sellProfNav > .right1 a:hover {
+    background-color: #8e8e8e;
+    border-radius: 4px;
 }
 #sellProfNav > .left a:hover {
     background-color: #8e8e8e;

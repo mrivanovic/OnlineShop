@@ -407,7 +407,7 @@ class Account extends CI_Controller {
     }
     public function Orders()
     {   
-        $data['products'] = $this->ProductModel->buyerOrders();
+        $data['ordersB'] = $this->AccountModel->buyerOrders();
         $this->loadView('buyerOrders.php', $data);
     }
     public function updateB()
@@ -516,5 +516,14 @@ class Account extends CI_Controller {
         $data['product'] = $this->AccountModel->messageB($text,  $mailR);
         redirect('Account/buyerInbox');
     }
-    
+    public function ordersS()
+    {
+        $data['ordersS'] = $this->AccountModel->orderSeller();
+        $this->loadView('ordersS.php', $data);
+    }
+    public function orderSent()
+    {
+        $this->AccountModel->ordersSent();
+        redirect('Account/ordersS');
+    }
 }

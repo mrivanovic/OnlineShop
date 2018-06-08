@@ -172,4 +172,27 @@ class AccountModel extends CI_Model
         $this->db->set('message', $text);
         $this->db->insert('messages');
     }
+    public function orderSeller()
+    {
+        $mail = $_SESSION['mail'];
+
+        $query = $this->db->query("SELECT * FROM `orders` WHERE `seller_mail` = '{$mail}'");
+        $result = $query->result_array();
+        return $result;
+    }
+    public function buyerOrders()
+    {
+        $mail = $_SESSION['mail'];
+
+        $query = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and delivered = 1");
+        $result = $query->result_array();
+        return $result;
+    }
+    public function ordersSent()
+    {
+        $mail = $_SESSION['mail'];
+        $this->db->set('delivered', 1);
+        $this->db->where('seller_mail', $mail);
+        $this->db->update('orders');
+    }
 }

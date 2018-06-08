@@ -11,4 +11,7 @@
     <div class="right">
         <a href="<?php echo base_url('Account/advertView');?>">Advert View</a>
     </div>
+    <div class="right1">
+        <a href="<?php echo base_url('Account/ordersS');?>">Orders</a>
+    </div>
 </div>
