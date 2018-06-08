@@ -523,7 +523,15 @@ class Account extends CI_Controller {
     }
     public function orderSent()
     {
-        $this->AccountModel->ordersSent();
+        $id = $this->input->post('id');
+        $this->AccountModel->ordersSent($id);
         redirect('Account/ordersS');
     }
+    public function orderArrived()
+    {   
+        $id = $this->input->post('id');
+        $this->AccountModel->ordersArrived($id);
+        redirect('Account/Orders');
+    }
+
 }

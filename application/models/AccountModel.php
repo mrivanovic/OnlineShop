@@ -176,7 +176,7 @@ class AccountModel extends CI_Model
     {
         $mail = $_SESSION['mail'];
 
-        $query = $this->db->query("SELECT * FROM `orders` WHERE `seller_mail` = '{$mail}'");
+        $query = $this->db->query("SELECT * FROM orders o JOIN products p on product_id = p.id WHERE o.seller_mail = '{$mail}'");
         $result = $query->result_array();
         return $result;
     }
@@ -184,15 +184,24 @@ class AccountModel extends CI_Model
     {
         $mail = $_SESSION['mail'];
 
-        $query = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and delivered = 1");
+        $query = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and sent = 1 and arrived = 0");
         $result = $query->result_array();
         return $result;
     }
-    public function ordersSent()
+    public function ordersSent($id)
     {
         $mail = $_SESSION['mail'];
-        $this->db->set('delivered', 1);
+        $this->db->set('sent', 1);
         $this->db->where('seller_mail', $mail);
+        $this->db->where('id', $id);
+        $this->db->update('orders');
+    }
+    public function ordersArrived($id)
+    {
+        $mail = $_SESSION['mail'];
+        $this->db->set('arrived', 1);
+        $this->db->where('buyer_mail', $mail);
+        $this->db->where('id', $id);
         $this->db->update('orders');
     }
 }
