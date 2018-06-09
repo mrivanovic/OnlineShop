@@ -211,4 +211,40 @@ class AccountModel extends CI_Model
         $this->db->where('mail', $mail);
         $this->db->update('seller');
     }
+    public function addcomment($text, $id, $mail)
+    {
+        $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and product_id ='{$id}'");
+        $result = $var->result_array();
+
+        if(count($result) > 0) {
+            $this->db->set('content', $text);
+            $this->db->set('buyer_mail', $mail);
+            $this->db->set('product_id', $id);
+            $this->db->insert('comments');
+        }
+    }
+    public function like($mail, $seller_mail)
+    {
+        $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");
+        $result = $var->result_array();
+
+        if(count($result) > 0) {
+            $this->db->set('buyer_mail', $mail);
+            $this->db->set('seller_mail', $seller_mail);
+            $this->db->set('reactions', 1);
+            $this->db->insert('ratings');
+        }
+    }
+    public function dislike($mail, $seller_mail)
+    {
+        $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");
+        $result = $var->result_array();
+
+        if(count($result) > 0) {
+            $this->db->set('buyer_mail', $mail);
+            $this->db->set('seller_mail', $seller_mail);
+            $this->db->set('reactions', 0);
+            $this->db->insert('ratings');
+        }
+    }
 }

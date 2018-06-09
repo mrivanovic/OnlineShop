@@ -483,6 +483,7 @@ class Account extends CI_Controller {
     {   
         $id = $this->input->get('id');
         $data['product'] = $this->ProductModel->productView($id);
+        $data['comments'] = $this->ProductModel->comments($id);
         $this->loadView('productPage.php', $data);
     }
     
@@ -539,5 +540,28 @@ class Account extends CI_Controller {
         $this->AccountModel->status($text);
         redirect('Account/setImage');
     }
-    
+    public function comments()
+    {
+        $text = $this->input->post('text');
+        $id = $this->input->post('id');
+        $mail = $_SESSION['mail'];
+        $this->AccountModel->addcomment($text, $id, $mail);
+        redirect('Account/productPage?id='.$id);
+    }
+    public function reactions()
+    {
+        if(isset($_POST['like'])){
+            $mail = $_SESSION['mail'];
+            $seller_mail = $this->input->post('receiver_mail');
+            $id = $this->input->post('id');
+            $this->AccountModel->like($mail,$seller_mail);
+            redirect('Account/productPage?id='.$id);
+        } elseif (isset($_POST['dislike'])) {
+            $mail = $_SESSION['mail'];
+            $seller_mail = $this->input->post('receiver_mail');
+            $id = $this->input->post('id');
+            $this->AccountModel->dislike($mail,$seller_mail);
+            redirect('Account/productPage?id='.$id);
+        }
+    }
 }

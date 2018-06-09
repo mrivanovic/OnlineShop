@@ -336,4 +336,11 @@ class ProductModel extends CI_Model
     {
         $this->db->insert('orders', $data);
     }
+    public function comments($id)
+    {
+        $query = $this->db->query("select * from comments where product_id = '{$id}';");
+        $result = $query->result_array();
+
+        $return = $result();
+    }
 }

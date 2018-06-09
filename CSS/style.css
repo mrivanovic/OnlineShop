@@ -1034,3 +1034,37 @@ a {
     width: 70px;
     height: 30px;
 }
+.addcomments {
+    wisth: 100%;
+    height: 150px;
+}
+.addcomments table {
+    width: 90%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+.addcomments textarea {
+    width: 600px;
+    height: 50px;
+    background-color: #e5e5e5;
+}
+
+.addcomments button {
+    border: none;
+    width: 100px;
+    height: 50px;
+}
+.addcomments button:hover {
+    border: 1px solid darkgrey;
+}
+#button_buy {
+    border: none;
+    color: green;
+    width: 100px;
+    height: 30px;
+}
+#button_buy:hover {
+    border: 1px solid darkgrey;
+}
