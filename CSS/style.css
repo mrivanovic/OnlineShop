@@ -994,8 +994,32 @@ a {
     width: 70%;
     height: 100%;
     margin: 0 auto;
+}
+.check {
+    color: green;
+}
+.checkB {
+    width: 70px;
+    height: 30px;
+    border: none;
+}
+.checkB:hover {
+    border: 1px solid grey;
+}
+.order {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    overflow: hidden;
+}
+.order > .orders {
+    width: 100%;
+    padding: 20px;
+    background-color: #e8e8e8;
 
 }
+
 
 
 
@@ -1019,4 +1043,21 @@ b.r{
 }
 b.g{
     color: green;
+}
+
+.order > .orders table {
+    margin-left: 30%;
+}
+.order > .orders table th {
+    text-align: left;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+.order > .orders table td {
+    text-align: left;
+    padding-bottom: 10px;
+}
+.checkS {
+    width: 70px;
+    height: 30px;
 }

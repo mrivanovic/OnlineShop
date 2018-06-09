@@ -9,7 +9,19 @@
                 </label><br>
                 <button type="submit">Upload</button>
             </form>
-
+           <form method="post" action="<?php echo base_url('Account/status');?>">
+               <table>
+                   <tr>
+                       <th>Status:</th>
+                   </tr>
+                   <tr>
+                       <td><textarea name="status"></textarea></td>
+                   </tr>
+                   <tr>
+                       <td><button type="submit">Update</button></td>
+                   </tr>
+               </table>
+           </form>
         </div>
         <div class="sellerright">
             <form name="update" method="post" action="<?php echo base_url('Account/update');?>">

@@ -534,10 +534,20 @@ class Account extends CI_Controller {
         redirect('Account/Orders');
     }
 
+
     public function ratingset(){
         $star=$this->input->get('star');
         $product_id=$this->input->get('product_id');
         $this->ProductModel->ratingset($this->session->userdata('mail'), $star, $product_id);
         return "";
     }
+
+    public function status()
+    {
+        $text = $this->input->post('status');
+        $this->AccountModel->status($text);
+        redirect('Account/setImage');
+    }
+    
+
 }
