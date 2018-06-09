@@ -476,14 +476,18 @@ class Account extends CI_Controller {
         ];
         $this->pagination->initialize($config);
 
-        $data['products'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
+        $data['products'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3),$this->session->userdata('mail'));
         $this->loadView('indexB.php', $data);
     }
     public function productPage()
     {   
         $id = $this->input->get('id');
+<<<<<<< HEAD
         $data['product'] = $this->ProductModel->productView($id);
         $data['comments'] = $this->ProductModel->comments($id);
+=======
+        $data['product'] = $this->ProductModel->productView($id, $this->session->userdata('mail'));
+>>>>>>> 11e6ecc403b9da269c355fa6e3046b1bd2ed8067
         $this->loadView('productPage.php', $data);
     }
     
@@ -534,12 +538,22 @@ class Account extends CI_Controller {
         $this->AccountModel->ordersArrived($id);
         redirect('Account/Orders');
     }
+
+
+    public function ratingset(){
+        $star=$this->input->get('star');
+        $product_id=$this->input->get('product_id');
+        $this->ProductModel->ratingset($this->session->userdata('mail'), $star, $product_id);
+        return "";
+    }
+
     public function status()
     {
         $text = $this->input->post('status');
         $this->AccountModel->status($text);
         redirect('Account/setImage');
     }
+<<<<<<< HEAD
     public function comments()
     {
         $text = $this->input->post('text');
@@ -564,4 +578,8 @@ class Account extends CI_Controller {
             redirect('Account/productPage?id='.$id);
         }
     }
+=======
+    
+
+>>>>>>> 11e6ecc403b9da269c355fa6e3046b1bd2ed8067
 }

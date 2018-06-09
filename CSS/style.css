@@ -74,6 +74,7 @@ html, body {
     height: 30px;
     text-align: center;
     color: red;
+    clear: both;
 }
 #login {
     width: 100%;
@@ -1018,6 +1019,32 @@ a {
     background-color: #e8e8e8;
 
 }
+
+
+
+
+.star{
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.star-checked{
+    color: gold;
+}
+
+.star-checked-2{
+    color: gold;
+}
+#result{
+    display: none;
+}
+b.r{
+    color: red;
+}
+b.g{
+    color: green;
+}
+
 .order > .orders table {
     margin-left: 30%;
 }

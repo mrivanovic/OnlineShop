@@ -55,9 +55,13 @@
         <?php echo $element['info']['price'];?>&nbsp;-&nbsp;<?php echo $element['currency'];?><br>
         Contact:<br><?php echo $element['info']['seller_mail'];?><br>
         
-        <button id="btnlike<?php echo $element['info']['id']; ?>" type="button" onclick="likeF(<?php echo $element['info']['id']; ?>)" style="visibility:visible"><i class="fa fa-heart"></i></button>
+        <button id="btnlike<?php echo $element['info']['id']; ?>" type="button" onclick="likeF(<?php echo $element['info']['id']; ?>)" style="visibility:<?php
+            if($element['like']==1) echo 'hidden'; else echo 'visible';
+        ?>"><i class="fa fa-heart"></i></button>
       
-        <button id="btnunlike<?php echo $element['info']['id']; ?>" type="button" onclick="unlikeF(<?php echo $element['info']['id']; ?>)" style="visibility:hidden">ne</button>
+        <button id="btnunlike<?php echo $element['info']['id']; ?>" type="button" onclick="unlikeF(<?php echo $element['info']['id']; ?>)" style="visibility:<?php
+            if($element['like']==0) echo 'hidden'; else echo 'visible';
+        ?>">ne</button>
     </div>
 <?php endforeach; ?>
 <div id="nesto"></div>
