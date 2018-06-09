@@ -533,5 +533,11 @@ class Account extends CI_Controller {
         $this->AccountModel->ordersArrived($id);
         redirect('Account/Orders');
     }
-
+    public function status()
+    {
+        $text = $this->input->post('status');
+        $this->AccountModel->status($text);
+        redirect('Account/setImage');
+    }
+    
 }

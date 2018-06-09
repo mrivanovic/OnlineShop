@@ -76,7 +76,9 @@
         <?php echo $product['seller']['city'];?><br><br>
 
         <button id="phone"><i class="fa fa-phone"></i> Click for seller's phone number</button>
-        <p style="display: none"><?php echo $product['seller']['tel']; ?></p>
+        <p style="display: none"><?php echo $product['seller']['tel']; ?></p><br>
+        STATUS:<br> <?php echo $product['seller']['status']; ?>
+        
     </div>
 </div>
 
@@ -100,7 +102,7 @@
             var data = {
                 token: token.id,
                 currency: currency,
-                amount: amount, 
+                amount: amount,
                 product: product_id,
                 seller_mail: seller_mail};
 
