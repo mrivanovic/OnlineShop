@@ -62,6 +62,30 @@
                     <button id="button_buy" type="button">Buy now</button>
                 </td>
             </tr>
+            <?php if($product['rating_avg']>0){ ?>
+            <tr>
+                <th>Rating:</th>
+                <td>
+                    <?php echo $product['rating_avg']; ?>
+                </td>
+            </tr>
+            <?php } ?>
+            <?php if($product['buy']==1){ ?>
+            <tr>
+                <th>My rating:</th>
+                <td>
+                
+
+                    <div id="star-container">
+                        <i class="fa fa-star fa-3x star <?php if($product['rating']>0)  echo "star-checked-2"; ?>" id="star-1"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating']>1)  echo "star-checked-2"; ?>" id="star-2"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating']>2)  echo "star-checked-2"; ?>" id="star-3"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating']>3)  echo "star-checked-2"; ?>" id="star-4"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating']>4)  echo "star-checked-2"; ?>" id="star-5"></i>
+                    </div>
+                </td>
+            </tr>
+            <?php } ?>
         </table>
         </form>
     </div>
@@ -119,4 +143,100 @@
             name: 'eShop.it'
         });
     });
+    
+    
+    
+    
+ $(document).ready(function(){
+    /*STAR RATING*/
+ 
+    $('.star').on("mouseover",function(){
+        //get the id of star
+        var star_id = $(this).attr('id');
+        switch (star_id){
+            case "star-1":
+                $("#star-1").addClass('star-checked');
+                break;
+            case "star-2":
+                $("#star-1").addClass('star-checked');
+                $("#star-2").addClass('star-checked');
+                break;
+            case "star-3":
+                $("#star-1").addClass('star-checked');
+                $("#star-2").addClass('star-checked');
+                $("#star-3").addClass('star-checked');
+                break;
+            case "star-4":
+                $("#star-1").addClass('star-checked');
+                $("#star-2").addClass('star-checked');
+                $("#star-3").addClass('star-checked');
+                $("#star-4").addClass('star-checked');
+                break;
+            case "star-5":
+                $("#star-1").addClass('star-checked');
+                $("#star-2").addClass('star-checked');
+                $("#star-3").addClass('star-checked');
+                $("#star-4").addClass('star-checked');
+                $("#star-5").addClass('star-checked');
+                break;
+        }
+    }).mouseout(function(){
+        //remove the star checked class when mouseout
+        $('.star').removeClass('star-checked');
+    });
+ 
+    
+    $('.star').click(function(){
+        //get the stars index from it id
+        var star_index = $(this).attr("id").split("-")[1];
+        switch ($(this).attr("id")){
+            case "star-1":
+                $("#star-1").addClass('star-checked-2');
+                $("#star-2").removeClass('star-checked-2');
+                $("#star-3").removeClass('star-checked-2');
+                $("#star-4").removeClass('star-checked-2');
+                $("#star-5").removeClass('star-checked-2');
+                break;
+            case "star-2":
+                $("#star-1").addClass('star-checked-2');
+                $("#star-2").addClass('star-checked-2');
+                $("#star-3").removeClass('star-checked-2');
+                $("#star-4").removeClass('star-checked-2');
+                $("#star-5").removeClass('star-checked-2');
+                break;
+            case "star-3":
+                $("#star-1").addClass('star-checked-2');
+                $("#star-2").addClass('star-checked-2');
+                $("#star-3").addClass('star-checked-2');
+                $("#star-4").removeClass('star-checked-2');
+                $("#star-5").removeClass('star-checked-2');
+                break;
+            case "star-4":
+                $("#star-1").addClass('star-checked-2');
+                $("#star-2").addClass('star-checked-2');
+                $("#star-3").addClass('star-checked-2');
+                $("#star-4").addClass('star-checked-2');
+                $("#star-5").removeClass('star-checked-2');
+                break;
+            case "star-5":
+                $("#star-1").addClass('star-checked-2');
+                $("#star-2").addClass('star-checked-2');
+                $("#star-3").addClass('star-checked-2');
+                $("#star-4").addClass('star-checked-2');
+                $("#star-5").addClass('star-checked-2');
+                break;
+        } 
+        
+          
+            
+        $.ajax({
+            url: "<?php echo base_url(); ?>index.php/Account/ratingset?product_id=<?php echo $product['info']['id'];?>&star="+star_index,
+            type: "GET",
+            success: function(data){
+            }
+        });
+    });
+    
+});
+ 
 </script>

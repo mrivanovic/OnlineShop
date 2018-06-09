@@ -476,13 +476,13 @@ class Account extends CI_Controller {
         ];
         $this->pagination->initialize($config);
 
-        $data['products'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3));
+        $data['products'] = $this->ProductModel->all($config['per_page'], $this->uri->segment(3),$this->session->userdata('mail'));
         $this->loadView('indexB.php', $data);
     }
     public function productPage()
     {   
         $id = $this->input->get('id');
-        $data['product'] = $this->ProductModel->productView($id);
+        $data['product'] = $this->ProductModel->productView($id, $this->session->userdata('mail'));
         $this->loadView('productPage.php', $data);
     }
     
@@ -534,4 +534,10 @@ class Account extends CI_Controller {
         redirect('Account/Orders');
     }
 
+    public function ratingset(){
+        $star=$this->input->get('star');
+        $product_id=$this->input->get('product_id');
+        $this->ProductModel->ratingset($this->session->userdata('mail'), $star, $product_id);
+        return "";
+    }
 }

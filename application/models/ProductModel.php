@@ -91,7 +91,7 @@ class ProductModel extends CI_Model
             $this->db->insert('images', $image);
         }
     }
-    public function all($limit, $offset)
+    public function all($limit, $offset,$user=NULL)
     {
         $query = $this->db
                             ->select('*')
@@ -120,6 +120,17 @@ class ProductModel extends CI_Model
             $return[$item['id']]['category'] = $category->ime;
             $return[$item['id']]['currency'] = $currency->name;
             $return[$item['id']]['delivery'] = $delivery->name;
+            
+            if($user!=NULL){
+                $query= $this->db->query("select * from favorite where buyer_mail='$user' and products_id={$item['id']}");
+                if($query->num_rows()>0){
+                    $return[$item['id']]['like']=1;
+                }
+                else {
+                    $return[$item['id']]['like']=0;
+                }
+            }
+                    
         }
 
         return $return;
@@ -237,7 +248,7 @@ class ProductModel extends CI_Model
 
         return $return;
     }
-    public function productView($id)
+    public function productView($id, $user=NULL)
     {
         $query = $this->db->query("select * from products where id = '{$id}'");
         $item = $query->row_array();
@@ -262,6 +273,31 @@ class ProductModel extends CI_Model
         $return['currency'] = $currency->name;
         $return['delivery'] = $delivery->name;
         $return['seller'] = $seller;
+        $return['buy']=0;
+        
+        $query= $this->db->query("select * from ratings where product_id=$id");
+         if($query->num_rows()>0){
+             $query= $this->db->query("select avg(rate) as avgr from ratings where product_id=$id");
+             $return['rating_avg']=$query->row()->avgr;
+        }
+        else {
+            $return['rating_avg']=0;
+        }
+        
+        if($user!=NULL){
+            $query= $this->db->query("select * from orders where buyer_mail='$user' and product_id=$id and arrived=1");
+            if($query->num_rows()>0){
+                $return['buy']=1;
+                $query = $this->db->query("select * from ratings where buyer_mail='$user' and product_id=$id");
+                if($query->num_rows()>0){
+                    $return['rating']=$query->row()->rate;
+                }
+                else {
+                    $return['rating']=0;
+                }
+            }
+                
+        }
 
         return $return;
     }
@@ -335,5 +371,20 @@ class ProductModel extends CI_Model
     public function order($data) 
     {
         $this->db->insert('orders', $data);
+    }
+    
+    public function ratingset($user, $star, $product){
+        if($this->db->query("select * from ratings where product_id = $product and buyer_mail ='$user'")->num_rows()>0)
+        {
+            $this->db->set('rate', $star);
+            $this->db->where('buyer_mail', $user);
+            $this->db->where('product_id', $product);
+            $this->db->update('ratings');
+        }
+        else {
+
+            $data=['buyer_mail'=>$user,'product_id'=>$product,'rate'=>$star];
+            $this->db->insert('ratings', $data);
+        }
     }
 }

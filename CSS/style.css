@@ -74,6 +74,7 @@ html, body {
     height: 30px;
     text-align: center;
     color: red;
+    clear: both;
 }
 #login {
     width: 100%;
@@ -994,4 +995,28 @@ a {
     height: 100%;
     margin: 0 auto;
 
+}
+
+
+
+.star{
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.star-checked{
+    color: gold;
+}
+
+.star-checked-2{
+    color: gold;
+}
+#result{
+    display: none;
+}
+b.r{
+    color: red;
+}
+b.g{
+    color: green;
 }
