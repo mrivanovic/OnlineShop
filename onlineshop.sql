@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 07:54 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Jun 09, 2018 at 08:12 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,15 +30,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `buyer` (
   `mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `name` int(11) NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `lastname` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `country` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `city` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adress` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tel` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8_unicode_ci,
   `dateofbirth` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `buyer`
+--
+
+INSERT INTO `buyer` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `image`, `dateofbirth`) VALUES
+('milos@gmail.com', 'Milos', 'Milosevicq', 'Miloss1', 'AO', 'Beograd', 'Vinodolska 5', '0620620622', NULL, '1997-04-05'),
+('misko@gmail.com', 'Misko', 'Miskovic', 'misko', 'Pakistan', 'Bagdad', 'Buraza sfdif 0asd', '123456789', 'img/uploads/1528293036_хххх.jpg', '1965-02-02');
 
 -- --------------------------------------------------------
 
@@ -147,30 +156,118 @@ INSERT INTO `delivery` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `favorite`
+--
+
+CREATE TABLE `favorite` (
+  `buyer_mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `products_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `favorite`
+--
+
+INSERT INTO `favorite` (`buyer_mail`, `products_id`) VALUES
+('misko@gmail.com', 22),
+('misko@gmail.com', 25);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
   `id` int(11) NOT NULL,
-  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `mime-type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `extension` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `path` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `main` tinyint(1) DEFAULT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `path` text COLLATE utf8_unicode_ci NOT NULL,
+  `main` tinyint(1) DEFAULT '0',
+  `extension` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `mime-type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `products_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `images_users`
+-- Dumping data for table `images`
 --
 
-CREATE TABLE `images_users` (
-  `id` int(11) NOT NULL,
-  `seller_id` varchar(45) NOT NULL,
-  `path` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `images` (`id`, `name`, `path`, `main`, `extension`, `mime-type`, `products_id`) VALUES
+(1, 'superman.gif', 'img/products/21_1527241171_superman.gif', 1, 'gif', 'image/gif', 21),
+(2, 'superman.gif', 'img/products/21_1527241171_superman.gif', 0, 'gif', 'image/gif', 21),
+(3, 'superman.gif', 'img/products/21_1527241171_superman.gif', 0, 'gif', 'image/gif', 21),
+(4, 'superman.gif', 'img/products/21_1527241171_superman.gif', 0, 'gif', 'image/gif', 21),
+(5, 'superman.gif', 'img/products/21_1527241171_superman.gif', 0, 'gif', 'image/gif', 21),
+(6, 'laptop1.jpg', 'img/products/22_1527241717_laptop1.jpg', 1, 'jpg', 'image/jpeg', 22),
+(7, 'laptop1.jpg', 'img/products/22_1527241717_laptop1.jpg', 0, 'jpg', 'image/jpeg', 22),
+(8, 'laptop1.jpg', 'img/products/22_1527241717_laptop1.jpg', 0, 'jpg', 'image/jpeg', 22),
+(9, '', 'img/products/22_1527241717_', 0, '', '0', 22),
+(10, '', 'img/products/22_1527241717_', 0, '', '0', 22),
+(11, 'laptop3.jpg', 'img/products/23_1527241761_laptop3.jpg', 1, 'jpg', 'image/jpeg', 23),
+(12, 'laptop4.jpg', 'img/products/23_1527241761_laptop4.jpg', 0, 'jpg', 'image/jpeg', 23),
+(13, '', 'img/products/23_1527241761_', 0, '', '0', 23),
+(14, '', 'img/products/23_1527241761_', 0, '', '0', 23),
+(15, '', 'img/products/23_1527241761_', 0, '', '0', 23),
+(16, 'laptop5.jpg', 'img/products/24_1527241793_laptop5.jpg', 1, 'jpg', 'image/jpeg', 24),
+(17, 'laptop2.jpg', 'img/products/24_1527241793_laptop2.jpg', 0, 'jpg', 'image/jpeg', 24),
+(18, 'laptop1.jpg', 'img/products/24_1527241793_laptop1.jpg', 0, 'jpg', 'image/jpeg', 24),
+(19, 'laptop3.jpg', 'img/products/24_1527241793_laptop3.jpg', 0, 'jpg', 'image/jpeg', 24),
+(20, 'laptop2.jpg', 'img/products/24_1527241793_laptop2.jpg', 0, 'jpg', 'image/jpeg', 24),
+(21, 'laptop4.jpg', 'img/products/25_1527241828_laptop4.jpg', 1, 'jpg', 'image/jpeg', 25),
+(22, 'laptop3.jpg', 'img/products/25_1527241828_laptop3.jpg', 0, 'jpg', 'image/jpeg', 25),
+(23, 'laptop2.jpg', 'img/products/25_1527241828_laptop2.jpg', 0, 'jpg', 'image/jpeg', 25),
+(24, 'laptop2.jpg', 'img/products/25_1527241828_laptop2.jpg', 0, 'jpg', 'image/jpeg', 25),
+(25, 'laptop3.jpg', 'img/products/25_1527241828_laptop3.jpg', 0, 'jpg', 'image/jpeg', 25),
+(26, 'monitor.jpg', 'img/products/26_1527241926_monitor.jpg', 1, 'jpg', 'image/jpeg', 26),
+(27, 'monitor2.jpg', 'img/products/26_1527241926_monitor2.jpg', 0, 'jpg', 'image/jpeg', 26),
+(28, 'monitor.jpg', 'img/products/26_1527241926_monitor.jpg', 0, 'jpg', 'image/jpeg', 26),
+(29, '', 'img/products/26_1527241926_', 0, '', '0', 26),
+(30, '', 'img/products/26_1527241926_', 0, '', '0', 26),
+(31, 'tablet1.jpg', 'img/products/27_1527242036_tablet1.jpg', 1, 'jpg', 'image/jpeg', 27),
+(32, 'tablet2.jpg', 'img/products/27_1527242036_tablet2.jpg', 0, 'jpg', 'image/jpeg', 27),
+(33, 'tablet1.jpg', 'img/products/27_1527242036_tablet1.jpg', 0, 'jpg', 'image/jpeg', 27),
+(34, 'tablet3.jpg', 'img/products/27_1527242036_tablet3.jpg', 0, 'jpg', 'image/jpeg', 27),
+(35, '', 'img/products/27_1527242036_', 0, '', '0', 27),
+(36, 'speakers.jpg', 'img/products/28_1527242165_speakers.jpg', 1, 'jpg', 'image/jpeg', 28),
+(37, 'speakers.jpg', 'img/products/28_1527242165_speakers.jpg', 0, 'jpg', 'image/jpeg', 28),
+(38, 'speakers.jpg', 'img/products/28_1527242165_speakers.jpg', 0, 'jpg', 'image/jpeg', 28),
+(39, '', 'img/products/28_1527242165_', 0, '', '0', 28),
+(40, '', 'img/products/28_1527242165_', 0, '', '0', 28),
+(41, 'kuciste1.jpg', 'img/products/29_1527242206_kuciste1.jpg', 1, 'jpg', 'image/jpeg', 29),
+(42, 'kuciste2.jpg', 'img/products/29_1527242206_kuciste2.jpg', 0, 'jpg', 'image/jpeg', 29),
+(43, '', 'img/products/29_1527242206_', 0, '', '0', 29),
+(44, '', 'img/products/29_1527242206_', 0, '', '0', 29),
+(45, '', 'img/products/29_1527242206_', 0, '', '0', 29),
+(46, 'kuciste1.jpg', 'img/products/30_1527242233_kuciste1.jpg', 1, 'jpg', 'image/jpeg', 30),
+(47, 'kuciste1.jpg', 'img/products/30_1527242233_kuciste1.jpg', 0, 'jpg', 'image/jpeg', 30),
+(48, 'kuciste1.jpg', 'img/products/30_1527242233_kuciste1.jpg', 0, 'jpg', 'image/jpeg', 30),
+(49, 'kuciste1.jpg', 'img/products/30_1527242233_kuciste1.jpg', 0, 'jpg', 'image/jpeg', 30),
+(50, 'kuciste1.jpg', 'img/products/30_1527242233_kuciste1.jpg', 0, 'jpg', 'image/jpeg', 30),
+(51, 'laptop4.jpg', 'img/products/31_1527242294_laptop4.jpg', 1, 'jpg', 'image/jpeg', 31),
+(52, 'laptop1.jpg', 'img/products/31_1527242294_laptop1.jpg', 0, 'jpg', 'image/jpeg', 31),
+(53, 'laptop1.jpg', 'img/products/31_1527242294_laptop1.jpg', 0, 'jpg', 'image/jpeg', 31),
+(54, 'laptop1.jpg', 'img/products/31_1527242294_laptop1.jpg', 0, 'jpg', 'image/jpeg', 31),
+(55, '', 'img/products/31_1527242294_', 0, '', '0', 31),
+(56, 'tastatura 2.jpg', 'img/products/32_1527242353_tastatura 2.jpg', 1, 'jpg', 'image/jpeg', 32),
+(57, 'tastatura1.jpg', 'img/products/32_1527242353_tastatura1.jpg', 0, 'jpg', 'image/jpeg', 32),
+(58, 'tastatura 2.jpg', 'img/products/32_1527242353_tastatura 2.jpg', 0, 'jpg', 'image/jpeg', 32),
+(59, '', 'img/products/32_1527242353_', 0, '', '0', 32),
+(60, '', 'img/products/32_1527242353_', 0, '', '0', 32),
+(61, 'tastatura1.jpg', 'img/products/33_1527242409_tastatura1.jpg', 1, 'jpg', 'image/jpeg', 33),
+(62, 'tastatura 2.jpg', 'img/products/33_1527242409_tastatura 2.jpg', 0, 'jpg', 'image/jpeg', 33),
+(63, 'tastatura 2.jpg', 'img/products/33_1527242409_tastatura 2.jpg', 0, 'jpg', 'image/jpeg', 33),
+(64, '', 'img/products/33_1527242409_', 0, '', '0', 33),
+(65, '', 'img/products/33_1527242409_', 0, '', '0', 33),
+(66, '', 'img/products/34_1527242461_', 1, '', '0', 34),
+(67, '', 'img/products/34_1527242461_', 0, '', '0', 34),
+(68, '', 'img/products/34_1527242461_', 0, '', '0', 34),
+(69, '', 'img/products/34_1527242461_', 0, '', '0', 34),
+(70, '', 'img/products/34_1527242461_', 0, '', '0', 34),
+(71, 'procesor.jpg', 'img/products/35_1527242473_procesor.jpg', 1, 'jpg', 'image/jpeg', 35),
+(72, 'procesor.jpg', 'img/products/35_1527242473_procesor.jpg', 0, 'jpg', 'image/jpeg', 35),
+(73, 'procesor.jpg', 'img/products/35_1527242473_procesor.jpg', 0, 'jpg', 'image/jpeg', 35),
+(74, '', 'img/products/35_1527242473_', 0, '', '0', 35),
+(75, '', 'img/products/35_1527242473_', 0, '', '0', 35);
 
 -- --------------------------------------------------------
 
@@ -180,10 +277,25 @@ CREATE TABLE `images_users` (
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `sender` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `orders_id` int(11) NOT NULL,
+  `receiver_mail` text NOT NULL,
+  `receiver_type` varchar(10) NOT NULL,
+  `sender_mail` text NOT NULL,
+  `sender_type` varchar(10) NOT NULL,
+  `message` text NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `receiver_mail`, `receiver_type`, `sender_mail`, `sender_type`, `message`, `status`, `timestamp`) VALUES
+(1, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'proba', 0, '2018-05-31 22:05:51'),
+(2, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'proba1', 0, '2018-05-31 22:06:54'),
+(3, 'misko@gmail.com', 'buyer', 'ljubisa@gmail.com', 'seller', 'gde si misko kuco', 0, '2018-06-08 13:05:53'),
+(4, 'misko@gmail.com', 'buyer', 'ljubisa@gmail.com', 'seller', 'sta mi probas koje pm', 0, '2018-06-08 13:06:02'),
+(5, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'ma jebo ti pas mater ludu', 0, '2018-06-08 13:06:54');
 
 -- --------------------------------------------------------
 
@@ -193,13 +305,25 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `buyer_mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `datetime` datetime NOT NULL,
-  `status` int(20) NOT NULL,
-  `quantity` int(11) DEFAULT '1',
-  `details` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
+  `buyer_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `seller_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `stripe_id` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `price` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `currency` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sent` tinyint(1) NOT NULL DEFAULT '0',
+  `arrived` tinyint(1) NOT NULL DEFAULT '0',
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `buyer_mail`, `seller_mail`, `stripe_id`, `product_id`, `price`, `currency`, `sent`, `arrived`, `timestamp`) VALUES
+(8, 'misko@gmail.com', 'ljubisa@gmail.com', 'ch_1CakNpEnNWAh2mCBUpsnYoJM', 21, '99900', 'USD', 1, 1, '2018-06-09 14:29:04'),
+(9, 'milos@gmail.com', 'ljubisa@gmail.com', 'ch_1CakeBEnNWAh2mCBK4Wx7SG6', 22, '5000000', 'RSD', 1, 1, '2018-06-08 13:31:11'),
+(10, 'misko@gmail.com', 'ljubisa@gmail.com', 'ch_1Cb8ICEnNWAh2mCBrZ8sRdWM', 21, '99900', 'USD', 1, 1, '2018-06-09 14:44:25');
 
 -- --------------------------------------------------------
 
@@ -238,21 +362,21 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `seller_mail`, `name`, `descriptions`, `price`, `delivery_id`, `currency_id`) VALUES
-(1, 20, 'ljubisa@gmail.com', 'Hama ', '0', 1000, 2, 1),
-(2, 1, 'ljubisa@gmail.com', 'LENOVO IdeaPad 320-15IAP - 80XR00BHYA', 'Intel® Pentium® N4200 do 2.50GHz, 15.6\", 500GB HDD, 4GB\r\nPolovan', 30999, 3, 1),
-(3, 1, 'ljubisa@gmail.com', 'HP OMEN - 15-ce019nm - 2QE49EA', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 30000, 3, 1),
-(4, 1, 'ljubisa@gmail.com', 'DELL Inspiron 15 7577 - NOT12010', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 1TB HDD, 8GB\r\nNov', 105000, 2, 1),
-(5, 1, 'ljubisa@gmail.com', 'DELL Inspiron 15 7577 - NOT11998', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nNOVO!', 1000, 2, 3),
-(6, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nNOVO!!', 1100, 2, 2),
-(7, 3, 'andjela@gmail.com', 'eSTAR BEAUTY 2 HD', '(Zlatna) - ES-BEAUTY-G 7\", Četiri jezgra, 1GB, WiFi', 50, 4, 3),
-(8, 3, 'andjela@gmail.com', 'ALCATEL OneTouch Pixi', '4 7\" WiFi 8063 (Siva) 7\", Četiri jezgra, 1GB, WiFi NOVO', 8000, 2, 1),
-(9, 3, 'andjela@gmail.com', 'HUAWEI Mediapad T3', '7\" (Siva) 7\", Četiri jezgra, 1GB, WiFi NOVO', 100, 4, 3),
-(10, 5, 'andjela@gmail.com', 'ASUS LED', '18.5\" VS197DE HD Ready 18.5\", TN, 1366 x 768 HD ready, 5ms NOVO', 100, 2, 2),
-(11, 15, 'andjela@gmail.com', 'GIGATRON PRIME LIDER', 'A990 Ryzen 3 + AMD Ryzen 3, 8GB DDR4 2133 MHz, 240GB SSD, GeForce GTX 1050 Ti\r\nPolovno', 30000, 4, 1),
-(12, 21, 'jovan@gmail.com', 'HAVIT tastatura Multi-Media', '(Crna) - HV-KB327 SRB (YU), 104 tastera, 10 multimedijalna tastera AKCIJA!', 999, 4, 1),
-(13, 20, 'jovan@gmail.com', 'GENIUS žični miš', 'DX-110 PS/2 - 31010116106 Optički, 1000dpi, 3, Simetričan (pogodan za obe ruke) AKCIJA!', 599, 4, 1),
-(14, 9, 'jovan@gmail.com', 'AMD A4-5300 ', '3.4GHz 2-Core APU Box AMD® FM2, AMD® A-series APU, 2, 2 NOVO!', 4000, 4, 1),
-(15, 13, 'jovan@gmail.com', 'KINGSTON 4GB DDR3L ValueRAM', '1600MHz CL11 - KVR16LN11/4 DDR3, 4GB, 1600Mhz, 1.35V NOVO', 50, 4, 2);
+(21, 2, 'ljubisa@gmail.com', 'supermen', 'supermen za decu malo presao prvi vlasnik', 999, 2, 2),
+(22, 1, 'ljubisa@gmail.com', 'HP OMEN - 15-ce019nm - 2QE49EA', '2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 50000, 4, 1),
+(23, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'accer - 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nAKCIJA!!', 999, 2, 2),
+(24, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'accer - 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nAKCIJA!!', 999, 2, 2),
+(25, 1, 'ljubisa@gmail.com', 'Asus 245-3232', 'ASUS- 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 998, 3, 3),
+(26, 5, 'ljubisa@gmail.com', 'Monitor ACER LED', ' 23\" R231bmid IPS Full HD - UM.VR1EE.001 23\", IPS, 1920 x 1080 Full HD, 4ms', 450, 3, 6),
+(27, 3, 'andjela@gmail.com', 'Tablet HUAWEI', ' Mediapad T3 10\" (Siva) 9.6\", Četiri jezgra, 2GB, WiFi', 500, 2, 2),
+(28, 22, 'andjela@gmail.com', 'SOROUND', 'SONY dobro ocuvani kao novi', 45000, 4, 1),
+(29, 15, 'andjela@gmail.com', 'KUCISTE ASUS', 'Kuciste novo uvezeno iz Nemacke', 700, 2, 3),
+(30, 15, 'andjela@gmail.com', 'KUCISTE ASUS', 'Kuciste novo uvezeno iz Nemacke', 700, 2, 3),
+(31, 1, 'andjela@gmail.com', 'Assus  32\" 8hddr', 'NOVOOO', 1000, 3, 7),
+(32, 21, 'jovan@gmail.com', 'HAVIT tastatura Multi-Media', 'HAVIT tastatura Multi-Media Crna nova', 500, 2, 1),
+(33, 21, 'jovan@gmail.com', 'Opticka ', 'DX-110 PS/2 - 31010116106 Optički, 1000dpi, 3, Simetričan (pogodan za obe ruke) AKCIJA!', 999, 2, 1),
+(34, 9, 'jovan@gmail.com', 'kingston', '3.4GHz 2-Core APU Box AMD® FM2, AMD® A-series APU, 2, 2 NOVO!', 8000, 2, 1),
+(35, 9, 'jovan@gmail.com', 'kingston', '3.4GHz 2-Core APU Box AMD® FM2, AMD® A-series APU, 2, 2 NOVO!', 8000, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -263,8 +387,16 @@ INSERT INTO `products` (`id`, `category_id`, `seller_mail`, `name`, `description
 CREATE TABLE `ratings` (
   `rate` int(11) NOT NULL,
   `timestemp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `orders_id` int(11) NOT NULL
+  `product_id` int(11) NOT NULL,
+  `buyer_mail` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`rate`, `timestemp`, `product_id`, `buyer_mail`) VALUES
+(3, '2018-06-09 17:28:53', 21, 'misko@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -281,6 +413,7 @@ CREATE TABLE `seller` (
   `city` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adress` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tel` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8_unicode_ci,
   `dateofbirth` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -288,10 +421,31 @@ CREATE TABLE `seller` (
 -- Dumping data for table `seller`
 --
 
-INSERT INTO `seller` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `dateofbirth`) VALUES
-('andjela@gmail.com', 'Andjela', 'Djurovic', 'andjela', 'Serbia', 'Priboj', 'LimskaBB', '0620620622', '1996-06-16'),
-('jovan@gmail.com', 'Jovan', 'Ivanovic', 'jovan', 'Serbia', 'Beograd', 'Vinodolska 5', '0620620622', '1997-04-05'),
-('ljubisa@gmail.com', 'Ljubisa', 'Ivanovic', 'ljubisa', 'Srbija', 'Beograd', 'Vinodolska 5', '0645799061', '1993-08-18');
+INSERT INTO `seller` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `image`, `dateofbirth`) VALUES
+('andjela@gmail.com', 'Andjela', 'Djurovic', 'andjela', 'Serbia', 'Priboj', 'LimskaBB', '0620620622', 'img/uploads/1527246294_laptop3.jpg', '1996-06-16'),
+('jovan@gmail.com', 'Jovan', 'Ivanovic', 'jovan', 'Serbia', 'Beograd', 'Vinodolska 5', '0620620622', NULL, '1997-04-05'),
+('ljubisa@gmail.com', 'Ljubisa', 'Ivanovic', 'ljubisa', 'Srbija', 'Beograd', 'Vinodolska 5', '0645799061', 'img/uploads/1528504192_', '1993-08-18'),
+('nenad@gmail.com', 'Nenad', 'Nenad', 'Nenadb1', 'AF', 'Becej', 'Becejska 3', '0620620622', NULL, '1997-04-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `mail` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `text`, `mail`, `timestamp`) VALUES
+(1, 'ovo je moj prvi status', 'ljubisa@gmail.com', '2018-06-09 00:29:51');
 
 --
 -- Indexes for dumped tables
@@ -330,6 +484,14 @@ ALTER TABLE `delivery`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `favorite`
+--
+ALTER TABLE `favorite`
+  ADD PRIMARY KEY (`buyer_mail`,`products_id`),
+  ADD KEY `fk_buyer_has_products_products1_idx` (`products_id`),
+  ADD KEY `fk_buyer_has_products_buyer1_idx` (`buyer_mail`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -337,25 +499,17 @@ ALTER TABLE `images`
   ADD KEY `fk_images_products1_idx` (`products_id`);
 
 --
--- Indexes for table `images_users`
---
-ALTER TABLE `images_users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`orders_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_orders_products1_idx` (`products_id`),
-  ADD KEY `fk_orders_buyer1_idx` (`buyer_mail`);
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `posts`
@@ -378,14 +532,20 @@ ALTER TABLE `products`
 -- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`orders_id`),
-  ADD KEY `fk_ratings_orders1_idx` (`orders_id`);
+  ADD PRIMARY KEY (`product_id`,`buyer_mail`),
+  ADD KEY `mail_raiting` (`buyer_mail`);
 
 --
 -- Indexes for table `seller`
 --
 ALTER TABLE `seller`
   ADD PRIMARY KEY (`mail`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -413,25 +573,19 @@ ALTER TABLE `delivery`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `images_users`
---
-ALTER TABLE `images_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -443,7 +597,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -462,23 +622,23 @@ ALTER TABLE `comments`
   ADD CONSTRAINT `fk_comments_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `favorite`
+--
+ALTER TABLE `favorite`
+  ADD CONSTRAINT `fk_buyer_has_products_buyer1` FOREIGN KEY (`buyer_mail`) REFERENCES `buyer` (`mail`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_buyer_has_products_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `images`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `fk_images_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `messages`
---
-ALTER TABLE `messages`
-  ADD CONSTRAINT `order_id` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`);
-
---
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_orders_buyer1` FOREIGN KEY (`buyer_mail`) REFERENCES `buyer` (`mail`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_orders_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `posts`
@@ -499,7 +659,8 @@ ALTER TABLE `products`
 -- Constraints for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD CONSTRAINT `fk_ratings_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `mail_raiting` FOREIGN KEY (`buyer_mail`) REFERENCES `buyer` (`mail`),
+  ADD CONSTRAINT `product_rating` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
