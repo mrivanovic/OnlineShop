@@ -482,9 +482,9 @@ class Account extends CI_Controller {
     public function productPage()
     {   
         $id = $this->input->get('id');
-        $data['product'] = $this->ProductModel->productView($id);
+        $mail = $this->session->userdata('mail');
+        $data['product'] = $this->ProductModel->productView($id, $mail);
         $data['comments'] = $this->ProductModel->comments($id);
-        $data['product'] = $this->ProductModel->productView($id, $this->session->userdata('mail'));
         $this->loadView('productPage.php', $data);
     }
     
@@ -535,12 +535,12 @@ class Account extends CI_Controller {
         $this->AccountModel->ordersArrived($id);
         redirect('Account/Orders');
     }
-    public function ratingset(){
-        $star=$this->input->get('star');
-        $product_id=$this->input->get('product_id');
-        $this->ProductModel->ratingset($this->session->userdata('mail'), $star, $product_id);
-        return "";
-    }
+   public function ratingset(){
+       $star=$this->input->get('star');
+       $product_id=$this->input->get('product_id');
+       $this->ProductModel->ratingset($this->session->userdata('mail'), $star, $product_id);
+       return "";
+   }
 
     public function status()
     {

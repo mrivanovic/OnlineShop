@@ -73,8 +73,6 @@
             <tr>
                 <th>My rating:</th>
                 <td>
-                
-
                     <div id="star-container">
                         <i class="fa fa-star fa-3x star <?php if($product['rating']>0)  echo "star-checked-2"; ?>" id="star-1"></i>
                         <i class="fa fa-star fa-3x star <?php if($product['rating']>1)  echo "star-checked-2"; ?>" id="star-2"></i>
@@ -99,6 +97,7 @@
                 </table>
             </form>
         </div>
+        <?php echo $comments['buyer_mail']; ?>
     </div>
     <div class="productDescRight">
         <button id="message"><i class="fa fa-envelope"></i>&nbsp;Send message</button><br>

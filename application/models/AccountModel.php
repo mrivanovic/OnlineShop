@@ -232,7 +232,7 @@ class AccountModel extends CI_Model
             $this->db->set('buyer_mail', $mail);
             $this->db->set('seller_mail', $seller_mail);
             $this->db->set('reactions', 1);
-            $this->db->insert('ratings');
+            $this->db->insert('likes');
         }
     }
     public function dislike($mail, $seller_mail)
@@ -244,7 +244,7 @@ class AccountModel extends CI_Model
             $this->db->set('buyer_mail', $mail);
             $this->db->set('seller_mail', $seller_mail);
             $this->db->set('reactions', 0);
-            $this->db->insert('ratings');
+            $this->db->insert('likes');
         }
     }
 }

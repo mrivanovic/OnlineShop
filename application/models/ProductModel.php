@@ -372,28 +372,26 @@ class ProductModel extends CI_Model
     {
         $this->db->insert('orders', $data);
     }
-<<<<<<< HEAD
     public function comments($id)
     {
         $query = $this->db->query("select * from comments where product_id = '{$id}';");
         $result = $query->result_array();
 
-        $return = $result();
-=======
-    
-    public function ratingset($user, $star, $product){
-        if($this->db->query("select * from ratings where product_id = $product and buyer_mail ='$user'")->num_rows()>0)
-        {
-            $this->db->set('rate', $star);
-            $this->db->where('buyer_mail', $user);
-            $this->db->where('product_id', $product);
-            $this->db->update('ratings');
-        }
-        else {
-
-            $data=['buyer_mail'=>$user,'product_id'=>$product,'rate'=>$star];
-            $this->db->insert('ratings', $data);
-        }
->>>>>>> 11e6ecc403b9da269c355fa6e3046b1bd2ed8067
+        return  $result;
     }
+
+   public function ratingset($user, $star, $product){
+       if($this->db->query("select * from ratings where product_id = $product and buyer_mail ='$user'")->num_rows()>0)
+      {
+          $this->db->set('rate', $star);
+          $this->db->where('buyer_mail', $user);
+          $this->db->where('product_id', $product);
+          $this->db->update('ratings');
+      }
+      else {
+
+          $data = ['buyer_mail' => $user, 'product_id' => $product, 'rate' => $star];
+          $this->db->insert('ratings', $data);
+      }
+  }
 }
