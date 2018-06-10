@@ -74,7 +74,7 @@ class Category extends CI_Controller {
             $desc = $this->input->post('desc');
             $price = $this->input->post('price');
             $this->ProductModel->adwertUpdate($idProduct, $name, $desc, $price, $mail);
-            redirect('Account/advertView+');
+            redirect('Account/advertView');
         } else if (isset($_POST['delete'])) {
             $idProduct = $this->input->post('id');
             $this->ProductModel->delete($idProduct);

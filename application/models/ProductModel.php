@@ -149,7 +149,29 @@ class ProductModel extends CI_Model
         $query = $this->db->query("select * from products where seller_mail = '{$mail}';");
         $result = $query->result_array();
 
-        return $result;
+
+        $return = array();
+
+        foreach ($result as $item) {
+            $_image = $this->db->query("select * from images where main = 1 and products_id = {$item['id']}");
+            $_category = $this->db->query("select * from category where id = {$item['category_id']}");
+            $_currency = $this->db->query("select * from currency where id = {$item['currency_id']}");
+            $_delivery = $this->db->query("select * from delivery where id = {$item['delivery_id']}");
+
+            $image = $_image->row();
+            $category = $_category->row();
+            $currency = $_currency->row();
+            $delivery = $_delivery->row();
+
+            $return[$item['id']] = array();
+            $return[$item['id']]['info'] = $item;
+            $return[$item['id']]['main_image'] = $image != null ? $image->path : 'img/img.png';
+            $return[$item['id']]['category'] = $category->ime;
+            $return[$item['id']]['currency'] = $currency->name;
+            $return[$item['id']]['delivery'] = $delivery->name;
+        }
+
+        return $return;
     }
     public function adwertUpdate($idProduct, $name, $desc, $price, $mail)
     {
@@ -285,7 +307,7 @@ class ProductModel extends CI_Model
         }
         
         if($user!=NULL){
-            $query= $this->db->query("select * from orders where buyer_mail='$user' and product_id=$id and arrived=1");
+            $query= $this->db->query("select * from orders where buyer_mail='$user' and product_id=$id and arrived IS NOT NULL");
             if($query->num_rows()>0){
                 $return['buy']=1;
                 $query = $this->db->query("select * from ratings where buyer_mail='$user' and product_id=$id");
@@ -374,7 +396,7 @@ class ProductModel extends CI_Model
     }
     public function comments($id)
     {
-        $query = $this->db->query("select * from comments where product_id = '{$id}';");
+        $query = $this->db->query("select * from comments where product_id = '{$id}' ORDER BY timestamp DESC;");
         $result = $query->result_array();
 
         return  $result;

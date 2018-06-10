@@ -485,6 +485,7 @@ class Account extends CI_Controller {
         $mail = $this->session->userdata('mail');
         $data['product'] = $this->ProductModel->productView($id, $mail);
         $data['comments'] = $this->ProductModel->comments($id);
+        $data['reactions'] = $this->AccountModel->totalLikesDislikes($data['product']['seller']['mail']);
         $this->loadView('productPage.php', $data);
     }
     

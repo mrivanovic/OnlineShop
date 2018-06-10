@@ -176,7 +176,7 @@ class AccountModel extends CI_Model
     {
         $mail = $_SESSION['mail'];
 
-        $query = $this->db->query("SELECT * FROM orders o JOIN products p on product_id = p.id WHERE o.seller_mail = '{$mail}'");
+        $query = $this->db->query("SELECT o.id, o.seller_mail, o.buyer_mail, p.name, p.descriptions, o.price, o.currency, o.sent, o.arrived FROM orders o JOIN products p on product_id = p.id WHERE o.seller_mail = '{$mail}'");
         $result = $query->result_array();
         return $result;
     }
@@ -184,14 +184,14 @@ class AccountModel extends CI_Model
     {
         $mail = $_SESSION['mail'];
 
-        $query = $this->db->query("SELECT * FROM orders o JOIN products p on product_id = p.id WHERE o.buyer_mail = '{$mail}' and sent = 1 and arrived = 0");
+        $query = $this->db->query("SELECT o.id, o.seller_mail, o.buyer_mail, p.name, p.descriptions, o.price, o.currency, o.sent, o.arrived FROM orders o JOIN products p on product_id = p.id WHERE o.buyer_mail = '{$mail}' and o.sent IS NOT NULL and o.arrived IS NULL");
         $result = $query->result_array();
         return $result;
     }
     public function ordersSent($id)
     {
         $mail = $_SESSION['mail'];
-        $this->db->set('sent', 1);
+        $this->db->set('sent', 'NOW()', false);
         $this->db->where('seller_mail', $mail);
         $this->db->where('id', $id);
         $this->db->update('orders');
@@ -199,7 +199,7 @@ class AccountModel extends CI_Model
     public function ordersArrived($id)
     {
         $mail = $_SESSION['mail'];
-        $this->db->set('arrived', 1);
+        $this->db->set('arrived', 'NOW()', false);
         $this->db->where('buyer_mail', $mail);
         $this->db->where('id', $id);
         $this->db->update('orders');
@@ -229,10 +229,20 @@ class AccountModel extends CI_Model
         $result = $var->result_array();
 
         if(count($result) > 0) {
-            $this->db->set('buyer_mail', $mail);
-            $this->db->set('seller_mail', $seller_mail);
-            $this->db->set('reactions', 1);
-            $this->db->insert('likes');
+            $var = $this->db->query("SELECT * FROM likes WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");
+            $result = $var->result_array();
+
+            if(count($result) > 0) {
+                $this->db->where('buyer_mail', $mail);
+                $this->db->where('seller_mail', $seller_mail);
+                $this->db->set('reactions', 1);
+                $this->db->update('likes');
+            } else {
+                $this->db->set('buyer_mail', $mail);
+                $this->db->set('seller_mail', $seller_mail);
+                $this->db->set('reactions', 1);
+                $this->db->insert('likes');
+            }
         }
     }
     public function dislike($mail, $seller_mail)
@@ -241,10 +251,34 @@ class AccountModel extends CI_Model
         $result = $var->result_array();
 
         if(count($result) > 0) {
-            $this->db->set('buyer_mail', $mail);
-            $this->db->set('seller_mail', $seller_mail);
-            $this->db->set('reactions', 0);
-            $this->db->insert('likes');
+            $var = $this->db->query("SELECT * FROM likes WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");
+            $result = $var->result_array();
+
+            if(count($result) > 0) {
+                $this->db->where('buyer_mail', $mail);
+                $this->db->where('seller_mail', $seller_mail);
+                $this->db->set('reactions', 0);
+                $this->db->update('likes');
+            } else {
+                $this->db->set('buyer_mail', $mail);
+                $this->db->set('seller_mail', $seller_mail);
+                $this->db->set('reactions', 0);
+                $this->db->insert('likes');
+            }
         }
+    }
+
+    public function totalLikesDislikes($seller_mail)
+    {
+        $var = $this->db->query("SELECT COUNT(`reactions`) AS `total` FROM `likes` WHERE `seller_mail` = '{$seller_mail}' AND `reactions` = 1");
+        $likes = $var->row()->total;
+
+        $var = $this->db->query("SELECT COUNT(`reactions`) AS `total` FROM `likes` WHERE `seller_mail` = '{$seller_mail}' AND `reactions` = 0");
+        $dislikes = $var->row()->total;
+
+        return [
+            'likes' => $likes,
+            'dislikes' => $dislikes
+        ];
     }
 }

@@ -74,13 +74,13 @@
                 <th>My rating:</th>
                 <td>
                     <div id="star-container">
-                        <i class="fa fa-star fa-3x star <?php if($product['rating']>0)  echo "star-checked-2"; ?>" id="star-1"></i>
-                        <i class="fa fa-star fa-3x star <?php if($product['rating']>1)  echo "star-checked-2"; ?>" id="star-2"></i>
-                        <i class="fa fa-star fa-3x star <?php if($product['rating']>2)  echo "star-checked-2"; ?>" id="star-3"></i>
-                        <i class="fa fa-star fa-3x star <?php if($product['rating']>3)  echo "star-checked-2"; ?>" id="star-4"></i>
-                        <i class="fa fa-star fa-3x star <?php if($product['rating']>4)  echo "star-checked-2"; ?>" id="star-5"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating'] > 0)  echo "star-checked-2"; ?>" id="star-1"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating'] > 1)  echo "star-checked-2"; ?>" id="star-2"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating'] > 2)  echo "star-checked-2"; ?>" id="star-3"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating'] > 3)  echo "star-checked-2"; ?>" id="star-4"></i>
+                        <i class="fa fa-star fa-3x star <?php if($product['rating'] > 4)  echo "star-checked-2"; ?>" id="star-5"></i>
                     </div>
-                </td>
+                </td>  
             </tr>
             <?php } ?>
         </table>
@@ -97,7 +97,14 @@
                 </table>
             </form>
         </div>
-        <?php echo $comments['buyer_mail']; ?>
+        <?php foreach( $comments as $element):?>
+            <div>
+                <?php echo $element['buyer_mail'];?>
+                <?php echo $element['timestamp'];?>
+                <hr>
+                <?php echo $element['content'];?>
+            </div>
+        <?php endforeach; ?>
     </div>
     <div class="productDescRight">
         <button id="message"><i class="fa fa-envelope"></i>&nbsp;Send message</button><br>
@@ -113,8 +120,8 @@
         <form action="<?php echo base_url("Account/reactions");?>" method="post">
             <input type="hidden" name="receiver_mail" value="<?php echo $product['seller']['mail']; ?>" />
             <input type="hidden" name="id" value="<?php echo $product['info']['id']; ?>" />
-            <button type="submit" name="like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>&nbsp;
-            <button type="submit" name="dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+            <button type="submit" name="like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $reactions['likes']; ?></button>&nbsp;
+            <button type="submit" name="dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $reactions['dislikes']; ?>
             </button>
         </form><br>
         

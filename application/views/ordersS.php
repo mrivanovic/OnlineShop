@@ -22,7 +22,7 @@
         </tr>
         <input type="hidden" name="id" value="<?php echo $element['id'];?>" />
             <tr>
-                <td colspan="2"> <button class="checkB" type="submit" name="send" onclick="change()"><?php if ($element['sent'] == 1) echo "<span class=\"check\"><i class=\"fa fa-check-circle\"></i></span>"; else echo "SEND";  ?></button></td>
+                <td colspan="2"> <button class="checkB" type="submit" name="send" onclick="change()"><?php if ($element['sent'] != null) echo "<span class=\"check\"><i class=\"fa fa-check-circle\"></i></span>"; else echo "SEND";  ?></button></td>
             </tr>
         </table>
     </form>
