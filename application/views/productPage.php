@@ -98,11 +98,17 @@
             </form>
         </div>
         <?php foreach( $comments as $element):?>
-            <div>
-                <?php echo $element['buyer_mail'];?>
-                <?php echo $element['timestamp'];?>
+            <div class="comments">
+                <div class="top_left">
+                    <?php echo $element['buyer_mail'];?>
+                </div>
+                <div class="top_right">
+                    <?php echo $element['timestamp'];?>
+                </div>
                 <hr>
-                <?php echo $element['content'];?>
+                <div class="content">
+                    <?php echo $element['content'];?>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

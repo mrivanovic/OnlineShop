@@ -1095,3 +1095,29 @@ b.g{
 #button_buy:hover {
     border: 1px solid darkgrey;
 }
+.comments {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border: 1px solid darkgrey;
+    background-color: #e0e0e0;
+}
+.comments > .top_left {
+    float: left;
+    text-align: left;
+    width: 70%;
+    height: 30px;
+}
+.comments > .top_right {
+    float: right;
+    text-align: right;
+    width: 30%;
+    height: 30px;
+}
+.comments > .content {
+    width: 100%;
+    text-align: left;
+    background-color: #e0e0e0;
+}
