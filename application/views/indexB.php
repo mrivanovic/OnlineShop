@@ -95,6 +95,6 @@
         }
         
 </script>
-<div style="clear: both;">
+<div style="clear: both; text-align: center;">
 <?php echo $this->pagination->create_links();?>
 </div>

@@ -27,9 +27,6 @@
                 </tr>
                 <tr>
                     <td><button type="submit">Log in</button> </td>
-                    <?php
-                    //echo $this->session->flashdata("error");
-                    ?>
                     <td><a href="#">Forgot Password?</a></td>
                 </tr>
                 <tr>

@@ -10,10 +10,12 @@ class AccountModel extends CI_Model
         parent::__construct();
         $this->load->database();
     }
+    
     public function SignUpP($data)
     {
         $this->db->insert('seller', $data);
     }
+    
     public function can_login($mail, $password, $type)
     {
         $this->db->where('mail', $mail);
@@ -25,7 +27,7 @@ class AccountModel extends CI_Model
             return FALSE;
         }
     }
-
+    
     public function isLoggedIn()
     {
         if (isset($_SESSION['mail']))
@@ -40,6 +42,7 @@ class AccountModel extends CI_Model
 
         return $query->result_object()[0];
     }
+    
     public function update($name, $lastname, $adress, $country, $tel, $city, $mailID) {
         $this->db->set("name", $name);
         $this->db->set("lastname",$lastname);
@@ -50,12 +53,14 @@ class AccountModel extends CI_Model
         $this->db->where("mail", $mailID);
         $this->db->update("seller");
     }
+    
     public function updatePass($pass, $mailID)
     {
         $this->db->set('password',$pass);
         $this->db->where('mail', $mailID);
         $this->db->update('seller');
     }
+    
     public function delete($idseller)
     {
         $this->db->where("mail",$idseller);
@@ -68,7 +73,9 @@ class AccountModel extends CI_Model
         $this->db->where('mail', $_SESSION['mail']);
         $this->db->update('seller');
     }
-/*******************************BUYER*******************************/
+    
+//*******************************BUYER*******************************/
+    
     public function updateB($name, $lastname, $adress, $country, $tel, $city, $mailID) {
         $this->db->set("name", $name);
         $this->db->set("lastname",$lastname);
@@ -79,27 +86,32 @@ class AccountModel extends CI_Model
         $this->db->where("mail", $mailID);
         $this->db->update("buyer");
     }
+    
     public function updatePassB($pass, $mailID)
     {
         $this->db->set('password',$pass);
         $this->db->where('mail', $mailID);
         $this->db->update('buyer');
     }
+    
     public function deleteB($idbuyer)
     {
         $this->db->where("mail",$idbuyer);
         $this->db->delete("buyer");
     }
+    
     public function signUpB($data)
     {
         $this->db->insert('buyer', $data);
     }
+    
     public function saveImageB($path)
     {
         $this->db->set('image',$path);
         $this->db->where('mail', $_SESSION['mail']);
         $this->db->update('buyer');
     }
+    
     public function loggedInUserB()
     {
         $mail = $_SESSION['mail'];
@@ -107,6 +119,7 @@ class AccountModel extends CI_Model
 
         return $query->result_object()[0];
     }
+    
    public function messagesB($text,$mailR)
    {
        $mail = $_SESSION['mail'];
@@ -118,6 +131,7 @@ class AccountModel extends CI_Model
        $this->db->set('message', $text);
        $this->db->insert('messages');
    }
+    
     public function sellerInbox()
     {
         $mail = $_SESSION['mail'];
@@ -126,6 +140,7 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    
     public function sellerSent()
     {
         $mail = $mail = $_SESSION['mail'];
@@ -134,6 +149,7 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    
     public function buyerSent()
     {
         $mail = $mail = $_SESSION['mail'];
@@ -142,6 +158,7 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    
     public function messageS($text,  $mailR)
     {
         $mail = $_SESSION['mail'];
@@ -153,6 +170,7 @@ class AccountModel extends CI_Model
         $this->db->set('message', $text);
         $this->db->insert('messages');
     }
+    
     public function buyerInbox()
     {
         $mail = $_SESSION['mail'];
@@ -161,6 +179,7 @@ class AccountModel extends CI_Model
 
         return $result;
     }
+    
     public function messageB($text,  $mailR)
     {
         $mail = $_SESSION['mail'];
@@ -172,6 +191,7 @@ class AccountModel extends CI_Model
         $this->db->set('message', $text);
         $this->db->insert('messages');
     }
+    
     public function orderSeller()
     {
         $mail = $_SESSION['mail'];
@@ -180,6 +200,7 @@ class AccountModel extends CI_Model
         $result = $query->result_array();
         return $result;
     }
+    
     public function buyerOrders()
     {
         $mail = $_SESSION['mail'];
@@ -188,6 +209,7 @@ class AccountModel extends CI_Model
         $result = $query->result_array();
         return $result;
     }
+    
     public function ordersSent($id)
     {
         $mail = $_SESSION['mail'];
@@ -196,6 +218,7 @@ class AccountModel extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('orders');
     }
+    
     public function ordersArrived($id)
     {
         $mail = $_SESSION['mail'];
@@ -204,6 +227,7 @@ class AccountModel extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('orders');
     }
+    
     public function status($text)
     {
         $mail = $_SESSION['mail'];
@@ -211,6 +235,7 @@ class AccountModel extends CI_Model
         $this->db->where('mail', $mail);
         $this->db->update('seller');
     }
+    
     public function addcomment($text, $id, $mail)
     {
         $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and product_id ='{$id}'");
@@ -223,6 +248,7 @@ class AccountModel extends CI_Model
             $this->db->insert('comments');
         }
     }
+    
     public function like($mail, $seller_mail)
     {
         $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");
@@ -245,6 +271,7 @@ class AccountModel extends CI_Model
             }
         }
     }
+    
     public function dislike($mail, $seller_mail)
     {
         $var = $this->db->query("SELECT * FROM orders WHERE buyer_mail = '{$mail}' and seller_mail ='{$seller_mail}'");

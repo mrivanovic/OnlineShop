@@ -9,8 +9,5 @@
         <?php echo $element['delivery'];?><br>
         <?php echo $element['info']['price'];?>&nbsp;-&nbsp;<?php echo $element['currency'];?><br>
         Contact:<br><?php echo $element['info']['seller_mail'];?><br>
-
-        
     </div>
 <?php endforeach; ?>
-   

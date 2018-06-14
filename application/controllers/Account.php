@@ -78,7 +78,7 @@ class Account extends CI_Controller {
                     'type' => 'seller');
 
                 $this->session->set_userdata($session_data);
-                redirect(base_url() . 'Account/index');
+                redirect(base_url('Account/index'));
             }elseif ($this->AccountModel->can_login($mail, $password, 'buyer'))
             {
                 $session_data = array(
@@ -86,12 +86,12 @@ class Account extends CI_Controller {
                     'type' => 'buyer');
 
                 $this->session->set_userdata($session_data);
-                redirect(base_url() . 'Account/indexB');
+                redirect(base_url('Account/indexB'));
             }
             else
             {
                 $this->session->set_flashdata('error', 'Invalid Username and Password');
-                redirect(base_url() . 'Category/login');
+                redirect(base_url('Category/login'));
             }
         }
         else{
@@ -108,23 +108,21 @@ class Account extends CI_Controller {
     //-------------------seller----------------------------
     public function setImage()
     {
-        $s = DIRECTORY_SEPARATOR; // Kosa crta za putanju koja se menja u zavisnosti od platforme: Windows \ Linux /
+        $s = DIRECTORY_SEPARATOR;
 
-        $file = $_FILES['image']; // Ovde uzimas sliku iz zahteva
-        $path = $file['tmp_name']; // Privremeno ime slike na serveru
+        $file = $_FILES['image']; 
+        $path = $file['tmp_name'];
 
         $date = date_create(); 
-        $unixtime = date_timestamp_get($date); // Unikatni datum
+        $unixtime = date_timestamp_get($date);
+        $save_path = 'img'.$s.'uploads'.$s; 
+        $filename = $unixtime.'_'.$file['name'];
+        $base_path = __DIR__.$s.'..'.$s.'..'.$s; 
+        $image_save = 'img/uploads/'.$filename; 
 
-        $save_path = 'img'.$s.'uploads'.$s; // Putanja gde treba da se sacuva slika na serveru / folder
-        $filename = $unixtime.'_'.$file['name']; // Novi naziv slike sa unikatnim datumom
-        $base_path = __DIR__.$s.'..'.$s.'..'.$s; // Osnovna putanja do foldera img
+        copy($path, $base_path.$save_path.$filename);
 
-        $image_save = 'img/uploads/'.$filename; // Tekst koji se upisuje u bazu
-
-        copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
-
-        $this->AccountModel->saveImage($image_save); // Dodavanje slike u bazu / update korisnika
+        $this->AccountModel->saveImage($image_save); 
 
         redirect('Account/sellerProfile');
     }
@@ -161,7 +159,7 @@ class Account extends CI_Controller {
                     'Tel' => $this->input->post('dtel'),
                     'Dateofbirth' => $this->input->post('ddate'),
                 );
-                $this->AccountModel->SignUpP($data);//provera da li se uspesno registrovao fali
+                $this->AccountModel->SignUpP($data);
                 redirect('Category/index');
             } else {
                 $data['message'] = 'Password don\'t match';
@@ -321,7 +319,7 @@ class Account extends CI_Controller {
                     'Tel' => $this->input->post('dtel'),
                     'Dateofbirth' => $this->input->post('ddate'),
                 );
-                $this->AccountModel->signUpB($data);//provera da li se uspesno registrovao fali
+                $this->AccountModel->signUpB($data);
                 redirect('Category/index');
             } else {
                 $data['message'] = 'Password don\'t match';
@@ -444,23 +442,23 @@ class Account extends CI_Controller {
     }
     public function setImageB()
     {
-        $s = DIRECTORY_SEPARATOR; // Kosa crta za putanju koja se menja u zavisnosti od platforme: Windows \ Linux /
+        $s = DIRECTORY_SEPARATOR; 
 
-        $file = $_FILES['image']; // Ovde uzimas sliku iz zahteva
-        $path = $file['tmp_name']; // Privremeno ime slike na serveru
+        $file = $_FILES['image']; 
+        $path = $file['tmp_name'];
 
         $date = date_create();
-        $unixtime = date_timestamp_get($date); // Unikatni datum
+        $unixtime = date_timestamp_get($date);
 
-        $save_path = 'img'.$s.'uploads'.$s; // Putanja gde treba da se sacuva slika na serveru / folder
-        $filename = $unixtime.'_'.$file['name']; // Novi naziv slike sa unikatnim datumom
-        $base_path = __DIR__.$s.'..'.$s.'..'.$s; // Osnovna putanja do foldera img
+        $save_path = 'img'.$s.'uploads'.$s; 
+        $filename = $unixtime.'_'.$file['name']; 
+        $base_path = __DIR__.$s.'..'.$s.'..'.$s; 
 
-        $image_save = 'img/uploads/'.$filename; // Tekst koji se upisuje u bazu
+        $image_save = 'img/uploads/'.$filename; 
 
-        copy($path, $base_path.$save_path.$filename); // Kopiranje privremene slike u img/uploads folder
+        copy($path, $base_path.$save_path.$filename);
 
-        $this->AccountModel->saveImageB($image_save); // Dodavanje slike u bazu / update korisnika
+        $this->AccountModel->saveImageB($image_save);
 
         redirect('Account/buyerProfile');
     }
