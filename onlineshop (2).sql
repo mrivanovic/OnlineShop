@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2018 at 01:10 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jun 11, 2018 at 02:12 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,7 +46,8 @@ CREATE TABLE `buyer` (
 --
 
 INSERT INTO `buyer` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `image`, `dateofbirth`) VALUES
-('misko@gmail.com', 'Misko', 'Miskovic', 'misko', 'Pakistan', 'Bagdad', 'Buraza sfdif 0asd', '123456789', NULL, '1965-02-02');
+('milos@gmail.com', 'Milos', 'Milosevicq', 'Miloss1', 'AO', 'Beograd', 'Vinodolska 5', '0620620622', NULL, '1997-04-05'),
+('misko@gmail.com', 'Misko', 'Miskovic', 'misko', 'Pakistan', 'Bagdad', 'Buraza sfdif 0asd', '123456789', 'img/uploads/1528293036_хххх.jpg', '1965-02-02');
 
 -- --------------------------------------------------------
 
@@ -100,10 +101,22 @@ INSERT INTO `category` (`id`, `ime`, `parent_id`) VALUES
 --
 
 CREATE TABLE `comments` (
-  `content` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `orders_id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `buyer_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `buyer_mail`, `product_id`, `timestamp`) VALUES
+(1, 'komentar', 'misko@gmail.com', 21, '2018-06-10 15:03:44'),
+(2, 'komentar', 'misko@gmail.com', 26, '2018-06-10 16:04:09'),
+(3, 'fghdhdfgh', 'misko@gmail.com', 21, '2018-06-10 22:52:31'),
+(4, 'dobro je sve sve je ok i bice sigurans am', 'misko@gmail.com', 21, '2018-06-11 00:08:52');
 
 -- --------------------------------------------------------
 
@@ -162,6 +175,14 @@ CREATE TABLE `favorite` (
   `buyer_mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `products_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `favorite`
+--
+
+INSERT INTO `favorite` (`buyer_mail`, `products_id`) VALUES
+('misko@gmail.com', 22),
+('misko@gmail.com', 25);
 
 -- --------------------------------------------------------
 
@@ -263,15 +284,51 @@ INSERT INTO `images` (`id`, `name`, `path`, `main`, `extension`, `mime-type`, `p
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `buyer_mail` text NOT NULL,
+  `seller_mail` text NOT NULL,
+  `reactions` tinyint(1) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `buyer_mail`, `seller_mail`, `reactions`, `timestamp`) VALUES
+(1, 'misko@gmail.com', 'ljubisa@gmail.com', 0, '2018-06-10 22:47:47');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `sender` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `orders_id` int(11) NOT NULL,
+  `receiver_mail` text NOT NULL,
+  `receiver_type` varchar(10) NOT NULL,
+  `sender_mail` text NOT NULL,
+  `sender_type` varchar(10) NOT NULL,
+  `message` text NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `receiver_mail`, `receiver_type`, `sender_mail`, `sender_type`, `message`, `status`, `timestamp`) VALUES
+(1, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'proba', 0, '2018-05-31 22:05:51'),
+(2, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'proba1', 0, '2018-05-31 22:06:54'),
+(3, 'misko@gmail.com', 'buyer', 'ljubisa@gmail.com', 'seller', 'gde si misko kuco', 0, '2018-06-08 13:05:53'),
+(4, 'misko@gmail.com', 'buyer', 'ljubisa@gmail.com', 'seller', 'sta mi probas koje pm', 0, '2018-06-08 13:06:02'),
+(5, 'ljubisa@gmail.com', 'seller', 'misko@gmail.com', 'buyer', 'ma jebo ti pas mater ludu', 0, '2018-06-08 13:06:54');
 
 -- --------------------------------------------------------
 
@@ -281,13 +338,26 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `buyer_mail` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `datetime` datetime NOT NULL,
-  `status` int(20) NOT NULL,
-  `quantity` int(11) DEFAULT '1',
-  `details` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
+  `buyer_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `seller_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `stripe_id` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `price` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `currency` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sent` timestamp NULL DEFAULT NULL,
+  `arrived` timestamp NULL DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `buyer_mail`, `seller_mail`, `stripe_id`, `product_id`, `price`, `currency`, `sent`, `arrived`, `timestamp`) VALUES
+(8, 'misko@gmail.com', 'ljubisa@gmail.com', 'ch_1CakNpEnNWAh2mCBUpsnYoJM', 21, '99900', 'USD', '2018-06-10 22:21:04', '2018-06-10 22:30:12', '2018-06-10 22:30:12'),
+(9, 'milos@gmail.com', 'ljubisa@gmail.com', 'ch_1CakeBEnNWAh2mCBK4Wx7SG6', 22, '5000000', 'RSD', '2018-06-10 22:56:20', '2018-06-10 22:57:03', '2018-06-10 22:57:03'),
+(10, 'misko@gmail.com', 'ljubisa@gmail.com', 'ch_1CbVwdEnNWAh2mCBfI6EAYvq', 26, '45000', 'RUB', '2018-06-10 22:56:13', '2018-06-10 22:57:32', '2018-06-10 22:57:32'),
+(11, 'misko@gmail.com', 'ljubisa@gmail.com', 'ch_1CbcU3EnNWAh2mCBNYVjd9Ph', 21, '99900', 'USD', '2018-06-10 22:58:23', '2018-06-10 22:58:43', '2018-06-10 22:58:43');
 
 -- --------------------------------------------------------
 
@@ -326,8 +396,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `seller_mail`, `name`, `descriptions`, `price`, `delivery_id`, `currency_id`) VALUES
-(21, 2, 'ljubisa@gmail.com', 'supermen', 'supermen za decu malo presao prvi vlasnik', 999, 2, 2),
-(22, 1, 'ljubisa@gmail.com', 'HP OMEN - 15-ce019nm - 2QE49EA', 'HP OMEN - 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 50000, 4, 1),
+(21, 2, 'ljubisa@gmail.com', 'supermenn4', 'supermen za decu malo presao prvi vlasnik', 999, 2, 2),
+(22, 1, 'ljubisa@gmail.com', 'HP OMEN - 15-ce019nm - 2QE49EA', '2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 50000, 4, 1),
 (23, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'accer - 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nAKCIJA!!', 999, 2, 2),
 (24, 1, 'ljubisa@gmail.com', 'ACER Predator Helios 300 G3-572-50K2 - NOT11761', 'accer - 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB\r\nAKCIJA!!', 999, 2, 2),
 (25, 1, 'ljubisa@gmail.com', 'Asus 245-3232', 'ASUS- 15-ce019nm - 2QE49EA Intel® Core™ i5 7300HQ do 3.5GHz, 15.6\", 256GB SSD, 8GB', 998, 3, 3),
@@ -349,10 +419,20 @@ INSERT INTO `products` (`id`, `category_id`, `seller_mail`, `name`, `description
 --
 
 CREATE TABLE `ratings` (
+  `id` int(11) NOT NULL,
+  `buyer_mail` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
   `rate` int(11) NOT NULL,
-  `timestemp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `orders_id` int(11) NOT NULL
+  `timestemp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `buyer_mail`, `product_id`, `rate`, `timestemp`) VALUES
+(1, 'misko@gmail.com', 26, 5, '2018-06-10 16:03:31'),
+(2, 'misko@gmail.com', 21, 5, '2018-06-10 23:01:37');
 
 -- --------------------------------------------------------
 
@@ -370,6 +450,7 @@ CREATE TABLE `seller` (
   `adress` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tel` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` text COLLATE utf8_unicode_ci,
+  `status` text COLLATE utf8_unicode_ci NOT NULL,
   `dateofbirth` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -377,10 +458,31 @@ CREATE TABLE `seller` (
 -- Dumping data for table `seller`
 --
 
-INSERT INTO `seller` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `image`, `dateofbirth`) VALUES
-('andjela@gmail.com', 'Andjela', 'Djurovic', 'andjela', 'Serbia', 'Priboj', 'LimskaBB', '0620620622', 'img/uploads/1527246294_laptop3.jpg', '1996-06-16'),
-('jovan@gmail.com', 'Jovan', 'Ivanovic', 'jovan', 'Serbia', 'Beograd', 'Vinodolska 5', '0620620622', NULL, '1997-04-05'),
-('ljubisa@gmail.com', 'Ljubisa', 'Ivanovic', 'ljubisa', 'Srbija', 'Beograd', 'Vinodolska 5', '0645799061', 'img/uploads/1527241931_', '1993-08-18');
+INSERT INTO `seller` (`mail`, `name`, `lastname`, `password`, `country`, `city`, `adress`, `tel`, `image`, `status`, `dateofbirth`) VALUES
+('andjela@gmail.com', 'Andjela', 'Djurovic', 'andjela', 'Serbia', 'Priboj', 'LimskaBB', '0620620622', 'img/uploads/1527246294_laptop3.jpg', '', '1996-06-16'),
+('jovan@gmail.com', 'Jovan', 'Ivanovic', 'jovan', 'Serbia', 'Beograd', 'Vinodolska 5', '0620620622', NULL, '', '1997-04-05'),
+('ljubisa@gmail.com', 'Ljubisa', 'Ivanovic', 'ljubisa', 'Srbija', 'Beograd', 'Vinodolska 5', '0645799061', 'img/uploads/1528672395_', 'ovo je moj prvi status', '1993-08-18'),
+('nenad@gmail.com', 'Nenad', 'Nenad', 'Nenadb1', 'AF', 'Becej', 'Becejska 3', '0620620622', NULL, '', '1997-04-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `mail` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `text`, `mail`, `timestamp`) VALUES
+(1, 'ovo je moj prvi status', 'ljubisa@gmail.com', '2018-06-09 00:29:51');
 
 --
 -- Indexes for dumped tables
@@ -403,8 +505,7 @@ ALTER TABLE `category`
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`orders_id`),
-  ADD KEY `fk_comments_orders1_idx` (`orders_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `currency`
@@ -434,19 +535,23 @@ ALTER TABLE `images`
   ADD KEY `fk_images_products1_idx` (`products_id`);
 
 --
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`orders_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_orders_products1_idx` (`products_id`),
-  ADD KEY `fk_orders_buyer1_idx` (`buyer_mail`);
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `posts`
@@ -469,14 +574,19 @@ ALTER TABLE `products`
 -- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`orders_id`),
-  ADD KEY `fk_ratings_orders1_idx` (`orders_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `seller`
 --
 ALTER TABLE `seller`
   ADD PRIMARY KEY (`mail`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -487,6 +597,12 @@ ALTER TABLE `seller`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `currency`
@@ -507,16 +623,22 @@ ALTER TABLE `images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -531,6 +653,18 @@ ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -539,12 +673,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `category` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `fk_comments_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `favorite`
@@ -560,17 +688,10 @@ ALTER TABLE `images`
   ADD CONSTRAINT `fk_images_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `messages`
---
-ALTER TABLE `messages`
-  ADD CONSTRAINT `order_id` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`);
-
---
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_orders_buyer1` FOREIGN KEY (`buyer_mail`) REFERENCES `buyer` (`mail`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_orders_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `posts`
@@ -586,12 +707,6 @@ ALTER TABLE `products`
   ADD CONSTRAINT `currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`),
   ADD CONSTRAINT `delivery_id` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`id`),
   ADD CONSTRAINT `fk_products_seller1` FOREIGN KEY (`seller_mail`) REFERENCES `seller` (`mail`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `ratings`
---
-ALTER TABLE `ratings`
-  ADD CONSTRAINT `fk_ratings_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
